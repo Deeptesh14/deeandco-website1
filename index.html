@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dee and Co Capital Advisory. A venture intelligence firm applying institutional-quality judgment to private market decisions.">
   <title>Dee &amp; Co | Capital Advisory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +17,19 @@
       --mist:   #7A7872;
       --faint:  #EDE8DF;
       --rule:   #D5D0C8;
+      --nav-bg: rgba(245,241,235,0.97);
       --serif:  'Cormorant Garamond', Georgia, serif;
       --sans:   'Inter', system-ui, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg:     #0F0F0D;
+      --ink:    #F0EBE3;
+      --accent: #C4A05A;
+      --mist:   #8A8680;
+      --faint:  #1A1A18;
+      --rule:   #2C2C2A;
+      --nav-bg: rgba(15,15,13,0.97);
     }
 
     html { scroll-behavior: smooth; }
@@ -31,7 +41,7 @@
       font-size: 17px;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     /* ---- NAVIGATION ---- */
@@ -43,33 +53,29 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px clamp(24px, 6vw, 96px);
-      background: rgba(245, 241, 235, 0.97);
-      backdrop-filter: blur(10px);
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
       transform: translateY(-100%);
       opacity: 0;
-      transition: transform 0.55s ease, opacity 0.55s ease;
+      transition: transform 0.55s ease, opacity 0.55s ease, background 0.4s ease, border-color 0.4s ease;
     }
     nav.visible { transform: translateY(0); opacity: 1; }
 
     .nav-logo {
       font-family: var(--serif);
       font-size: 17px;
-      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--ink);
       text-decoration: none;
+      transition: color 0.3s;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-    }
+    .nav-center { display: flex; align-items: center; gap: 40px; }
+
+    .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
-      font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--mist);
@@ -78,21 +84,34 @@
     }
     .nav-links a:hover { color: var(--ink); }
 
-    .nav-mobile-toggle {
-      display: none;
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    /* dark mode toggle */
+    .theme-toggle {
       background: none;
-      border: none;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
       cursor: pointer;
-      padding: 4px;
-      flex-direction: column;
-      gap: 5px;
+      color: var(--mist);
+      transition: color 0.25s, border-color 0.25s, background 0.25s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--ink); border-color: var(--ink); }
+    .theme-toggle svg { width: 15px; height: 15px; }
+    .icon-moon { display: block; }
+    .icon-sun  { display: none; }
+    [data-theme="dark"] .icon-moon { display: none; }
+    [data-theme="dark"] .icon-sun  { display: block; }
+
+    .nav-mobile-toggle {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 4px; flex-direction: column; gap: 5px;
     }
     .nav-mobile-toggle span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--ink);
-      transition: transform 0.3s, opacity 0.3s;
+      display: block; width: 22px; height: 1px;
+      background: var(--ink); transition: background 0.3s;
     }
 
     /* ---- HERO ---- */
@@ -101,6 +120,7 @@
       display: grid;
       grid-template-rows: 1fr auto;
       padding: 0 clamp(24px, 6vw, 96px);
+      overflow: hidden;
     }
 
     .hero-content {
@@ -114,7 +134,6 @@
       display: block;
       font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -129,13 +148,14 @@
       line-height: 0.9;
       color: var(--ink);
       margin-bottom: 36px;
+      transition: color 0.4s;
     }
 
     .hero-rule {
-      width: 48px;
-      height: 1px;
+      width: 48px; height: 1px;
       background: var(--accent);
       margin-bottom: 36px;
+      transition: background 0.4s;
     }
 
     .hero-tagline {
@@ -146,54 +166,89 @@
       color: var(--ink);
       max-width: 560px;
       line-height: 1.55;
+      margin-bottom: 52px;
+      transition: color 0.4s;
     }
 
-    .hero-footer {
+    /* TICKER */
+    .ticker-wrap {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 0;
+      margin-bottom: 0;
+      transition: border-color 0.4s;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll 28s linear infinite;
+    }
+
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      white-space: nowrap;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mist);
+      padding: 0 28px;
+      transition: color 0.4s;
+    }
+
+    .ticker-dot {
+      display: inline-block;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-left: 28px;
+      flex-shrink: 0;
+    }
+
+    .hero-scroll-wrap {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding-bottom: 40px;
+      padding: 24px 0;
       color: var(--mist);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-
-    .hero-scroll-line {
-      display: block;
-      width: 36px;
-      height: 1px;
-      background: var(--rule);
-    }
+    .hero-scroll-line { display: block; width: 36px; height: 1px; background: var(--rule); }
 
     /* ---- SECTION WRAPPER ---- */
-    .section {
-      padding: clamp(80px, 11vw, 136px) clamp(24px, 6vw, 96px);
-    }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    .section { padding: clamp(80px, 11vw, 136px) clamp(24px, 6vw, 96px); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
     .section-divider {
-      height: 1px;
-      background: var(--rule);
+      height: 1px; background: var(--rule);
       margin: 0 clamp(24px, 6vw, 96px);
+      transition: background 0.4s;
     }
 
     .section-label {
       display: block;
       font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 52px;
     }
 
-    /* ---- PROBLEM SECTION ---- */
+    /* ---- PROBLEM ---- */
     .problem-lead {
       font-family: var(--serif);
       font-size: clamp(26px, 3.8vw, 40px);
@@ -202,17 +257,16 @@
       color: var(--ink);
       max-width: 800px;
       margin-bottom: 52px;
+      transition: color 0.4s;
     }
 
-    .problem-body {
-      max-width: 680px;
-    }
-
+    .problem-body { max-width: 680px; }
     .problem-body p {
       font-size: 17px;
       line-height: 1.82;
       color: var(--ink);
       margin-bottom: 22px;
+      transition: color 0.4s;
     }
 
     .problem-body p.emphasis {
@@ -229,28 +283,21 @@
       padding-left: 32px;
       margin: 72px 0 0;
       max-width: 720px;
+      transition: border-color 0.4s;
     }
 
     .pull-quote p {
       font-family: var(--serif);
       font-size: clamp(18px, 2.2vw, 24px);
       font-style: italic;
-      font-weight: 400;
       line-height: 1.6;
       color: var(--ink);
+      transition: color 0.4s;
     }
 
     /* ---- STANDARDS INTERLUDE ---- */
-    .standards-section {
-      padding: clamp(56px, 7vw, 96px) clamp(24px, 6vw, 96px);
-    }
-
-    .standards-text {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
+    .standards-section { padding: clamp(56px, 7vw, 96px) clamp(24px, 6vw, 96px); }
+    .standards-text { max-width: 780px; margin: 0 auto; text-align: center; }
     .standards-text p {
       font-family: var(--serif);
       font-size: clamp(19px, 2.4vw, 24px);
@@ -258,9 +305,190 @@
       font-weight: 300;
       line-height: 1.65;
       color: var(--mist);
+      transition: color 0.4s;
     }
 
-    /* ---- RESEARCH SECTION ---- */
+    /* ---- DEAL PIPELINE ---- */
+    .pipeline-section { padding: clamp(80px, 10vw, 120px) clamp(24px, 6vw, 96px); }
+    .pipeline-header { margin-bottom: 56px; }
+    .pipeline-heading {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--ink);
+      font-weight: 400;
+      margin-bottom: 12px;
+      transition: color 0.4s;
+    }
+    .pipeline-sub {
+      font-size: 14px;
+      color: var(--mist);
+      letter-spacing: 0.04em;
+      transition: color 0.4s;
+    }
+
+    .pipeline-board {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr 60px 1fr;
+      align-items: start;
+      gap: 0;
+    }
+
+    .pipeline-stage-col { min-width: 0; }
+
+    .stage-col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .stage-col-name {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .stage-col-count {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--mist);
+      background: var(--faint);
+      border-radius: 10px;
+      padding: 2px 8px;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .stage-cards-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 220px;
+    }
+
+    .deal-card {
+      background: var(--faint);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 18px 20px;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s, border-color 0.4s;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .deal-card.entering {
+      opacity: 0;
+      transform: translateY(-12px) scale(0.97);
+    }
+
+    .deal-card.exiting {
+      opacity: 0;
+      transform: translateY(8px) scale(0.97);
+    }
+
+    .deal-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .deal-card-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color 0.4s;
+    }
+
+    .deal-card-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .deal-card-sector {
+      font-size: 12px;
+      color: var(--mist);
+      letter-spacing: 0.04em;
+      transition: color 0.4s;
+    }
+
+    .deal-card-bar {
+      height: 2px;
+      background: var(--rule);
+      border-radius: 1px;
+      margin-top: 14px;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+
+    .deal-card-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 1px;
+      transition: background 0.4s;
+    }
+
+    /* pipeline connector */
+    .pipeline-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 48px;
+    }
+
+    .connector-inner {
+      position: relative;
+      width: 40px;
+      height: 1px;
+      background: var(--rule);
+      overflow: visible;
+    }
+
+    .flow-arrow {
+      position: absolute;
+      right: -5px;
+      top: -4px;
+      width: 9px;
+      height: 9px;
+      border-right: 1px solid var(--accent);
+      border-top: 1px solid var(--accent);
+      transform: rotate(45deg);
+      transition: border-color 0.4s;
+    }
+
+    .flow-dot {
+      position: absolute;
+      top: -3px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: flow-along 2.2s linear infinite;
+      transition: background 0.4s;
+    }
+
+    .flow-dot:nth-child(2) { animation-delay: 0.74s; }
+    .flow-dot:nth-child(3) { animation-delay: 1.48s; }
+
+    @keyframes flow-along {
+      0%   { left: 0;   opacity: 0; }
+      8%   { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { left: calc(100% + 4px); opacity: 0; }
+    }
+
+    /* ---- RESEARCH ---- */
     .research-header {
       display: flex;
       align-items: baseline;
@@ -275,6 +503,7 @@
       font-size: clamp(36px, 5.5vw, 56px);
       font-weight: 400;
       color: var(--ink);
+      transition: color 0.4s;
     }
 
     .research-all {
@@ -291,6 +520,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
 
     .research-card {
@@ -298,7 +528,7 @@
       padding: 44px 44px 44px 0;
       border-right: 1px solid var(--rule);
       text-decoration: none;
-      transition: opacity 0.3s;
+      transition: opacity 0.3s, border-color 0.4s;
     }
     .research-card:last-child { border-right: none; padding-right: 0; }
     .research-card + .research-card { padding-left: 44px; }
@@ -306,9 +536,7 @@
 
     .card-series {
       display: block;
-      font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -322,6 +550,7 @@
       line-height: 1.2;
       color: var(--ink);
       margin-bottom: 18px;
+      transition: color 0.4s;
     }
 
     .card-excerpt {
@@ -329,24 +558,22 @@
       line-height: 1.72;
       color: var(--mist);
       margin-bottom: 32px;
+      transition: color 0.4s;
     }
 
     .card-cta {
       display: inline-block;
       font-size: 12px;
-      font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink);
       border-bottom: 1px solid var(--rule);
       padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.4s;
     }
 
-    /* ---- METHOD SECTION ---- */
-    .method-header {
-      max-width: 700px;
-      margin-bottom: 72px;
-    }
+    /* ---- METHOD ---- */
+    .method-header { max-width: 700px; margin-bottom: 72px; }
 
     .method-heading {
       font-family: var(--serif);
@@ -354,35 +581,38 @@
       font-weight: 400;
       color: var(--ink);
       margin-bottom: 24px;
+      transition: color 0.4s;
     }
 
     .method-intro {
       font-size: 17px;
       line-height: 1.8;
       color: var(--mist);
+      transition: color 0.4s;
     }
 
     .method-stages {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
 
     .method-stage {
       padding: 52px 52px 52px 0;
       border-right: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
     .method-stage:last-child { border-right: none; padding-right: 0; }
     .method-stage + .method-stage { padding-left: 52px; }
 
     .stage-index {
       display: block;
-      font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.18em;
       color: var(--mist);
       margin-bottom: 22px;
+      transition: color 0.4s;
     }
 
     .stage-name {
@@ -392,35 +622,34 @@
       line-height: 1;
       color: var(--ink);
       margin-bottom: 22px;
+      transition: color 0.4s;
     }
 
     .stage-description {
       font-size: 16px;
       line-height: 1.78;
       color: var(--mist);
+      transition: color 0.4s;
     }
 
-    /* ---- WHO WE SERVE ---- */
+    /* ---- SERVE ---- */
     .serve-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       border-top: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
 
-    .serve-side {
-      padding: 60px 60px 60px 0;
-    }
+    .serve-side { padding: 60px 60px 60px 0; }
     .serve-side.right {
-      padding-left: 60px;
-      padding-right: 0;
+      padding-left: 60px; padding-right: 0;
       border-left: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
 
     .serve-label {
       display: block;
-      font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
@@ -434,6 +663,7 @@
       line-height: 1.25;
       color: var(--ink);
       margin-bottom: 24px;
+      transition: color 0.4s;
     }
 
     .serve-body {
@@ -441,6 +671,7 @@
       line-height: 1.82;
       color: var(--mist);
       margin-bottom: 40px;
+      transition: color 0.4s;
     }
 
     .serve-link {
@@ -451,22 +682,20 @@
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       padding-bottom: 3px;
-      transition: border-color 0.25s;
+      transition: border-color 0.25s, color 0.3s;
     }
     .serve-link:hover { border-color: var(--ink); }
 
-    /* ---- NON-NEGOTIABLES ---- */
     .standards-list {
       margin-top: 56px;
       padding-top: 56px;
       border-top: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
 
     .standards-list-label {
       display: block;
-      font-family: var(--sans);
       font-size: 11px;
-      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -476,7 +705,6 @@
     .standards-items {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
       list-style: none;
     }
 
@@ -488,26 +716,28 @@
       color: var(--mist);
       display: flex;
       gap: 16px;
+      transition: color 0.4s, border-color 0.4s;
     }
 
     .standards-items li::before {
       content: '';
       display: block;
       flex-shrink: 0;
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       border-radius: 50%;
       background: var(--accent);
       margin-top: 10px;
+      transition: background 0.4s;
     }
 
-    .standards-items li:nth-child(odd) { padding-right: 40px; }
-    .standards-items li:nth-child(even) { padding-left: 40px; border-left: 1px solid var(--rule); padding-right: 0; }
-
-    /* ---- CONTACT SECTION ---- */
-    .contact-inner {
-      max-width: 640px;
+    .standards-items li:nth-child(even) {
+      padding-left: 40px; padding-right: 0;
+      border-left: 1px solid var(--rule);
+      transition: border-color 0.4s;
     }
+
+    /* ---- CONTACT ---- */
+    .contact-inner { max-width: 640px; }
 
     .contact-heading {
       font-family: var(--serif);
@@ -516,26 +746,27 @@
       line-height: 1.05;
       color: var(--ink);
       margin-bottom: 48px;
+      transition: color 0.4s;
     }
 
     .contact-line {
       font-size: 16px;
       color: var(--mist);
       margin-bottom: 10px;
+      transition: color 0.4s;
     }
 
     .contact-email {
       display: inline-block;
       font-family: var(--serif);
       font-size: 26px;
-      font-weight: 400;
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       padding-bottom: 3px;
       margin-top: 4px;
       margin-bottom: 32px;
-      transition: border-color 0.25s;
+      transition: border-color 0.25s, color 0.4s;
     }
     .contact-email:hover { border-color: var(--ink); }
 
@@ -547,6 +778,7 @@
       margin-top: 40px;
       padding-top: 40px;
       border-top: 1px solid var(--rule);
+      transition: color 0.4s, border-color 0.4s;
     }
 
     /* ---- FOOTER ---- */
@@ -558,53 +790,53 @@
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
+      transition: border-color 0.4s;
     }
 
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .footer-left { display: flex; flex-direction: column; gap: 4px; }
     .footer-wordmark {
       font-family: var(--serif);
       font-size: 15px;
-      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--ink);
+      transition: color 0.4s;
     }
-
     .footer-tagline {
       font-size: 12px;
       color: var(--mist);
+      transition: color 0.4s;
     }
-
     .footer-right {
       font-size: 12px;
       color: var(--mist);
-      letter-spacing: 0.04em;
+      transition: color 0.4s;
     }
 
-    /* ---- REVEAL ANIMATIONS ---- */
+    /* ---- REVEAL ---- */
     .reveal {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 1s ease, transform 1s ease;
     }
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
     .delay-1 { transition-delay: 0.12s; }
     .delay-2 { transition-delay: 0.24s; }
     .delay-3 { transition-delay: 0.36s; }
 
     /* ---- MOBILE ---- */
     @media (max-width: 900px) {
-      .research-grid {
+      .pipeline-board {
         grid-template-columns: 1fr;
-        border-top: none;
+        gap: 0;
       }
+      .pipeline-connector { display: none; }
+      .pipeline-stage-col + .pipeline-stage-col {
+        border-top: 1px solid var(--rule);
+        padding-top: 32px;
+        margin-top: 32px;
+      }
+
+      .research-grid { grid-template-columns: 1fr; border-top: none; }
       .research-card {
         border-right: none;
         border-top: 1px solid var(--rule);
@@ -612,10 +844,7 @@
       }
       .research-card + .research-card { padding-left: 0; }
 
-      .method-stages {
-        grid-template-columns: 1fr;
-        border-top: none;
-      }
+      .method-stages { grid-template-columns: 1fr; border-top: none; }
       .method-stage {
         border-right: none;
         border-top: 1px solid var(--rule);
@@ -625,38 +854,28 @@
 
       .serve-grid { grid-template-columns: 1fr; }
       .serve-side { padding: 52px 0; }
-      .serve-side.right {
-        border-left: none;
-        border-top: 1px solid var(--rule);
-        padding-left: 0;
-      }
+      .serve-side.right { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; }
 
       .standards-items { grid-template-columns: 1fr; }
-      .standards-items li:nth-child(even) {
-        border-left: none;
-        padding-left: 0;
-      }
+      .standards-items li:nth-child(even) { border-left: none; padding-left: 0; }
 
       .research-header { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .nav-mobile-toggle { display: flex; }
-
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
+        display: flex; flex-direction: column;
         position: fixed;
-        top: 57px;
-        left: 0; right: 0;
+        top: 57px; left: 0; right: 0;
         background: var(--bg);
         padding: 24px clamp(24px, 6vw, 96px);
         border-bottom: 1px solid var(--rule);
         gap: 24px;
+        transition: background 0.4s;
       }
-
-      footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -665,15 +884,37 @@
   <!-- NAVIGATION -->
   <nav id="site-nav">
     <a href="#" class="nav-logo">DEE &amp; CO</a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#research">Research</a></li>
-      <li><a href="#method">The Framework</a></li>
-      <li><a href="#work">The Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Menu">
-      <span></span><span></span>
-    </button>
+    <div class="nav-center">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#method">The Framework</a></li>
+        <li><a href="#work">The Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <!-- Moon icon (light mode) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun icon (dark mode) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -683,10 +924,65 @@
       <h1 class="hero-wordmark">DEE &amp; CO</h1>
       <div class="hero-rule"></div>
       <p class="hero-tagline">A venture intelligence firm applying institutional-quality judgment to private market decisions.</p>
+
+      <!-- TICKER -->
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <span class="ticker-item">Venture Intelligence</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Institutional Judgment</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Behind the Raise</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Capital Signals</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Fund Files</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Deal Anatomy</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Evaluate</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Position</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Match</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Investment Committee</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Sector Intelligence</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Founder Research</span>
+          <span class="ticker-dot"></span>
+          <!-- duplicate for seamless loop -->
+          <span class="ticker-item">Venture Intelligence</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Institutional Judgment</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Behind the Raise</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Capital Signals</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Fund Files</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Deal Anatomy</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Evaluate</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Position</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Match</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Investment Committee</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Sector Intelligence</span>
+          <span class="ticker-dot"></span>
+          <span class="ticker-item">Founder Research</span>
+          <span class="ticker-dot"></span>
+        </div>
+      </div>
     </div>
-    <div class="hero-footer">
+    <div class="hero-scroll-wrap">
       <span class="hero-scroll-line"></span>
-      <span>Scroll</span>
+      <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)">Scroll</span>
     </div>
   </section>
 
@@ -719,6 +1015,57 @@
 
   <div class="section-divider"></div>
 
+  <!-- LIVE DEAL PIPELINE -->
+  <section class="pipeline-section" id="pipeline">
+    <div class="section-inner">
+      <div class="pipeline-header reveal">
+        <h2 class="pipeline-heading">The Live Pipeline</h2>
+        <p class="pipeline-sub">A representation of how mandates move through the Dee &amp; Co process in real time.</p>
+      </div>
+      <div class="pipeline-board reveal delay-1">
+        <div class="pipeline-stage-col" id="col-evaluate">
+          <div class="stage-col-header">
+            <span class="stage-col-name">Evaluate</span>
+            <span class="stage-col-count" id="count-evaluate">0</span>
+          </div>
+          <div class="stage-cards-wrap" id="cards-evaluate"></div>
+        </div>
+        <div class="pipeline-connector">
+          <div class="connector-inner">
+            <div class="flow-dot"></div>
+            <div class="flow-dot"></div>
+            <div class="flow-dot"></div>
+            <div class="flow-arrow"></div>
+          </div>
+        </div>
+        <div class="pipeline-stage-col" id="col-position">
+          <div class="stage-col-header">
+            <span class="stage-col-name">Position</span>
+            <span class="stage-col-count" id="count-position">0</span>
+          </div>
+          <div class="stage-cards-wrap" id="cards-position"></div>
+        </div>
+        <div class="pipeline-connector">
+          <div class="connector-inner">
+            <div class="flow-dot"></div>
+            <div class="flow-dot"></div>
+            <div class="flow-dot"></div>
+            <div class="flow-arrow"></div>
+          </div>
+        </div>
+        <div class="pipeline-stage-col" id="col-match">
+          <div class="stage-col-header">
+            <span class="stage-col-name">Match</span>
+            <span class="stage-col-count" id="count-match">0</span>
+          </div>
+          <div class="stage-cards-wrap" id="cards-match"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <!-- RESEARCH -->
   <section class="section" id="research">
     <div class="section-inner">
@@ -730,7 +1077,7 @@
         <a href="#" class="research-card reveal">
           <span class="card-series">Behind the Raise</span>
           <h3 class="card-title">The Raise Nobody<br>Talks About</h3>
-          <p class="card-excerpt">The authentic story of a capital raise, including what did not work. Every instalment contains at least one thing the founder would not normally say in public. That honesty is what makes it worth reading.</p>
+          <p class="card-excerpt">The authentic story of a capital raise, including what did not work. Every instalment contains at least one thing the founder would not normally say in public.</p>
           <span class="card-cta">Read</span>
         </a>
         <a href="#" class="research-card reveal delay-1">
@@ -751,7 +1098,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- THE FRAMEWORK -->
+  <!-- FRAMEWORK -->
   <section class="section" id="method">
     <div class="section-inner">
       <div class="method-header">
@@ -798,7 +1145,6 @@
           <a href="#contact" class="serve-link">Join the network</a>
         </div>
       </div>
-
       <div class="standards-list reveal">
         <span class="standards-list-label">The Non-Negotiables</span>
         <ul class="standards-items">
@@ -830,7 +1176,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-left">
       <span class="footer-wordmark">DEE &amp; CO</span>
@@ -840,36 +1185,163 @@
   </footer>
 
   <script>
-    // Navigation scroll reveal
+    // ---- DARK MODE ----
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+
+    const saved = localStorage.getItem('dc-theme');
+    if (saved) html.setAttribute('data-theme', saved);
+
+    themeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('dc-theme', next);
+    });
+
+    // ---- NAV SCROLL ----
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('visible', window.scrollY > 80);
     }, { passive: true });
 
-    // Mobile menu toggle
+    // ---- MOBILE MENU ----
     const toggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Close mobile menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    // Scroll reveal via IntersectionObserver
+    // ---- REVEAL ----
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
     reveals.forEach(el => observer.observe(el));
+
+    // ---- DEAL PIPELINE ----
+    const COMPANIES = [
+      { name: "Clearflow Tech",  sector: "Fintech",        size: "Series A", bar: 72 },
+      { name: "Nomad Health",    sector: "Healthtech",     size: "Seed",     bar: 45 },
+      { name: "GridAI Labs",     sector: "Infrastructure", size: "Pre-A",    bar: 58 },
+      { name: "Mello Commerce",  sector: "D2C",            size: "Seed",     bar: 33 },
+      { name: "Vero Systems",    sector: "SaaS",           size: "Series A", bar: 88 },
+      { name: "Arkin Bio",       sector: "Life Sciences",  size: "Seed",     bar: 27 },
+      { name: "Flux Energy",     sector: "Cleantech",      size: "Pre-A",    bar: 61 },
+      { name: "Pragma Finance",  sector: "Fintech",        size: "Series B", bar: 94 },
+      { name: "Desh Logistics",  sector: "Logistics",      size: "Series A", bar: 50 },
+      { name: "Kova Materials",  sector: "DeepTech",       size: "Pre-A",    bar: 39 },
+    ];
+
+    const STAGES = ['evaluate', 'position', 'match'];
+    const cards = {};
+    let companyIndex = 0;
+
+    function makeCard(company) {
+      const el = document.createElement('div');
+      el.className = 'deal-card entering';
+      el.innerHTML = `
+        <div class="deal-card-top">
+          <span class="deal-card-name">${company.name}</span>
+          <span class="deal-card-dot"></span>
+        </div>
+        <div class="deal-card-sector">${company.sector} &nbsp;·&nbsp; ${company.size}</div>
+        <div class="deal-card-bar">
+          <div class="deal-card-bar-fill" style="width:${company.bar}%"></div>
+        </div>`;
+      return el;
+    }
+
+    function updateCounts() {
+      STAGES.forEach(s => {
+        const wrap = document.getElementById('cards-' + s);
+        const count = wrap ? wrap.children.length : 0;
+        const el = document.getElementById('count-' + s);
+        if (el) el.textContent = count;
+      });
+    }
+
+    function addCard() {
+      const company = COMPANIES[companyIndex % COMPANIES.length];
+      companyIndex++;
+      const wrap = document.getElementById('cards-evaluate');
+      if (!wrap) return;
+      const card = makeCard(company);
+      wrap.prepend(card);
+      requestAnimationFrame(() => requestAnimationFrame(() => card.classList.remove('entering')));
+      updateCounts();
+
+      // cap evaluate at 3
+      while (wrap.children.length > 3) {
+        const old = wrap.lastElementChild;
+        old.classList.add('exiting');
+        setTimeout(() => { if (old.parentNode) old.parentNode.removeChild(old); updateCounts(); }, 600);
+      }
+
+      const id = Date.now() + Math.random();
+      cards[id] = { card, stage: 0 };
+
+      setTimeout(() => advanceCard(id), 3800 + Math.random() * 1800);
+    }
+
+    function advanceCard(id) {
+      const item = cards[id];
+      if (!item) return;
+      const { card } = item;
+
+      item.stage++;
+      if (item.stage > 2) {
+        card.classList.add('exiting');
+        setTimeout(() => {
+          if (card.parentNode) card.parentNode.removeChild(card);
+          delete cards[id];
+          updateCounts();
+        }, 650);
+        return;
+      }
+
+      const fromWrap = card.parentNode;
+      const toWrap = document.getElementById('cards-' + STAGES[item.stage]);
+      if (!fromWrap || !toWrap) return;
+
+      card.classList.add('exiting');
+      setTimeout(() => {
+        if (card.parentNode) card.parentNode.removeChild(card);
+        updateCounts();
+        card.classList.remove('exiting');
+        card.classList.add('entering');
+        toWrap.prepend(card);
+        requestAnimationFrame(() => requestAnimationFrame(() => card.classList.remove('entering')));
+
+        // cap each stage at 2
+        while (toWrap.children.length > 2) {
+          const old = toWrap.lastElementChild;
+          old.classList.add('exiting');
+          setTimeout(() => { if (old.parentNode) old.parentNode.removeChild(old); updateCounts(); }, 600);
+        }
+        updateCounts();
+        setTimeout(() => advanceCard(id), 4200 + Math.random() * 2000);
+      }, 650);
+    }
+
+    // seed pipeline with initial cards and stagger new entries
+    function seedPipeline() {
+      addCard();
+      setTimeout(addCard, 1200);
+      setTimeout(addCard, 2400);
+      setInterval(addCard, 4000);
+    }
+
+    // start pipeline when it enters viewport
+    const pipelineSection = document.getElementById('pipeline');
+    const pipelineObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        seedPipeline();
+        pipelineObserver.disconnect();
+      }
+    }, { threshold: 0.2 });
+    if (pipelineSection) pipelineObserver.observe(pipelineSection);
   </script>
 
 </body>
