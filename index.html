@@ -44,7 +44,7 @@
       transition: background 0.4s ease, color 0.4s ease;
     }
 
-    /* ---- NAVIGATION ---- */
+    /* ---- NAV ---- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -71,8 +71,6 @@
       transition: color 0.3s;
     }
 
-    .nav-center { display: flex; align-items: center; gap: 40px; }
-
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a {
       font-size: 11px;
@@ -84,9 +82,8 @@
     }
     .nav-links a:hover { color: var(--ink); }
 
-    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
 
-    /* dark mode toggle */
     .theme-toggle {
       background: none;
       border: 1px solid var(--rule);
@@ -95,7 +92,7 @@
       display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       color: var(--mist);
-      transition: color 0.25s, border-color 0.25s, background 0.25s;
+      transition: color 0.25s, border-color 0.25s;
       flex-shrink: 0;
     }
     .theme-toggle:hover { color: var(--ink); border-color: var(--ink); }
@@ -110,8 +107,7 @@
       cursor: pointer; padding: 4px; flex-direction: column; gap: 5px;
     }
     .nav-mobile-toggle span {
-      display: block; width: 22px; height: 1px;
-      background: var(--ink); transition: background 0.3s;
+      display: block; width: 22px; height: 1px; background: var(--ink); transition: background 0.3s;
     }
 
     /* ---- HERO ---- */
@@ -120,19 +116,17 @@
       display: grid;
       grid-template-rows: 1fr auto;
       padding: 0 clamp(24px, 6vw, 96px);
-      overflow: hidden;
     }
 
     .hero-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 60px;
+      padding-top: 80px;
     }
 
     .hero-eyebrow {
       display: block;
-      font-family: var(--sans);
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -140,142 +134,86 @@
       margin-bottom: 24px;
     }
 
-    .hero-wordmark {
+    h1.hero-wordmark {
       font-family: var(--serif);
-      font-size: clamp(72px, 11vw, 128px);
+      font-size: clamp(72px, 12vw, 144px);
       font-weight: 400;
       letter-spacing: 0.06em;
-      line-height: 0.9;
+      line-height: 0.88;
       color: var(--ink);
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       transition: color 0.4s;
     }
 
     .hero-rule {
       width: 48px; height: 1px;
       background: var(--accent);
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       transition: background 0.4s;
     }
 
     .hero-tagline {
       font-family: var(--serif);
-      font-size: clamp(19px, 2.6vw, 27px);
+      font-size: clamp(20px, 2.8vw, 30px);
       font-weight: 300;
       font-style: italic;
       color: var(--ink);
-      max-width: 560px;
-      line-height: 1.55;
-      margin-bottom: 52px;
+      max-width: 600px;
+      line-height: 1.5;
       transition: color 0.4s;
     }
 
-    /* TICKER */
-    .ticker-wrap {
-      position: relative;
-      overflow: hidden;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 10px 0;
-      margin-bottom: 0;
-      transition: border-color 0.4s;
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: ticker-scroll 28s linear infinite;
-    }
-
-    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
-
-    @keyframes ticker-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .ticker-item {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      white-space: nowrap;
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mist);
-      padding: 0 28px;
-      transition: color 0.4s;
-    }
-
-    .ticker-dot {
-      display: inline-block;
-      width: 3px; height: 3px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-left: 28px;
-      flex-shrink: 0;
-    }
-
-    .hero-scroll-wrap {
+    .hero-foot {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 24px 0;
+      padding: 28px 0;
       color: var(--mist);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-    .hero-scroll-line { display: block; width: 36px; height: 1px; background: var(--rule); }
+    .hero-scroll-line { display: block; width: 36px; height: 1px; background: var(--rule); transition: background 0.4s; }
 
-    /* ---- SECTION WRAPPER ---- */
-    .section { padding: clamp(80px, 11vw, 136px) clamp(24px, 6vw, 96px); }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-divider {
+    /* ---- DIVIDER ---- */
+    .divider {
       height: 1px; background: var(--rule);
       margin: 0 clamp(24px, 6vw, 96px);
       transition: background 0.4s;
     }
 
-    .section-label {
-      display: block;
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 52px;
-    }
+    /* ---- SECTION WRAPPER ---- */
+    .section { padding: clamp(80px, 11vw, 136px) clamp(24px, 6vw, 96px); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
 
-    /* ---- PROBLEM ---- */
-    .problem-lead {
+    /* ---- ESSAY ---- */
+    .essay-lead {
       font-family: var(--serif);
-      font-size: clamp(26px, 3.8vw, 40px);
+      font-size: clamp(26px, 3.8vw, 42px);
       font-weight: 400;
-      line-height: 1.32;
+      line-height: 1.3;
       color: var(--ink);
-      max-width: 800px;
-      margin-bottom: 52px;
+      max-width: 840px;
+      margin-bottom: 56px;
       transition: color 0.4s;
     }
 
-    .problem-body { max-width: 680px; }
-    .problem-body p {
+    .essay-body { max-width: 680px; }
+    .essay-body p {
       font-size: 17px;
-      line-height: 1.82;
+      line-height: 1.85;
       color: var(--ink);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       transition: color 0.4s;
     }
-
-    .problem-body p.emphasis {
+    .essay-body p.emphasis {
       font-family: var(--serif);
       font-size: 21px;
       font-style: italic;
       color: var(--mist);
       margin-top: 36px;
       margin-bottom: 0;
+      transition: color 0.4s;
     }
 
     .pull-quote {
@@ -285,7 +223,6 @@
       max-width: 720px;
       transition: border-color 0.4s;
     }
-
     .pull-quote p {
       font-family: var(--serif);
       font-size: clamp(18px, 2.2vw, 24px);
@@ -295,205 +232,46 @@
       transition: color 0.4s;
     }
 
-    /* ---- STANDARDS INTERLUDE ---- */
-    .standards-section { padding: clamp(56px, 7vw, 96px) clamp(24px, 6vw, 96px); }
-    .standards-text { max-width: 780px; margin: 0 auto; text-align: center; }
-    .standards-text p {
+    /* ---- THE STANDARD ---- */
+    .standard-section {
+      padding: clamp(80px, 10vw, 128px) clamp(24px, 6vw, 96px);
+    }
+    .standard-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .standard-statement {
       font-family: var(--serif);
-      font-size: clamp(19px, 2.4vw, 24px);
+      font-size: clamp(19px, 2.4vw, 25px);
       font-style: italic;
       font-weight: 300;
-      line-height: 1.65;
+      line-height: 1.7;
       color: var(--mist);
+      text-align: center;
+      margin-bottom: 64px;
       transition: color 0.4s;
     }
 
-    /* ---- DEAL PIPELINE ---- */
-    .pipeline-section { padding: clamp(80px, 10vw, 120px) clamp(24px, 6vw, 96px); }
-    .pipeline-header { margin-bottom: 56px; }
-    .pipeline-heading {
+    .anchor-sentence {
       font-family: var(--serif);
-      font-size: clamp(32px, 5vw, 52px);
-      color: var(--ink);
+      font-size: clamp(21px, 2.8vw, 32px);
       font-weight: 400;
-      margin-bottom: 12px;
-      transition: color 0.4s;
-    }
-    .pipeline-sub {
-      font-size: 14px;
-      color: var(--mist);
-      letter-spacing: 0.04em;
-      transition: color 0.4s;
-    }
-
-    .pipeline-board {
-      display: grid;
-      grid-template-columns: 1fr 60px 1fr 60px 1fr;
-      align-items: start;
-      gap: 0;
-    }
-
-    .pipeline-stage-col { min-width: 0; }
-
-    .stage-col-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .stage-col-name {
-      font-family: var(--sans);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .stage-col-count {
-      font-family: var(--sans);
-      font-size: 11px;
-      color: var(--mist);
-      background: var(--faint);
-      border-radius: 10px;
-      padding: 2px 8px;
-      transition: background 0.4s, color 0.4s;
-    }
-
-    .stage-cards-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 220px;
-    }
-
-    .deal-card {
-      background: var(--faint);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      padding: 18px 20px;
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s, border-color 0.4s;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .deal-card.entering {
-      opacity: 0;
-      transform: translateY(-12px) scale(0.97);
-    }
-
-    .deal-card.exiting {
-      opacity: 0;
-      transform: translateY(8px) scale(0.97);
-    }
-
-    .deal-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .deal-card-name {
-      font-family: var(--serif);
-      font-size: 17px;
-      font-weight: 400;
+      line-height: 1.35;
       color: var(--ink);
-      transition: color 0.4s;
-    }
-
-    .deal-card-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.7); }
-    }
-
-    .deal-card-sector {
-      font-size: 12px;
-      color: var(--mist);
-      letter-spacing: 0.04em;
-      transition: color 0.4s;
-    }
-
-    .deal-card-bar {
-      height: 2px;
-      background: var(--rule);
-      border-radius: 1px;
-      margin-top: 14px;
-      overflow: hidden;
-      transition: background 0.4s;
-    }
-
-    .deal-card-bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 1px;
-      transition: background 0.4s;
-    }
-
-    /* pipeline connector */
-    .pipeline-connector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 48px;
-    }
-
-    .connector-inner {
-      position: relative;
-      width: 40px;
-      height: 1px;
-      background: var(--rule);
-      overflow: visible;
-    }
-
-    .flow-arrow {
-      position: absolute;
-      right: -5px;
-      top: -4px;
-      width: 9px;
-      height: 9px;
-      border-right: 1px solid var(--accent);
-      border-top: 1px solid var(--accent);
-      transform: rotate(45deg);
-      transition: border-color 0.4s;
-    }
-
-    .flow-dot {
-      position: absolute;
-      top: -3px;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: flow-along 2.2s linear infinite;
-      transition: background 0.4s;
-    }
-
-    .flow-dot:nth-child(2) { animation-delay: 0.74s; }
-    .flow-dot:nth-child(3) { animation-delay: 1.48s; }
-
-    @keyframes flow-along {
-      0%   { left: 0;   opacity: 0; }
-      8%   { opacity: 1; }
-      85%  { opacity: 1; }
-      100% { left: calc(100% + 4px); opacity: 0; }
+      text-align: center;
+      padding: 52px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.4s, border-color 0.4s;
     }
 
     /* ---- RESEARCH ---- */
-    .research-header {
+    .research-masthead {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
       flex-wrap: wrap;
       gap: 16px;
     }
@@ -506,7 +284,7 @@
       transition: color 0.4s;
     }
 
-    .research-all {
+    .research-archive {
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -514,68 +292,78 @@
       text-decoration: none;
       transition: color 0.25s;
     }
-    .research-all:hover { color: var(--ink); }
+    .research-archive:hover { color: var(--ink); }
 
-    .research-grid {
+    .research-list { border-top: 1px solid var(--rule); transition: border-color 0.4s; }
+
+    a.research-item {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--rule);
-      transition: border-color 0.4s;
-    }
-
-    .research-card {
-      display: block;
-      padding: 44px 44px 44px 0;
-      border-right: 1px solid var(--rule);
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 52px 0;
+      border-bottom: 1px solid var(--rule);
       text-decoration: none;
       transition: opacity 0.3s, border-color 0.4s;
     }
-    .research-card:last-child { border-right: none; padding-right: 0; }
-    .research-card + .research-card { padding-left: 44px; }
-    .research-card:hover { opacity: 0.65; }
+    a.research-item:hover { opacity: 0.62; }
 
-    .card-series {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 18px;
+    .item-meta {
+      display: flex;
+      flex-direction: column;
+      padding-top: 4px;
     }
 
-    .card-title {
+    .item-series {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .item-number {
       font-family: var(--serif);
-      font-size: 26px;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--rule);
+      transition: color 0.4s;
+    }
+
+    .item-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 36px);
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.15;
       color: var(--ink);
       margin-bottom: 18px;
       transition: color 0.4s;
     }
 
-    .card-excerpt {
+    .item-excerpt {
       font-size: 15px;
-      line-height: 1.72;
+      line-height: 1.75;
       color: var(--mist);
-      margin-bottom: 32px;
+      max-width: 560px;
+      margin-bottom: 28px;
       transition: color 0.4s;
     }
 
-    .card-cta {
-      display: inline-block;
+    .item-cta {
       font-size: 12px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink);
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 3px;
-      transition: color 0.3s, border-color 0.4s;
+      padding-bottom: 2px;
+      display: inline;
+      transition: color 0.4s, border-color 0.4s;
     }
 
-    /* ---- METHOD ---- */
-    .method-header { max-width: 700px; margin-bottom: 72px; }
+    /* ---- FRAMEWORK ---- */
+    .framework-header { max-width: 680px; margin-bottom: 72px; }
 
-    .method-heading {
+    .framework-heading {
       font-family: var(--serif);
       font-size: clamp(36px, 5.5vw, 56px);
       font-weight: 400;
@@ -584,116 +372,102 @@
       transition: color 0.4s;
     }
 
-    .method-intro {
+    .framework-intro {
       font-size: 17px;
       line-height: 1.8;
       color: var(--mist);
       transition: color 0.4s;
     }
 
-    .method-stages {
+    .framework-stages {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--rule);
       transition: border-color 0.4s;
     }
 
-    .method-stage {
-      padding: 52px 52px 52px 0;
+    .stage {
+      padding: 56px 56px 56px 0;
       border-right: 1px solid var(--rule);
       transition: border-color 0.4s;
     }
-    .method-stage:last-child { border-right: none; padding-right: 0; }
-    .method-stage + .method-stage { padding-left: 52px; }
+    .stage:last-child { border-right: none; padding-right: 0; }
+    .stage + .stage { padding-left: 56px; }
 
     .stage-index {
       display: block;
       font-size: 11px;
       letter-spacing: 0.18em;
       color: var(--mist);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       transition: color 0.4s;
     }
 
     .stage-name {
       font-family: var(--serif);
-      font-size: 48px;
+      font-size: clamp(40px, 5vw, 60px);
       font-weight: 400;
       line-height: 1;
       color: var(--ink);
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       transition: color 0.4s;
     }
 
     .stage-description {
       font-size: 16px;
-      line-height: 1.78;
+      line-height: 1.8;
       color: var(--mist);
       transition: color 0.4s;
     }
 
-    /* ---- SERVE ---- */
-    .serve-grid {
+    /* ---- ENGAGEMENT ---- */
+    .engagement-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 80px;
       border-top: 1px solid var(--rule);
+      padding-top: 56px;
       transition: border-color 0.4s;
     }
 
-    .serve-side { padding: 60px 60px 60px 0; }
-    .serve-side.right {
-      padding-left: 60px; padding-right: 0;
-      border-left: 1px solid var(--rule);
-      transition: border-color 0.4s;
-    }
-
-    .serve-label {
+    .engagement-col-label {
       display: block;
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    .serve-heading {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3.2vw, 34px);
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--ink);
-      margin-bottom: 24px;
-      transition: color 0.4s;
-    }
-
-    .serve-body {
-      font-size: 16px;
-      line-height: 1.82;
+    .engagement-col-body {
+      font-size: 17px;
+      line-height: 1.85;
       color: var(--mist);
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       transition: color 0.4s;
     }
 
-    .serve-link {
-      display: inline-block;
+    .engagement-link {
       font-size: 13px;
       letter-spacing: 0.08em;
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       padding-bottom: 3px;
-      transition: border-color 0.25s, color 0.3s;
+      display: inline-block;
+      transition: border-color 0.25s, color 0.4s;
     }
-    .serve-link:hover { border-color: var(--ink); }
+    .engagement-link:hover { border-color: var(--ink); }
 
-    .standards-list {
-      margin-top: 56px;
+    /* ---- PRINCIPLES ---- */
+    .principles-wrap {
+      margin-top: 72px;
       padding-top: 56px;
       border-top: 1px solid var(--rule);
       transition: border-color 0.4s;
     }
 
-    .standards-list-label {
+    .principles-label {
       display: block;
       font-size: 11px;
       letter-spacing: 0.2em;
@@ -702,42 +476,42 @@
       margin-bottom: 36px;
     }
 
-    .standards-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      list-style: none;
-    }
+    .principles-list { list-style: none; }
 
-    .standards-items li {
-      padding: 20px 40px 20px 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 15px;
-      line-height: 1.7;
+    .principles-list li {
+      font-size: 16px;
+      line-height: 1.75;
       color: var(--mist);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
       display: flex;
-      gap: 16px;
+      gap: 20px;
+      align-items: flex-start;
       transition: color 0.4s, border-color 0.4s;
     }
 
-    .standards-items li::before {
+    .principles-list li::before {
       content: '';
       display: block;
       flex-shrink: 0;
       width: 4px; height: 4px;
       border-radius: 50%;
       background: var(--accent);
-      margin-top: 10px;
+      margin-top: 11px;
       transition: background 0.4s;
     }
 
-    .standards-items li:nth-child(even) {
-      padding-left: 40px; padding-right: 0;
-      border-left: 1px solid var(--rule);
-      transition: border-color 0.4s;
-    }
-
     /* ---- CONTACT ---- */
-    .contact-inner { max-width: 640px; }
+    .contact-inner { max-width: 600px; }
+
+    .contact-eyebrow {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
 
     .contact-heading {
       font-family: var(--serif);
@@ -745,38 +519,38 @@
       font-weight: 400;
       line-height: 1.05;
       color: var(--ink);
-      margin-bottom: 48px;
+      margin-bottom: 52px;
       transition: color 0.4s;
     }
 
-    .contact-line {
+    .contact-detail {
       font-size: 16px;
       color: var(--mist);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      line-height: 1.6;
       transition: color 0.4s;
     }
 
     .contact-email {
-      display: inline-block;
       font-family: var(--serif);
       font-size: 26px;
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       padding-bottom: 3px;
-      margin-top: 4px;
-      margin-bottom: 32px;
+      display: inline-block;
+      margin: 8px 0 32px;
       transition: border-color 0.25s, color 0.4s;
     }
     .contact-email:hover { border-color: var(--ink); }
 
     .contact-note {
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--mist);
       max-width: 480px;
-      margin-top: 40px;
-      padding-top: 40px;
+      margin-top: 48px;
+      padding-top: 48px;
       border-top: 1px solid var(--rule);
       transition: color 0.4s, border-color 0.4s;
     }
@@ -794,88 +568,45 @@
     }
 
     .footer-left { display: flex; flex-direction: column; gap: 4px; }
-    .footer-wordmark {
-      font-family: var(--serif);
-      font-size: 15px;
-      letter-spacing: 0.1em;
-      color: var(--ink);
-      transition: color 0.4s;
-    }
-    .footer-tagline {
-      font-size: 12px;
-      color: var(--mist);
-      transition: color 0.4s;
-    }
-    .footer-right {
-      font-size: 12px;
-      color: var(--mist);
-      transition: color 0.4s;
-    }
+    .footer-wordmark { font-family: var(--serif); font-size: 15px; letter-spacing: 0.1em; color: var(--ink); transition: color 0.4s; }
+    .footer-sub { font-size: 12px; color: var(--mist); transition: color 0.4s; }
+    .footer-right { font-size: 12px; color: var(--mist); transition: color 0.4s; }
 
     /* ---- REVEAL ---- */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(12px);
+      transition: opacity 1.1s ease, transform 1.1s ease;
     }
     .reveal.in-view { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: 0.12s; }
-    .delay-2 { transition-delay: 0.24s; }
-    .delay-3 { transition-delay: 0.36s; }
+    .delay-1 { transition-delay: 0.14s; }
+    .delay-2 { transition-delay: 0.28s; }
+    .delay-3 { transition-delay: 0.42s; }
 
     /* ---- MOBILE ---- */
     @media (max-width: 900px) {
-      .pipeline-board {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .pipeline-connector { display: none; }
-      .pipeline-stage-col + .pipeline-stage-col {
-        border-top: 1px solid var(--rule);
-        padding-top: 32px;
-        margin-top: 32px;
-      }
+      a.research-item { grid-template-columns: 1fr; gap: 16px; }
+      .item-number { font-size: 44px; }
 
-      .research-grid { grid-template-columns: 1fr; border-top: none; }
-      .research-card {
-        border-right: none;
-        border-top: 1px solid var(--rule);
-        padding: 40px 0;
-      }
-      .research-card + .research-card { padding-left: 0; }
+      .framework-stages { grid-template-columns: 1fr; border-top: none; }
+      .stage { border-right: none; border-top: 1px solid var(--rule); padding: 44px 0; }
+      .stage + .stage { padding-left: 0; }
 
-      .method-stages { grid-template-columns: 1fr; border-top: none; }
-      .method-stage {
-        border-right: none;
-        border-top: 1px solid var(--rule);
-        padding: 44px 0;
-      }
-      .method-stage + .method-stage { padding-left: 0; }
-
-      .serve-grid { grid-template-columns: 1fr; }
-      .serve-side { padding: 52px 0; }
-      .serve-side.right { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; }
-
-      .standards-items { grid-template-columns: 1fr; }
-      .standards-items li:nth-child(even) { border-left: none; padding-left: 0; }
-
-      .research-header { flex-direction: column; align-items: flex-start; }
-      footer { flex-direction: column; align-items: flex-start; }
+      .engagement-cols { grid-template-columns: 1fr; gap: 48px; }
     }
 
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .nav-mobile-toggle { display: flex; }
       .nav-links.open {
-        display: flex; flex-direction: column;
-        position: fixed;
-        top: 57px; left: 0; right: 0;
-        background: var(--bg);
-        padding: 24px clamp(24px, 6vw, 96px);
+        display: flex; flex-direction: column; gap: 24px;
+        position: fixed; top: 57px; left: 0; right: 0;
+        background: var(--bg); padding: 24px clamp(24px, 6vw, 96px);
         border-bottom: 1px solid var(--rule);
-        gap: 24px;
         transition: background 0.4s;
       }
+      .research-masthead { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -884,21 +615,17 @@
   <!-- NAVIGATION -->
   <nav id="site-nav">
     <a href="#" class="nav-logo">DEE &amp; CO</a>
-    <div class="nav-center">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#research">Research</a></li>
-        <li><a href="#method">The Framework</a></li>
-        <li><a href="#work">The Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#standard">The Standard</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <!-- Moon icon (light mode) -->
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
-        <!-- Sun icon (dark mode) -->
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
@@ -924,78 +651,23 @@
       <h1 class="hero-wordmark">DEE &amp; CO</h1>
       <div class="hero-rule"></div>
       <p class="hero-tagline">A venture intelligence firm applying institutional-quality judgment to private market decisions.</p>
-
-      <!-- TICKER -->
-      <div class="ticker-wrap">
-        <div class="ticker-track">
-          <span class="ticker-item">Venture Intelligence</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Institutional Judgment</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Behind the Raise</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Capital Signals</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Fund Files</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Deal Anatomy</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Evaluate</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Position</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Match</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Investment Committee</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Sector Intelligence</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Founder Research</span>
-          <span class="ticker-dot"></span>
-          <!-- duplicate for seamless loop -->
-          <span class="ticker-item">Venture Intelligence</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Institutional Judgment</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Behind the Raise</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Capital Signals</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Fund Files</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Deal Anatomy</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Evaluate</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Position</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Match</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Investment Committee</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Sector Intelligence</span>
-          <span class="ticker-dot"></span>
-          <span class="ticker-item">Founder Research</span>
-          <span class="ticker-dot"></span>
-        </div>
-      </div>
     </div>
-    <div class="hero-scroll-wrap">
+    <div class="hero-foot">
       <span class="hero-scroll-line"></span>
-      <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)">Scroll</span>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
-  <!-- THE PROBLEM -->
+  <!-- THE ESSAY -->
   <section class="section" id="about">
     <div class="section-inner">
-      <p class="problem-lead reveal">Most capital in private markets is misallocated. Not because exceptional companies are scarce. Not because capital is absent. Because the process of connecting the two has almost no institutional quality.</p>
-      <div class="problem-body">
+      <p class="essay-lead reveal">Most capital in private markets is misallocated. Not because exceptional companies are scarce. Not because capital is absent. Because the process of connecting the two has almost no institutional quality.</p>
+      <div class="essay-body">
         <p class="reveal delay-1">Founders spend months in wrong rooms. They send decks to funds that would never invest in their sector, frame their business around narratives that sound right to them but communicate nothing across the table, receive feedback that is polite rather than useful, and begin again.</p>
-        <p class="reveal delay-1">Investors face the mirror image. Too much volume, not enough signal. The same companies through the same channels. Introductions from people who do not understand the fund's thesis well enough to know whether the company belongs there.</p>
-        <p class="reveal delay-2">The problem is not access. Everyone has a list of investors. The problem is judgment: the institutional quality of thinking required to evaluate a company honestly, position it precisely, understand an investor's actual thesis rather than their stated one, and make an introduction that has already answered every question the investor would ask.</p>
+        <p class="reveal delay-1">Investors face the mirror image. Too much volume, not enough signal. The same companies through the same channels. Introductions from people who do not understand the fund thesis well enough to know whether the company belongs there.</p>
+        <p class="reveal delay-2">The problem is not access. Everyone has a list of investors. The problem is judgment, the institutional quality of thinking required to evaluate a company honestly, position it precisely, understand an investor's actual thesis rather than their stated one, and make an introduction that has already answered every question the investor would ask.</p>
         <p class="emphasis reveal delay-2">That gap is where Dee &amp; Co operates.</p>
       </div>
       <div class="pull-quote reveal">
@@ -1004,150 +676,117 @@
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
-  <!-- STANDARDS INTERLUDE -->
-  <section class="standards-section">
-    <div class="standards-text reveal">
-      <p>We take on a small number of mandates each quarter. The number is enforced, not aspirational. We tell founders the truth when they are not ready. The rejection letter is written as carefully as the engagement letter. We hold the quality standard when commercial pressure runs the other way. Especially then.</p>
+  <!-- THE STANDARD -->
+  <section class="standard-section" id="standard">
+    <div class="standard-inner">
+      <p class="standard-statement reveal">We take on a small number of mandates each quarter. The number is enforced, not aspirational. We tell founders the truth when they are not ready. The rejection letter is written as carefully as the engagement letter. We hold the quality standard when commercial pressure runs the other way. Especially then.</p>
+      <p class="anchor-sentence reveal delay-1">We do not introduce companies to investors whose thesis we cannot articulate precisely.</p>
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- LIVE DEAL PIPELINE -->
-  <section class="pipeline-section" id="pipeline">
-    <div class="section-inner">
-      <div class="pipeline-header reveal">
-        <h2 class="pipeline-heading">The Live Pipeline</h2>
-        <p class="pipeline-sub">A representation of how mandates move through the Dee &amp; Co process in real time.</p>
-      </div>
-      <div class="pipeline-board reveal delay-1">
-        <div class="pipeline-stage-col" id="col-evaluate">
-          <div class="stage-col-header">
-            <span class="stage-col-name">Evaluate</span>
-            <span class="stage-col-count" id="count-evaluate">0</span>
-          </div>
-          <div class="stage-cards-wrap" id="cards-evaluate"></div>
-        </div>
-        <div class="pipeline-connector">
-          <div class="connector-inner">
-            <div class="flow-dot"></div>
-            <div class="flow-dot"></div>
-            <div class="flow-dot"></div>
-            <div class="flow-arrow"></div>
-          </div>
-        </div>
-        <div class="pipeline-stage-col" id="col-position">
-          <div class="stage-col-header">
-            <span class="stage-col-name">Position</span>
-            <span class="stage-col-count" id="count-position">0</span>
-          </div>
-          <div class="stage-cards-wrap" id="cards-position"></div>
-        </div>
-        <div class="pipeline-connector">
-          <div class="connector-inner">
-            <div class="flow-dot"></div>
-            <div class="flow-dot"></div>
-            <div class="flow-dot"></div>
-            <div class="flow-arrow"></div>
-          </div>
-        </div>
-        <div class="pipeline-stage-col" id="col-match">
-          <div class="stage-col-header">
-            <span class="stage-col-name">Match</span>
-            <span class="stage-col-count" id="count-match">0</span>
-          </div>
-          <div class="stage-cards-wrap" id="cards-match"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- RESEARCH -->
   <section class="section" id="research">
     <div class="section-inner">
-      <div class="research-header reveal">
+      <div class="research-masthead reveal">
         <h2 class="research-heading">Research</h2>
-        <a href="#" class="research-all">View all issues</a>
+        <a href="#" class="research-archive">View archive</a>
       </div>
-      <div class="research-grid">
-        <a href="#" class="research-card reveal">
-          <span class="card-series">Behind the Raise</span>
-          <h3 class="card-title">The Raise Nobody<br>Talks About</h3>
-          <p class="card-excerpt">The authentic story of a capital raise, including what did not work. Every instalment contains at least one thing the founder would not normally say in public.</p>
-          <span class="card-cta">Read</span>
+      <div class="research-list">
+
+        <a href="#" class="research-item reveal">
+          <div class="item-meta">
+            <span class="item-series">Behind the Raise</span>
+            <span class="item-number">01</span>
+          </div>
+          <div class="item-body">
+            <h3 class="item-title">The Raise Nobody Talks About</h3>
+            <p class="item-excerpt">The authentic story of a capital raise, including what did not work. Every instalment contains at least one thing the founder would not normally say in public. Not inspiration. Diagnosis.</p>
+            <span class="item-cta">Read</span>
+          </div>
         </a>
-        <a href="#" class="research-card reveal delay-1">
-          <span class="card-series">Capital Signals</span>
-          <h3 class="card-title">Where Capital Is<br>Moving Next</h3>
-          <p class="card-excerpt">Dee &amp; Co's view on where capital is moving in Indian private markets. A forward-looking argument, not a recap. The views here could be wrong, which is what makes them worth reading.</p>
-          <span class="card-cta">Read</span>
+
+        <a href="#" class="research-item reveal delay-1">
+          <div class="item-meta">
+            <span class="item-series">Capital Signals</span>
+            <span class="item-number">02</span>
+          </div>
+          <div class="item-body">
+            <h3 class="item-title">Where Capital Is Moving Next</h3>
+            <p class="item-excerpt">Dee &amp; Co's forward-looking view on where capital is moving in Indian private markets. A forward argument, not a recap. The views here could be wrong, which is what makes them worth reading.</p>
+            <span class="item-cta">Read</span>
+          </div>
         </a>
-        <a href="#" class="research-card reveal delay-2">
-          <span class="card-series">Fund Files</span>
-          <h3 class="card-title">How Investors<br>Actually Think</h3>
-          <p class="card-excerpt">A genuine analysis of an investor's thesis: how they think, what they have backed, and what the pattern of their portfolio reveals about their real criteria versus their stated ones.</p>
-          <span class="card-cta">Read</span>
+
+        <a href="#" class="research-item reveal delay-2">
+          <div class="item-meta">
+            <span class="item-series">Fund Files</span>
+            <span class="item-number">03</span>
+          </div>
+          <div class="item-body">
+            <h3 class="item-title">How Investors Actually Think</h3>
+            <p class="item-excerpt">A genuine analysis of an investor's thesis: how they think, what they have backed, and what the pattern of their portfolio reveals about their real criteria versus their stated ones.</p>
+            <span class="item-cta">Read</span>
+          </div>
         </a>
+
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- FRAMEWORK -->
   <section class="section" id="method">
     <div class="section-inner">
-      <div class="method-header">
-        <h2 class="method-heading reveal">The Framework</h2>
-        <p class="method-intro reveal delay-1">Every mandate at Dee &amp; Co moves through three stages, without exception. Each stage is conditional on the previous one. Nothing is skipped.</p>
+      <div class="framework-header">
+        <h2 class="framework-heading reveal">The Framework</h2>
+        <p class="framework-intro reveal delay-1">Every mandate moves through three stages, without exception. Each stage is conditional on the previous one. Nothing is skipped.</p>
       </div>
-      <div class="method-stages">
-        <div class="method-stage reveal">
+      <div class="framework-stages">
+        <div class="stage reveal">
           <span class="stage-index">01</span>
           <h3 class="stage-name">Evaluate.</h3>
           <p class="stage-description">An honest written assessment of investment readiness, including what is not ready. The question asked internally: if we were the investor, would we invest? If the answer is no, we say so before anything else happens.</p>
         </div>
-        <div class="method-stage reveal delay-1">
+        <div class="stage reveal delay-1">
           <span class="stage-index">02</span>
           <h3 class="stage-name">Position.</h3>
-          <p class="stage-description">The narrative, documents, and financial architecture built to answer every serious question before it is asked. Not a template. A precise argument constructed for the specific company, stage, and investors being targeted.</p>
+          <p class="stage-description">The narrative, documents, and financial architecture built to answer every serious question before it is asked. Not a template. A precise argument constructed for this specific company, stage, and investor set.</p>
         </div>
-        <div class="method-stage reveal delay-2">
+        <div class="stage reveal delay-2">
           <span class="stage-index">03</span>
           <h3 class="stage-name">Match.</h3>
-          <p class="stage-description">An introduction made only when we have documented evidence that the investor's thesis, portfolio, and current focus align with this company at this moment. We do not introduce companies to investors whose thesis we cannot articulate precisely.</p>
+          <p class="stage-description">An introduction made only when there is documented evidence that the investor's thesis, portfolio, and current focus align with this company at this moment. We do not introduce on probability. We introduce on precision.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
-  <!-- WHO WE SERVE -->
-  <section class="section" id="work">
+  <!-- ENGAGEMENT -->
+  <section class="section">
     <div class="section-inner">
-      <span class="section-label reveal">Who We Serve</span>
-      <div class="serve-grid">
-        <div class="serve-side reveal">
-          <span class="serve-label">For Founders</span>
-          <h3 class="serve-heading">The founders who belong at Dee &amp; Co are not looking for introductions.</h3>
-          <p class="serve-body">They want a firm that will tell them the truth about their business and represent them with precision. We work with a small number each quarter. The process begins with an honest written evaluation, shared in full, including what is not ready. The measure of success: by the time they sit across from an investor, every question that investor might ask has already been answered in the materials they have already read.</p>
-          <a href="#contact" class="serve-link">Apply for a mandate</a>
+      <div class="engagement-cols">
+        <div class="reveal">
+          <span class="engagement-col-label">Founders</span>
+          <p class="engagement-col-body">The founders who belong at Dee &amp; Co are not looking for introductions. They want a firm that will tell them the truth about their business and represent them with precision. We work with a small number each quarter. The process begins with an honest written evaluation, shared in full, including what is not ready. The measure of success: by the time a founder sits across from an investor, every question that investor might ask has already been answered in the materials they have already read.</p>
+          <a href="#contact" class="engagement-link">Apply for a mandate</a>
         </div>
-        <div class="serve-side right reveal delay-1">
-          <span class="serve-label">For Investors</span>
-          <h3 class="serve-heading">Investors in the Dee &amp; Co network receive deal flow that has already passed through institutional evaluation.</h3>
-          <p class="serve-body">They are not reviewing a raw pitch. The value compounds over time: the longer the relationship, the more precisely we understand how the investor thinks, and the more accurate the introductions become. We do not operate a deal flow newsletter. We maintain relationships with investors whose thesis we understand well enough to know, before any introduction, that the company belongs in front of them.</p>
-          <a href="#contact" class="serve-link">Join the network</a>
+        <div class="reveal delay-1">
+          <span class="engagement-col-label">Investors</span>
+          <p class="engagement-col-body">Investors in the Dee &amp; Co network receive deal flow that has already passed through institutional evaluation. They are not reviewing a raw pitch. The value compounds: the longer the relationship, the more precisely we understand how the investor thinks, and the more accurate the introductions become. We do not operate a deal flow newsletter. We maintain relationships with investors whose thesis we understand well enough to know, before any introduction, that the company belongs in front of them.</p>
+          <a href="#contact" class="engagement-link">Begin a conversation</a>
         </div>
       </div>
-      <div class="standards-list reveal">
-        <span class="standards-list-label">The Non-Negotiables</span>
-        <ul class="standards-items">
+
+      <div class="principles-wrap reveal">
+        <span class="principles-label">The Non-Negotiables</span>
+        <ul class="principles-list">
           <li>We take on a small number of mandates each quarter. The number is enforced, not aspirational.</li>
           <li>We tell founders the truth when they are not ready. The rejection letter is written as carefully as the engagement letter.</li>
           <li>We name the party we represent at the outset of every mandate and every communication.</li>
@@ -1159,18 +798,17 @@
     </div>
   </section>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="section-inner">
       <div class="contact-inner">
-        <span class="section-label reveal">Contact</span>
+        <span class="contact-eyebrow reveal">Contact</span>
         <h2 class="contact-heading reveal">Begin a<br>Conversation.</h2>
-        <p class="contact-line reveal">Deeptesh Mejari, Founder and Principal Advisor</p>
+        <p class="contact-detail reveal">Deeptesh Mejari, Founder and Principal Advisor</p>
         <a href="mailto:deeptesh@deeandco.in" class="contact-email reveal">deeptesh@deeandco.in</a>
-        <p class="contact-line reveal">deeandco.in</p>
-        <p class="contact-line reveal" style="margin-top:4px;">Mumbai, India</p>
+        <p class="contact-detail reveal">Mumbai, India</p>
         <p class="contact-note reveal">We work with a small number of founders and investors each quarter. If you believe your company merits institutional-grade preparation and placement, or if you are an investor looking for curated deal flow you can trust, we would like to understand what you are working on.</p>
       </div>
     </div>
@@ -1179,169 +817,43 @@
   <footer>
     <div class="footer-left">
       <span class="footer-wordmark">DEE &amp; CO</span>
-      <span class="footer-tagline">Capital Advisory</span>
+      <span class="footer-sub">Capital Advisory</span>
     </div>
     <span class="footer-right">2026 Dee &amp; Co Capital Advisory. Mumbai, India.</span>
   </footer>
 
   <script>
-    // ---- DARK MODE ----
+    // Dark mode
     const html = document.documentElement;
     const themeBtn = document.getElementById('theme-toggle');
-
     const saved = localStorage.getItem('dc-theme');
     if (saved) html.setAttribute('data-theme', saved);
-
     themeBtn.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('dc-theme', next);
     });
 
-    // ---- NAV SCROLL ----
+    // Nav scroll reveal
     const nav = document.getElementById('site-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('visible', window.scrollY > 80);
     }, { passive: true });
 
-    // ---- MOBILE MENU ----
+    // Mobile menu
     const toggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // ---- REVEAL ----
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-    reveals.forEach(el => observer.observe(el));
-
-    // ---- DEAL PIPELINE ----
-    const COMPANIES = [
-      { name: "Clearflow Tech",  sector: "Fintech",        size: "Series A", bar: 72 },
-      { name: "Nomad Health",    sector: "Healthtech",     size: "Seed",     bar: 45 },
-      { name: "GridAI Labs",     sector: "Infrastructure", size: "Pre-A",    bar: 58 },
-      { name: "Mello Commerce",  sector: "D2C",            size: "Seed",     bar: 33 },
-      { name: "Vero Systems",    sector: "SaaS",           size: "Series A", bar: 88 },
-      { name: "Arkin Bio",       sector: "Life Sciences",  size: "Seed",     bar: 27 },
-      { name: "Flux Energy",     sector: "Cleantech",      size: "Pre-A",    bar: 61 },
-      { name: "Pragma Finance",  sector: "Fintech",        size: "Series B", bar: 94 },
-      { name: "Desh Logistics",  sector: "Logistics",      size: "Series A", bar: 50 },
-      { name: "Kova Materials",  sector: "DeepTech",       size: "Pre-A",    bar: 39 },
-    ];
-
-    const STAGES = ['evaluate', 'position', 'match'];
-    const cards = {};
-    let companyIndex = 0;
-
-    function makeCard(company) {
-      const el = document.createElement('div');
-      el.className = 'deal-card entering';
-      el.innerHTML = `
-        <div class="deal-card-top">
-          <span class="deal-card-name">${company.name}</span>
-          <span class="deal-card-dot"></span>
-        </div>
-        <div class="deal-card-sector">${company.sector} &nbsp;·&nbsp; ${company.size}</div>
-        <div class="deal-card-bar">
-          <div class="deal-card-bar-fill" style="width:${company.bar}%"></div>
-        </div>`;
-      return el;
-    }
-
-    function updateCounts() {
-      STAGES.forEach(s => {
-        const wrap = document.getElementById('cards-' + s);
-        const count = wrap ? wrap.children.length : 0;
-        const el = document.getElementById('count-' + s);
-        if (el) el.textContent = count;
-      });
-    }
-
-    function addCard() {
-      const company = COMPANIES[companyIndex % COMPANIES.length];
-      companyIndex++;
-      const wrap = document.getElementById('cards-evaluate');
-      if (!wrap) return;
-      const card = makeCard(company);
-      wrap.prepend(card);
-      requestAnimationFrame(() => requestAnimationFrame(() => card.classList.remove('entering')));
-      updateCounts();
-
-      // cap evaluate at 3
-      while (wrap.children.length > 3) {
-        const old = wrap.lastElementChild;
-        old.classList.add('exiting');
-        setTimeout(() => { if (old.parentNode) old.parentNode.removeChild(old); updateCounts(); }, 600);
-      }
-
-      const id = Date.now() + Math.random();
-      cards[id] = { card, stage: 0 };
-
-      setTimeout(() => advanceCard(id), 3800 + Math.random() * 1800);
-    }
-
-    function advanceCard(id) {
-      const item = cards[id];
-      if (!item) return;
-      const { card } = item;
-
-      item.stage++;
-      if (item.stage > 2) {
-        card.classList.add('exiting');
-        setTimeout(() => {
-          if (card.parentNode) card.parentNode.removeChild(card);
-          delete cards[id];
-          updateCounts();
-        }, 650);
-        return;
-      }
-
-      const fromWrap = card.parentNode;
-      const toWrap = document.getElementById('cards-' + STAGES[item.stage]);
-      if (!fromWrap || !toWrap) return;
-
-      card.classList.add('exiting');
-      setTimeout(() => {
-        if (card.parentNode) card.parentNode.removeChild(card);
-        updateCounts();
-        card.classList.remove('exiting');
-        card.classList.add('entering');
-        toWrap.prepend(card);
-        requestAnimationFrame(() => requestAnimationFrame(() => card.classList.remove('entering')));
-
-        // cap each stage at 2
-        while (toWrap.children.length > 2) {
-          const old = toWrap.lastElementChild;
-          old.classList.add('exiting');
-          setTimeout(() => { if (old.parentNode) old.parentNode.removeChild(old); updateCounts(); }, 600);
-        }
-        updateCounts();
-        setTimeout(() => advanceCard(id), 4200 + Math.random() * 2000);
-      }, 650);
-    }
-
-    // seed pipeline with initial cards and stagger new entries
-    function seedPipeline() {
-      addCard();
-      setTimeout(addCard, 1200);
-      setTimeout(addCard, 2400);
-      setInterval(addCard, 4000);
-    }
-
-    // start pipeline when it enters viewport
-    const pipelineSection = document.getElementById('pipeline');
-    const pipelineObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        seedPipeline();
-        pipelineObserver.disconnect();
-      }
-    }, { threshold: 0.2 });
-    if (pipelineSection) pipelineObserver.observe(pipelineSection);
+    }, { threshold: 0.07, rootMargin: '0px 0px -24px 0px' });
+    reveals.forEach(el => io.observe(el));
   </script>
 
 </body>
