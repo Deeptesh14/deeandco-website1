@@ -1,673 +1,865 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dee &amp; Co | Capital Advisory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Dee &amp; Co | Capital Advisory, Mumbai</title>
+<meta name="description" content="Dee &amp; Co is a venture intelligence firm applying institutional quality judgment to private market decisions. Evaluation, positioning, and placement for founders and investors.">
+
+<!-- Replace with the live domain before deploying. -->
+<link rel="canonical" href="https://deeandco.in/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dee &amp; Co">
+<meta property="og:title" content="Dee &amp; Co | Capital Advisory">
+<meta property="og:description" content="A venture intelligence firm applying institutional quality judgment to private market decisions.">
+<meta property="og:url" content="https://deeandco.in/">
+<!-- Add a 1200x630 image at this path so LinkedIn and WhatsApp unfurl correctly. -->
+<meta property="og:image" content="https://deeandco.in/share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dee &amp; Co | Capital Advisory">
+<meta name="twitter:description" content="A venture intelligence firm applying institutional quality judgment to private market decisions.">
+<meta name="twitter:image" content="https://deeandco.in/share.png">
+
+<meta name="theme-color" content="#F2F1ED" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101114" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2316171A'/%3E%3Ctext x='50' y='68' font-family='Helvetica,Arial,sans-serif' font-size='54' font-weight='600' fill='%23F2F1ED' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   DEE & CO / CAPITAL ADVISORY
+   Swiss editorial grid. Grotesque display, mono metadata.
+   No timers, no intervals, no unbounded loops anywhere.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, figure, dl, dd, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
 
 :root {
-  --bg:     #F5F1EB;
-  --ink:    #0D0D0B;
-  --accent: #9A7B3E;
-  --mist:   #7A7872;
-  --faint:  #EDE8DF;
-  --rule:   #D5D0C8;
-  --card:   #FFFFFF;
-  --navbg:  rgba(245,241,235,0.97);
-  --serif:  'Cormorant Garamond', Georgia, serif;
-  --sans:   'Inter', system-ui, sans-serif;
+  color-scheme: light dark;
+
+  --paper:      #F2F1ED;
+  --paper-off:  #E9E8E3;
+  --ink:        #16171A;   /* 15.9:1 on paper */
+  --ink-soft:   #5C6066;   /*  5.6:1 on paper */
+  --accent:     #1B3BD8;   /*  7.0:1 on paper */
+  --line:       #CFCEC8;
+  --line-soft:  #DEDDD8;
+
+  --pad:   clamp(20px, 4.5vw, 68px);
+  --rail:  clamp(90px, 13vw, 168px);
+  --gut:   clamp(20px, 3.5vw, 56px);
+
+  --grotesk: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+
 [data-theme="dark"] {
-  --bg:     #0F0F0D;
-  --ink:    #F0EBE3;
-  --accent: #C4A05A;
-  --mist:   #8A8680;
-  --faint:  #1A1A18;
-  --rule:   #2A2A28;
-  --card:   #1C1C1A;
-  --navbg:  rgba(15,15,13,0.97);
+  --paper:      #101114;
+  --paper-off:  #191A1E;
+  --ink:        #EDEDEA;
+  --ink-soft:   #9A9DA3;   /*  7.0:1 on paper */
+  --accent:     #7C93FF;   /*  6.7:1 on paper */
+  --line:       #2C2E33;
+  --line-soft:  #212328;
 }
 
 html { scroll-behavior: smooth; }
+
 body {
-  background: var(--bg);
+  background: var(--paper);
   color: var(--ink);
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.75;
+  font-family: var(--grotesk);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+::selection { background: var(--accent); color: #FFF; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--ink); color: var(--paper);
+  padding: 12px 18px; font-family: var(--mono); font-size: 12px;
+}
+.skip:focus { left: 0; }
+
+/* ---------- shared type ---------- */
+
+.meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-feature-settings: "kern" 0;
+}
+
+.display {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.lede {
+  font-size: clamp(17px, 1.45vw, 20px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+/* ---------- masthead nav ---------- */
+
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s linear;
+}
+.topbar[data-scrolled="true"] { border-bottom-color: var(--line); }
+
+.topbar-in {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 16px clamp(20px,5vw,80px);
-  background: var(--navbg);
-  border-bottom: 1px solid var(--rule);
-  transform: translateY(-100%);
-  transition: transform 0.4s ease;
-}
-nav.show { transform: translateY(0); }
-.nav-logo {
-  font-family: var(--serif); font-size: 16px; letter-spacing: 0.1em;
-  color: var(--ink); text-decoration: none;
-}
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a {
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--mist); text-decoration: none;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-right { display: flex; align-items: center; gap: 12px; }
-
-/* TOGGLE BUTTON */
-.toggle-btn {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid var(--rule); background: transparent;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  color: var(--mist);
-}
-.toggle-btn:hover { color: var(--ink); border-color: var(--ink); }
-.toggle-btn svg { width: 16px; height: 16px; display: block; pointer-events: none; }
-.icon-moon { display: block; }
-.icon-sun  { display: none; }
-[data-theme="dark"] .icon-moon { display: none; }
-[data-theme="dark"] .icon-sun  { display: block; }
-
-.ham {
-  display: none; background: none; border: none; cursor: pointer;
-  flex-direction: column; gap: 5px; padding: 4px;
-}
-.ham span { display: block; width: 22px; height: 1px; background: var(--ink); }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background: #0B0B09;
-  display: flex; flex-direction: column;
-  padding: 0 clamp(20px,5vw,80px);
-}
-.hero-body {
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: center; padding-top: 80px; padding-bottom: 40px;
-}
-.eyebrow {
-  display: block; font-size: 11px; letter-spacing: 0.22em;
-  text-transform: uppercase; color: #9A7B3E; margin-bottom: 28px;
-}
-.wordmark {
-  font-family: var(--serif);
-  font-size: clamp(72px, 12vw, 148px);
-  font-weight: 400; letter-spacing: 0.06em; line-height: 0.88;
-  color: #F2EDE5; margin-bottom: 44px;
-}
-.hero-rule { width: 48px; height: 1px; background: #9A7B3E; margin-bottom: 44px; }
-.tagline {
-  font-family: var(--serif);
-  font-size: clamp(18px, 2.4vw, 26px);
-  font-weight: 300; font-style: italic;
-  color: rgba(242,237,229,0.65); max-width: 520px; line-height: 1.55;
-}
-.hero-foot {
-  display: flex; align-items: center; gap: 14px; padding: 28px 0;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(242,237,229,0.3);
-}
-.scroll-line { display: block; width: 36px; height: 1px; background: rgba(242,237,229,0.15); }
-
-/* DIVIDER */
-.div { height: 1px; background: var(--rule); margin: 0 clamp(20px,5vw,80px); }
-
-/* SECTIONS */
-.sec { padding: clamp(60px,9vw,112px) clamp(20px,5vw,80px); }
-.inner { max-width: 1100px; margin: 0 auto; }
-
-/* THESIS */
-.thesis {
-  font-family: var(--serif);
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 400; line-height: 1.35; color: var(--ink);
-  max-width: 780px; margin-bottom: 24px;
-}
-.coda {
-  font-family: var(--serif); font-size: clamp(16px,1.8vw,20px);
-  font-style: italic; color: var(--mist);
+  gap: 16px;
+  padding: 14px var(--pad);
 }
 
-/* ANCHOR */
-.anchor-sec { padding: clamp(52px,7vw,96px) clamp(20px,5vw,80px); text-align: center; }
-.anchor-line {
-  font-family: var(--serif);
-  font-size: clamp(19px, 2.8vw, 36px);
-  font-weight: 400; line-height: 1.3; color: var(--ink);
-  max-width: 800px; margin: 0 auto;
+.mark {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
 }
+.mark span { color: var(--accent); }
 
-/* PIPELINE */
-.pipe-sec {
-  padding: clamp(52px,7vw,88px) clamp(20px,5vw,80px);
-  background: var(--faint);
+.nav { display: flex; gap: clamp(16px, 2.4vw, 34px); }
+.nav a {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.18s linear;
 }
-.pipe-label {
-  display: block; font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
-}
-.pipe-title {
-  font-family: var(--serif);
-  font-size: clamp(24px,3.5vw,40px); font-weight: 400; color: var(--ink);
-  margin-bottom: 6px;
-}
-.pipe-sub { font-size: 14px; color: var(--mist); margin-bottom: 40px; }
+.nav a:hover { color: var(--ink); }
 
-.board {
+.controls { display: flex; align-items: center; gap: 6px; }
+
+.icon-btn {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: none; border: 1px solid var(--line);
+  color: var(--ink-soft); cursor: pointer;
+  padding: 0;
+  transition: color 0.18s linear, border-color 0.18s linear;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--ink); }
+.icon-btn svg { width: 15px; height: 15px; }
+
+/* exactly one icon per theme. keep these at equal specificity so the
+   cascade order decides, and let the [data-theme] rules override. */
+.i-moon { display: block; }
+.i-sun  { display: none; }
+[data-theme="dark"] .i-moon { display: none; }
+[data-theme="dark"] .i-sun  { display: block; }
+
+.burger { display: none; }
+.burger span {
+  display: block; width: 15px; height: 1px;
+  background: currentColor; margin: 3px 0;
+  transition: transform 0.22s var(--ease), opacity 0.16s linear;
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-4px) rotate(-45deg); }
+
+/* ---------- page grid ---------- */
+
+.band { border-top: 1px solid var(--line); }
+
+.sec {
   display: grid;
-  grid-template-columns: 1fr 52px 1fr 52px 1fr;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 0 var(--gut);
+  padding: clamp(52px, 7vw, 108px) var(--pad);
   align-items: start;
 }
-.col-head {
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 2px solid var(--accent); padding-bottom: 12px; margin-bottom: 14px;
-}
-.col-name { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-.col-cnt {
-  font-size: 11px; color: var(--mist);
-  background: var(--bg); border-radius: 10px; padding: 2px 8px;
-}
-.cards { min-height: 180px; display: flex; flex-direction: column; gap: 10px; }
 
-.card {
-  background: var(--card); border: 1px solid var(--rule);
-  border-radius: 2px; padding: 14px 16px;
-  transition: opacity 0.4s, transform 0.4s;
-}
-.card.out { opacity: 0; transform: translateY(6px); }
-.card.in  { opacity: 0; transform: translateY(-8px); }
-.card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
-.card-name { font-family: var(--serif); font-size: 15px; color: var(--ink); }
-.card-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
-  animation: dot 2.2s ease-in-out infinite;
-}
-@keyframes dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.55)} }
-.card-info { font-size: 12px; color: var(--mist); }
-.card-bar { height: 2px; background: var(--rule); border-radius: 1px; margin-top: 10px; overflow: hidden; }
-.card-fill { height: 100%; background: var(--accent); border-radius: 1px; }
-
-.conn { display: flex; align-items: center; justify-content: center; padding-top: 38px; }
-.conn-line { position: relative; width: 38px; height: 1px; background: var(--rule); overflow: visible; }
-.conn-arrow {
-  position: absolute; right: -5px; top: -4px;
-  width: 9px; height: 9px;
-  border-right: 1px solid var(--accent); border-top: 1px solid var(--accent);
-  transform: rotate(45deg);
-}
-.conn-dot {
-  position: absolute; top: -3px; left: 0;
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  animation: flow 2s linear infinite;
-}
-.conn-dot:nth-child(2) { animation-delay: .67s; }
-.conn-dot:nth-child(3) { animation-delay: 1.34s; }
-@keyframes flow {
-  0%   { left:0; opacity:0; }
-  8%   { opacity:1; }
-  85%  { opacity:1; }
-  100% { left:calc(100% + 4px); opacity:0; }
+.rail { position: sticky; top: 90px; }
+.rail-n { color: var(--accent); display: block; }
+.rail-t {
+  color: var(--ink-soft); display: block; margin-top: 4px;
+  font: inherit; letter-spacing: inherit; text-transform: inherit;
 }
 
-/* RESEARCH */
-.res-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 40px; flex-wrap: wrap; gap: 10px;
-}
-.res-h {
-  font-family: var(--serif); font-size: clamp(28px,4.5vw,48px);
-  font-weight: 400; color: var(--ink);
-}
-.res-arch {
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--mist); text-decoration: none;
-}
-.res-arch:hover { color: var(--ink); }
-.res-list { border-top: 1px solid var(--rule); }
-a.res-row {
-  display: grid; grid-template-columns: 140px 1fr; gap: 24px;
-  padding: 36px 0; border-bottom: 1px solid var(--rule); text-decoration: none;
-}
-a.res-row:hover { opacity: 0.6; }
-.row-series {
-  display: block; font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
-}
-.row-num {
-  font-family: var(--serif); font-size: 44px; font-weight: 300;
-  line-height: 1; color: var(--rule);
-}
-.row-title {
-  font-family: var(--serif); font-size: clamp(19px,2.3vw,28px); font-weight: 400;
-  line-height: 1.15; color: var(--ink); margin-bottom: 10px;
-}
-.row-blurb { font-size: 14px; line-height: 1.7; color: var(--mist); max-width: 460px; }
+/* ---------- masthead ---------- */
 
-/* FRAMEWORK */
-.fw-hdr { max-width: 580px; margin-bottom: 52px; }
-.fw-h {
-  font-family: var(--serif); font-size: clamp(28px,4.5vw,48px);
-  font-weight: 400; color: var(--ink); margin-bottom: 14px;
-}
-.fw-intro { font-size: 15px; line-height: 1.8; color: var(--mist); }
-.stages {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  border-top: 1px solid var(--rule);
-}
-.stage { padding: 44px 44px 44px 0; border-right: 1px solid var(--rule); }
-.stage:last-child { border-right: none; padding-right: 0; }
-.stage + .stage { padding-left: 44px; }
-.st-idx { display: block; font-size: 11px; letter-spacing: 0.18em; color: var(--mist); margin-bottom: 14px; }
-.st-name {
-  font-family: var(--serif); font-size: clamp(32px,4vw,52px); font-weight: 400;
-  line-height: 1; color: var(--ink); margin-bottom: 16px;
-}
-.st-desc { font-size: 15px; line-height: 1.8; color: var(--mist); }
-
-/* CONTACT */
-.ct-inner { max-width: 520px; }
-.ct-lbl {
-  display: block; font-size: 11px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
-}
-.ct-h {
-  font-family: var(--serif); font-size: clamp(36px,6vw,68px); font-weight: 400;
-  line-height: 1.05; color: var(--ink); margin-bottom: 40px;
-}
-.ct-dt { font-size: 15px; color: var(--mist); margin-bottom: 6px; }
-a.ct-email {
-  font-family: var(--serif); font-size: 22px; color: var(--ink);
-  text-decoration: none; border-bottom: 1px solid var(--rule);
-  padding-bottom: 3px; display: inline-block; margin: 6px 0 20px;
-}
-a.ct-email:hover { border-color: var(--ink); }
-.ct-note {
-  font-size: 14px; line-height: 1.75; color: var(--mist); max-width: 420px;
-  margin-top: 36px; padding-top: 36px; border-top: 1px solid var(--rule);
+.mast {
+  padding: clamp(44px, 7vw, 96px) var(--pad) clamp(30px, 4vw, 54px);
+  min-height: calc(100vh - 63px);
+  min-height: calc(100svh - 63px);
+  display: flex; flex-direction: column; justify-content: space-between;
 }
 
-/* FOOTER */
-footer {
-  padding: 30px clamp(20px,5vw,80px); border-top: 1px solid var(--rule);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 10px;
-}
-.ft-l { display: flex; flex-direction: column; gap: 3px; }
-.ft-w { font-family: var(--serif); font-size: 14px; letter-spacing: 0.1em; color: var(--ink); }
-.ft-s { font-size: 12px; color: var(--mist); }
-.ft-r { font-size: 12px; color: var(--mist); }
+.mast-top { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.mast-top .meta { color: var(--ink-soft); }
+.mast-top .meta.accent { color: var(--accent); }
 
-/* MOBILE */
-@media(max-width:800px){
-  .board { grid-template-columns: 1fr; }
-  .conn { display: none; }
-  .stages { grid-template-columns: 1fr; border-top: none; }
-  .stage { border-right: none; border-top: 1px solid var(--rule); padding: 32px 0; }
-  .stage + .stage { padding-left: 0; }
-  a.res-row { grid-template-columns: 1fr; gap: 8px; }
+.wordmark {
+  font-family: var(--grotesk);
+  font-size: clamp(64px, 17.5vw, 232px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  margin: clamp(28px, 4vw, 56px) 0 0;
 }
-@media(max-width:560px){
-  .nav-links { display: none; }
-  .ham { display: flex; }
-  .nav-links.open {
-    display: flex; flex-direction: column; gap: 18px; position: fixed;
-    top: 57px; left: 0; right: 0; background: var(--bg);
-    padding: 20px clamp(20px,5vw,80px); border-bottom: 1px solid var(--rule);
+.wordmark .amp {
+  color: var(--accent);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.mast-mid {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 0 var(--gut);
+  margin-top: clamp(32px, 4.5vw, 64px);
+  padding-top: clamp(22px, 3vw, 36px);
+  border-top: 1px solid var(--line);
+}
+.mast-mid .meta { color: var(--ink-soft); }
+.mast-claim {
+  font-size: clamp(19px, 2.15vw, 30px);
+  font-weight: 300;
+  line-height: 1.32;
+  letter-spacing: -0.019em;
+  max-width: 30ch;
+  text-wrap: pretty;
+}
+
+.strip {
+  display: flex; flex-wrap: wrap; gap: 8px clamp(20px, 3vw, 46px);
+  margin-top: clamp(36px, 5vw, 72px);
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+}
+.strip b { font-weight: 500; color: var(--ink); }
+
+/* ---------- 01 thesis ---------- */
+
+.thesis-h {
+  font-size: clamp(31px, 5.6vw, 74px);
+  max-width: 15ch;
+  margin-bottom: clamp(26px, 3.4vw, 44px);
+}
+
+.thesis-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+  gap: clamp(20px, 2.6vw, 44px);
+  padding-top: clamp(20px, 2.6vw, 34px);
+  border-top: 1px solid var(--line-soft);
+  max-width: 900px;
+}
+.thesis-cols p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.72; }
+
+.coda {
+  margin-top: clamp(30px, 4vw, 52px);
+  font-size: clamp(18px, 1.9vw, 25px);
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.35;
+  max-width: 26ch;
+}
+.coda i { font-style: normal; color: var(--accent); }
+
+/* ---------- 02 standard (inverted) ---------- */
+
+.standard {
+  background: var(--ink);
+  color: var(--paper);
+}
+.standard .rail-t { color: color-mix(in srgb, var(--paper) 62%, transparent); }
+.standard .rail-n { color: var(--paper); }
+.standard-q {
+  font-size: clamp(25px, 4.3vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.032em;
+  line-height: 1.06;
+  max-width: 19ch;
+  text-wrap: balance;
+}
+.standard-note {
+  margin-top: clamp(24px, 3vw, 38px);
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+  color: color-mix(in srgb, var(--paper) 68%, transparent);
+  max-width: 44ch;
+}
+
+/* ---------- 03 framework ledger ---------- */
+
+.fw-intro {
+  max-width: 44ch;
+  margin-bottom: clamp(34px, 4.5vw, 62px);
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.ledger { border-top: 1px solid var(--line); }
+
+.stage {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.4vw, 40px);
+  padding: clamp(26px, 3.2vw, 44px) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.stage-n {
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--accent);
+  padding-top: 6px;
+}
+
+.stage-name {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.033em;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.stage-desc { color: var(--ink-soft); font-size: 15.5px; line-height: 1.72; max-width: 52ch; }
+
+.spec { display: grid; gap: 16px; padding-top: 8px; }
+.spec dt { color: var(--ink-soft); margin-bottom: 5px; }
+.spec dd { font-size: 14.5px; line-height: 1.55; }
+.spec .dur { font-family: var(--mono); font-size: 13px; letter-spacing: 0.01em; }
+
+/* ---------- 04 research ---------- */
+
+.res-intro {
+  max-width: 44ch;
+  margin-bottom: clamp(30px, 4vw, 54px);
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 300; line-height: 1.55; color: var(--ink-soft);
+}
+
+.series { border-top: 1px solid var(--line); }
+
+.item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px clamp(16px, 2.4vw, 40px);
+  align-items: start;
+  padding: clamp(24px, 3vw, 38px) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.item-k { color: var(--accent); display: block; margin-bottom: 10px; }
+.item-h {
+  font-size: clamp(20px, 2.35vw, 31px);
+  font-weight: 500; letter-spacing: -0.028em; line-height: 1.08;
+  margin-bottom: 10px;
+}
+.item-b { color: var(--ink-soft); font-size: 15px; line-height: 1.7; max-width: 50ch; }
+
+.tag {
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  padding: 4px 9px;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* ---------- 05 engagement ---------- */
+
+.eng-h {
+  font-size: clamp(38px, 7vw, 92px);
+  margin-bottom: clamp(32px, 4vw, 54px);
+}
+
+.eng-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+  gap: clamp(24px, 3vw, 52px);
+  padding-top: clamp(22px, 2.8vw, 36px);
+  border-top: 1px solid var(--line-soft);
+}
+.eng-k { color: var(--ink-soft); display: block; margin-bottom: 9px; }
+.eng-v { font-size: 15.5px; line-height: 1.62; }
+
+.email {
+  font-size: clamp(19px, 2.1vw, 27px);
+  font-weight: 400;
+  letter-spacing: -0.026em;
+  text-decoration: none;
+  color: var(--accent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  padding-bottom: 2px;
+  display: inline-block;
+  transition: border-color 0.18s linear;
+  word-break: break-word;
+}
+.email:hover { border-bottom-color: var(--accent); }
+
+.eng-note {
+  margin-top: clamp(30px, 3.6vw, 46px);
+  padding-top: clamp(20px, 2.4vw, 30px);
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft);
+  font-size: 15.5px; line-height: 1.72;
+  max-width: 56ch;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  border-top: 1px solid var(--line);
+  padding: clamp(26px, 3vw, 40px) var(--pad);
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  color: var(--ink-soft);
+}
+.foot-mark {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+  display: block; margin-bottom: 5px;
+}
+.foot-mark span { color: var(--accent); }
+
+/* ---------- reveal ---------- */
+
+.rv { opacity: 0; transform: translateY(12px); }
+.rv-on {
+  opacity: 1; transform: none;
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .stage { grid-template-columns: 34px minmax(0, 1fr); }
+  .spec { grid-column: 2; padding-top: 4px; }
+}
+
+@media (max-width: 760px) {
+  .sec, .mast-mid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .rail { position: static; margin-bottom: 22px; }
+  .rail-t { display: inline; margin-top: 0; }
+  .rail-n::after { content: " /"; color: var(--ink-soft); }
+  .rail-n { display: inline; margin-right: 5px; }
+  .mast-mid .meta { margin-bottom: 16px; }
+  .item { grid-template-columns: minmax(0, 1fr); }
+  .tag { justify-self: start; align-self: start; }
+}
+
+@media (max-width: 620px) {
+  .nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 4px var(--pad) 16px;
+    display: none;
   }
-  footer { flex-direction: column; align-items: flex-start; }
+  .nav[data-open="true"] { display: flex; }
+  .nav a { padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+  .nav a:last-child { border-bottom: none; }
+  .burger { display: grid; }
+  .foot { align-items: flex-start; }
+}
+
+/* ---------- motion / print ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .rv { opacity: 1; transform: none; }
+}
+
+@media print {
+  .topbar, .icon-btn, .burger { display: none; }
+  body { background: #FFF; color: #000; }
+  .standard { background: #FFF; color: #000; }
 }
 </style>
 </head>
+
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav id="nav">
-  <a href="#" class="nav-logo">DEE &amp; CO</a>
-  <ul class="nav-links" id="navlinks">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#standard">The Standard</a></li>
-    <li><a href="#method">Framework</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="toggle-btn" id="togglebtn" aria-label="Toggle dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </button>
-    <button class="ham" id="hambtn" aria-label="Menu"><span></span><span></span></button>
+<header class="topbar" id="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="#top">Dee <span>&amp;</span> Co</a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#thesis">Thesis</a>
+      <a href="#framework">Framework</a>
+      <a href="#research">Research</a>
+      <a href="#engagement">Contact</a>
+    </nav>
+
+    <div class="controls">
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 1.4v2.4M12 20.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M1.4 12h2.4M20.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
+        </svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-body">
-    <span class="eyebrow">Capital Advisory</span>
-    <h1 class="wordmark">DEE &amp; CO</h1>
-    <div class="hero-rule"></div>
-    <p class="tagline">A venture intelligence firm applying institutional-quality judgment to private market decisions.</p>
-  </div>
-  <div class="hero-foot">
-    <span class="scroll-line"></span>
-    <span>Scroll</span>
-  </div>
-</section>
+<main id="main">
 
-<div class="div"></div>
-
-<!-- THESIS -->
-<section class="sec" id="about">
-  <div class="inner">
-    <p class="thesis">Most capital in private markets is misallocated. Not because exceptional companies are scarce. Not because capital is absent. Because the process of connecting the two has almost no institutional quality.</p>
-    <p class="coda">That gap is where Dee &amp; Co operates.</p>
-  </div>
-</section>
-
-<div class="div"></div>
-
-<!-- ANCHOR -->
-<section class="anchor-sec" id="standard">
-  <p class="anchor-line">We do not introduce companies to investors whose thesis we cannot articulate precisely.</p>
-</section>
-
-<div class="div"></div>
-
-<!-- PIPELINE -->
-<section class="pipe-sec">
-  <span class="pipe-label">Live Pipeline</span>
-  <h2 class="pipe-title">How Mandates Move</h2>
-  <p class="pipe-sub">A representation of the Dee &amp; Co process in real time.</p>
-  <div class="board">
+  <!-- ============ MASTHEAD ============ -->
+  <section class="mast" id="top">
     <div>
-      <div class="col-head">
-        <span class="col-name">Evaluate</span>
-        <span class="col-cnt" id="cnt-e">0</span>
+      <div class="mast-top">
+        <span class="meta accent">Capital Advisory</span>
+        <span class="meta">Mumbai, India</span>
+        <span class="meta">Est. 2026</span>
       </div>
-      <div class="cards" id="col-e"></div>
+
+      <h1 class="wordmark">Dee <span class="amp">&amp;</span> Co</h1>
     </div>
-    <div class="conn">
-      <div class="conn-line">
-        <div class="conn-dot"></div><div class="conn-dot"></div><div class="conn-dot"></div>
-        <div class="conn-arrow"></div>
-      </div>
-    </div>
+
     <div>
-      <div class="col-head">
-        <span class="col-name">Position</span>
-        <span class="col-cnt" id="cnt-p">0</span>
+      <div class="mast-mid">
+        <span class="meta">Practice</span>
+        <p class="mast-claim">A venture intelligence firm applying institutional-quality judgment to private market decisions.</p>
       </div>
-      <div class="cards" id="col-p"></div>
-    </div>
-    <div class="conn">
-      <div class="conn-line">
-        <div class="conn-dot"></div><div class="conn-dot"></div><div class="conn-dot"></div>
-        <div class="conn-arrow"></div>
+
+      <div class="strip meta">
+        <span>Evaluate <b>/</b> Position <b>/</b> Match</span>
+        <span>Seed to Series B</span>
+        <span>Founders <b>&amp;</b> Investors</span>
+        <span>19.0760&deg; N, 72.8777&deg; E</span>
       </div>
     </div>
+  </section>
+
+  <!-- ============ 01 THESIS ============ -->
+  <section class="sec band rv" id="thesis">
+    <div class="rail meta">
+      <span class="rail-n">01</span>
+      <h2 class="rail-t">Thesis</h2>
+    </div>
+
     <div>
-      <div class="col-head">
-        <span class="col-name">Match</span>
-        <span class="col-cnt" id="cnt-m">0</span>
+      <p class="display thesis-h">Most capital in private markets is misallocated.</p>
+
+      <div class="thesis-cols">
+        <p>Not because exceptional companies are scarce. Not because capital is absent. Because the process of connecting the two has almost no institutional quality.</p>
+        <p>Founders raise on narrative and hope the numbers hold. Investors screen on pattern and hope diligence confirms it. Both sides spend months discovering what two weeks of honest preparation would have surfaced on day one.</p>
+        <p>The cost is not only the raises that fail. It is the good companies that price themselves badly, the funds that never see the deal that fit them, and the eighteen months neither side gets back.</p>
       </div>
-      <div class="cards" id="col-m"></div>
-    </div>
-  </div>
-</section>
 
-<div class="div"></div>
-
-<!-- RESEARCH -->
-<section class="sec" id="research">
-  <div class="inner">
-    <div class="res-head">
-      <h2 class="res-h">Research</h2>
-      <a href="#" class="res-arch">View archive</a>
+      <p class="coda">That gap is where <i>Dee &amp; Co</i> operates.</p>
     </div>
-    <div class="res-list">
-      <a href="#" class="res-row">
-        <div>
-          <span class="row-series">Behind the Raise</span>
-          <span class="row-num">01</span>
-        </div>
-        <div>
-          <h3 class="row-title">The Raise Nobody Talks About</h3>
-          <p class="row-blurb">Every instalment contains at least one thing the founder would not say in public. Not inspiration. Diagnosis.</p>
-        </div>
-      </a>
-      <a href="#" class="res-row">
-        <div>
-          <span class="row-series">Capital Signals</span>
-          <span class="row-num">02</span>
-        </div>
-        <div>
-          <h3 class="row-title">Where Capital Is Moving Next</h3>
-          <p class="row-blurb">A forward argument on Indian private markets. Could be wrong, which is what makes it worth reading.</p>
-        </div>
-      </a>
-      <a href="#" class="res-row">
-        <div>
-          <span class="row-series">Fund Files</span>
-          <span class="row-num">03</span>
-        </div>
-        <div>
-          <h3 class="row-title">How Investors Actually Think</h3>
-          <p class="row-blurb">What the pattern of a portfolio reveals about real criteria versus stated ones.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<div class="div"></div>
-
-<!-- FRAMEWORK -->
-<section class="sec" id="method">
-  <div class="inner">
-    <div class="fw-hdr">
-      <h2 class="fw-h">The Framework</h2>
-      <p class="fw-intro">Three stages. Each conditional on the previous. Nothing skipped.</p>
+  <!-- ============ 02 THE STANDARD ============ -->
+  <section class="sec band standard rv" id="standard">
+    <div class="rail meta">
+      <span class="rail-n">02</span>
+      <h2 class="rail-t">The Standard</h2>
     </div>
-    <div class="stages">
-      <div class="stage">
-        <span class="st-idx">01</span>
-        <h3 class="st-name">Evaluate.</h3>
-        <p class="st-desc">An honest written assessment including what is not ready. If we would not invest, we say so before anything else happens.</p>
+
+    <div>
+      <p class="display standard-q">We do not introduce companies to investors whose thesis we cannot articulate precisely.</p>
+      <p class="standard-note meta">This is the constraint the rest of the practice is built around. Everything below follows from it.</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 FRAMEWORK ============ -->
+  <section class="sec band rv" id="framework">
+    <div class="rail meta">
+      <span class="rail-n">03</span>
+      <h2 class="rail-t">Framework</h2>
+    </div>
+
+    <div>
+      <p class="fw-intro">Three stages. Each conditional on the one before it. Nothing skipped, and nothing begun before the previous stage closes.</p>
+
+      <div class="ledger">
+
+        <article class="stage">
+          <span class="stage-n">01</span>
+          <div>
+            <h3 class="stage-name">Evaluate</h3>
+            <p class="stage-desc">An honest written assessment of the business, the numbers, and the raise, including everything that is not ready. If we would not put our own capital in, we say so before anything else happens.</p>
+          </div>
+          <dl class="spec">
+            <div>
+              <dt class="meta">Deliverable</dt>
+              <dd class="eng-v">Written evaluation memo. Readiness verdict.</dd>
+            </div>
+            <div>
+              <dt class="meta">Typical duration</dt>
+              <dd class="dur">2 to 3 weeks</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="stage">
+          <span class="stage-n">02</span>
+          <div>
+            <h3 class="stage-name">Position</h3>
+            <p class="stage-desc">The narrative, the documents, and the financial architecture rebuilt to answer every serious question before it is asked. The work is finished when a skeptical partner cannot find the soft edge.</p>
+          </div>
+          <dl class="spec">
+            <div>
+              <dt class="meta">Deliverable</dt>
+              <dd class="eng-v">Investor narrative. Data room. Financial model.</dd>
+            </div>
+            <div>
+              <dt class="meta">Typical duration</dt>
+              <dd class="dur">4 to 8 weeks</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="stage">
+          <span class="stage-n">03</span>
+          <div>
+            <h3 class="stage-name">Match</h3>
+            <p class="stage-desc">An introduction made only when thesis, portfolio construction, and timing align. We introduce on precision rather than probability, which means fewer conversations and better ones.</p>
+          </div>
+          <dl class="spec">
+            <div>
+              <dt class="meta">Deliverable</dt>
+              <dd class="eng-v">Targeted introductions. Process management.</dd>
+            </div>
+            <div>
+              <dt class="meta">Typical duration</dt>
+              <dd class="dur">Ongoing through close</dd>
+            </div>
+          </dl>
+        </article>
+
       </div>
-      <div class="stage">
-        <span class="st-idx">02</span>
-        <h3 class="st-name">Position.</h3>
-        <p class="st-desc">The narrative, documents, and financial architecture built to answer every serious question before it is asked.</p>
-      </div>
-      <div class="stage">
-        <span class="st-idx">03</span>
-        <h3 class="st-name">Match.</h3>
-        <p class="st-desc">An introduction made only when thesis, portfolio, and timing align. We introduce on precision, not probability.</p>
+    </div>
+  </section>
+
+  <!-- ============ 04 RESEARCH ============ -->
+  <section class="sec band rv" id="research">
+    <div class="rail meta">
+      <span class="rail-n">04</span>
+      <h2 class="rail-t">Research</h2>
+    </div>
+
+    <div>
+      <p class="res-intro">Three running series. Published irregularly, when there is something worth saying.</p>
+
+      <div class="series">
+
+        <!-- When a piece goes live, wrap .item contents in
+             <a href="/research/slug"> and swap .tag for the date. -->
+        <article class="item">
+          <div>
+            <span class="item-k meta">Behind the Raise</span>
+            <h3 class="item-h">The Raise Nobody Talks About</h3>
+            <p class="item-b">Every instalment contains at least one thing the founder would not say in public. Not inspiration. Diagnosis.</p>
+          </div>
+          <span class="tag meta">In preparation</span>
+        </article>
+
+        <article class="item">
+          <div>
+            <span class="item-k meta">Capital Signals</span>
+            <h3 class="item-h">Where Capital Is Moving Next</h3>
+            <p class="item-b">A forward argument on Indian private markets. It could be wrong, which is the only thing that makes it worth reading.</p>
+          </div>
+          <span class="tag meta">In preparation</span>
+        </article>
+
+        <article class="item">
+          <div>
+            <span class="item-k meta">Fund Files</span>
+            <h3 class="item-h">How Investors Actually Think</h3>
+            <p class="item-b">What the shape of a portfolio reveals about a fund's real criteria, as opposed to its stated ones.</p>
+          </div>
+          <span class="tag meta">In preparation</span>
+        </article>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="div"></div>
-
-<!-- CONTACT -->
-<section class="sec" id="contact">
-  <div class="inner">
-    <div class="ct-inner">
-      <span class="ct-lbl">Contact</span>
-      <h2 class="ct-h">Begin a<br>Conversation.</h2>
-      <p class="ct-dt">Deeptesh Mejari, Founder and Principal Advisor</p>
-      <a href="mailto:deeptesh@deeandco.in" class="ct-email">deeptesh@deeandco.in</a>
-      <p class="ct-dt">Mumbai, India</p>
-      <p class="ct-note">We work with a small number of founders and investors each quarter. If you believe your company merits institutional-grade preparation and placement, or if you are an investor looking for curated deal flow, we would like to hear from you.</p>
+  <!-- ============ 05 ENGAGEMENT ============ -->
+  <section class="sec band rv" id="engagement">
+    <div class="rail meta">
+      <span class="rail-n">05</span>
+      <h2 class="rail-t">Engagement</h2>
     </div>
-  </div>
-</section>
 
-<footer>
-  <div class="ft-l">
-    <span class="ft-w">DEE &amp; CO</span>
-    <span class="ft-s">Capital Advisory</span>
+    <div>
+      <p class="display eng-h">Begin a conversation.</p>
+
+      <div class="eng-grid">
+        <div>
+          <span class="eng-k meta">Principal</span>
+          <p class="eng-v">Deeptesh Mejari<br>Founder and Principal Advisor</p>
+        </div>
+        <div>
+          <span class="eng-k meta">Direct</span>
+          <a class="email" href="mailto:deeptesh@deeandco.in">deeptesh@deeandco.in</a>
+        </div>
+        <div>
+          <span class="eng-k meta">Office</span>
+          <p class="eng-v">Mumbai, India<br>By appointment</p>
+        </div>
+      </div>
+
+      <p class="eng-note">We take on a small number of founders and investors each quarter. If you believe your company merits institutional grade preparation and placement, or you are an investor looking for curated deal flow, write directly. Include what you are building, what you have raised, and what you are raising next.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div>
+    <span class="foot-mark">Dee <span>&amp;</span> Co</span>
+    <span class="meta">Capital Advisory</span>
   </div>
-  <span class="ft-r">2026 Dee &amp; Co Capital Advisory. Mumbai, India.</span>
+  <span class="meta">&copy; 2026 Dee &amp; Co Capital Advisory. Mumbai, India.</span>
 </footer>
 
 <script>
-/* DARK MODE TOGGLE */
-var togglebtn = document.getElementById('togglebtn');
-togglebtn.addEventListener('click', function() {
-  var current = document.documentElement.getAttribute('data-theme');
-  var next = (current === 'dark') ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-});
+(function () {
+  'use strict';
 
-/* NAV on scroll */
-var nav = document.getElementById('nav');
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 60) { nav.classList.add('show'); }
-  else { nav.classList.remove('show'); }
-}, { passive: true });
+  var root = document.documentElement;
 
-/* MOBILE MENU */
-var hambtn = document.getElementById('hambtn');
-var navlinks = document.getElementById('navlinks');
-hambtn.addEventListener('click', function() {
-  navlinks.classList.toggle('open');
-});
-navlinks.querySelectorAll('a').forEach(function(a) {
-  a.addEventListener('click', function() { navlinks.classList.remove('open'); });
-});
+  /* ---- theme ---------------------------------------------------------
+     Starts from the OS preference. Kept in memory only.
+     To persist across visits on your own domain, add:
+       localStorage.setItem('theme', mode)   inside setTheme()
+       var saved = localStorage.getItem('theme')   as the initial value
+  --------------------------------------------------------------------- */
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var btn = document.getElementById('theme');
 
-/* PIPELINE */
-var DATA = [
-  { name: 'Clearflow Tech',  info: 'Fintech, Series A',     pct: 72 },
-  { name: 'Nomad Health',    info: 'Healthtech, Seed',       pct: 45 },
-  { name: 'GridAI Labs',     info: 'Infrastructure, Pre-A',  pct: 58 },
-  { name: 'Mello Commerce',  info: 'D2C, Seed',              pct: 33 },
-  { name: 'Vero Systems',    info: 'SaaS, Series A',         pct: 88 },
-  { name: 'Arkin Bio',       info: 'Life Sciences, Seed',    pct: 27 },
-  { name: 'Flux Energy',     info: 'Cleantech, Pre-A',       pct: 61 },
-  { name: 'Pragma Finance',  info: 'Fintech, Series B',      pct: 94 },
-  { name: 'Desh Logistics',  info: 'Logistics, Series A',    pct: 50 }
-];
-var di = 0;
-
-function colEl(id) { return document.getElementById('col-' + id); }
-function cntEl(id) { return document.getElementById('cnt-' + id); }
-
-function refreshCount(id) {
-  var c = colEl(id);
-  var el = cntEl(id);
-  if (c && el) el.textContent = c.children.length;
-}
-
-function buildCard(d) {
-  var div = document.createElement('div');
-  div.className = 'card';
-  div.innerHTML =
-    '<div class="card-top"><span class="card-name">' + d.name + '</span><span class="card-dot"></span></div>' +
-    '<span class="card-info">' + d.info + '</span>' +
-    '<div class="card-bar"><div class="card-fill" style="width:' + d.pct + '%"></div></div>';
-  return div;
-}
-
-/* Seed with visible cards */
-function seed(id, d) {
-  var w = colEl(id);
-  if (!w) return;
-  w.appendChild(buildCard(d));
-  refreshCount(id);
-}
-
-/* Animate a new card into a column */
-function addCard(id, d, cap) {
-  var w = colEl(id);
-  if (!w) return;
-  var card = buildCard(d);
-  card.classList.add('in');
-  w.insertBefore(card, w.firstChild);
-  /* next frame: remove class so transition plays */
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() { card.classList.remove('in'); });
-  });
-  /* trim if over cap */
-  while (w.children.length > cap) {
-    var old = w.lastElementChild;
-    old.classList.add('out');
-    (function(el, colid) {
-      setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); refreshCount(colid); }, 420);
-    })(old, id);
+  function setTheme(mode) {
+    root.setAttribute('data-theme', mode);
+    btn.setAttribute('aria-label', mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
   }
-  refreshCount(id);
-}
+  setTheme(prefersDark ? 'dark' : 'light');
 
-/* Move last card from one col to another */
-function moveCard(fromId, toId, cap) {
-  var fw = colEl(fromId);
-  if (!fw || !fw.lastElementChild) return;
-  var card = fw.lastElementChild;
-  card.classList.add('out');
-  (function(c, fid, tid, tcap) {
-    setTimeout(function() {
-      if (!c.parentNode) return;
-      c.parentNode.removeChild(c);
-      refreshCount(fid);
-      var tw = colEl(tid);
-      if (!tw) return;
-      c.classList.remove('out');
-      c.classList.add('in');
-      tw.insertBefore(c, tw.firstChild);
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() { c.classList.remove('in'); });
-      });
-      while (tw.children.length > tcap) {
-        var old = tw.lastElementChild;
-        old.classList.add('out');
-        (function(o, id2) {
-          setTimeout(function() { if (o.parentNode) o.parentNode.removeChild(o); refreshCount(id2); }, 420);
-        })(old, tid);
+  btn.addEventListener('click', function () {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---- mobile menu --------------------------------------------------- */
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+
+  function closeNav() {
+    nav.removeAttribute('data-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+
+  burger.addEventListener('click', function () {
+    var open = burger.getAttribute('aria-expanded') === 'true';
+    if (open) { closeNav(); }
+    else {
+      nav.setAttribute('data-open', 'true');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') closeNav();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  /* ---- topbar hairline on scroll -------------------------------------
+     Uses a sentinel + IntersectionObserver rather than a scroll handler,
+     so nothing runs on the main thread while scrolling.
+  --------------------------------------------------------------------- */
+  var topbar = document.getElementById('topbar');
+
+  if ('IntersectionObserver' in window) {
+    var sentinel = document.createElement('div');
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+    document.body.insertBefore(sentinel, document.body.firstChild);
+
+    new IntersectionObserver(function (entries) {
+      topbar.setAttribute('data-scrolled', entries[0].isIntersecting ? 'false' : 'true');
+    }).observe(sentinel);
+  }
+
+  /* ---- section reveal -------------------------------------------------
+     Each element is unobserved the moment it fires, so the observer
+     drains to empty and holds no references. No timers, no intervals.
+  --------------------------------------------------------------------- */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.rv');
+  var i;
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (i = 0; i < targets.length; i++) targets[i].classList.remove('rv');
+  } else {
+    var reveal = new IntersectionObserver(function (entries, obs) {
+      for (var n = 0; n < entries.length; n++) {
+        if (!entries[n].isIntersecting) continue;
+        entries[n].target.classList.add('rv-on');
+        obs.unobserve(entries[n].target);
       }
-      refreshCount(tid);
-    }, 420);
-  })(card, fromId, toId, cap);
-}
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
 
-function tick() {
-  var d = DATA[di % DATA.length]; di++;
-  addCard('e', d, 3);
-  setTimeout(function() { moveCard('e', 'p', 2); }, 850);
-  setTimeout(function() { moveCard('p', 'm', 2); }, 1700);
-}
-
-/* Seed initial cards right away */
-seed('e', DATA[0]);
-seed('e', DATA[1]);
-seed('p', DATA[2]);
-seed('p', DATA[3]);
-seed('m', DATA[4]);
-di = 5;
-setInterval(tick, 3000);
+    for (i = 0; i < targets.length; i++) reveal.observe(targets[i]);
+  }
+})();
 </script>
 </body>
 </html>
