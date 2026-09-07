@@ -40,8 +40,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body, h1, h2, h3, p, figure, dl, dd, ul { margin: 0; padding: 0; }
+body, h1, h2, h3, p, figure, dl, dd, ul, fieldset, legend { margin: 0; padding: 0; }
 ul { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+[hidden] { display: none !important; }
 
 :root {
   color-scheme: light dark;
@@ -125,14 +127,6 @@ a { color: inherit; }
   text-wrap: balance;
 }
 
-.lede {
-  font-size: clamp(17px, 1.45vw, 20px);
-  font-weight: 300;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  max-width: 46ch;
-}
-
 /* ---------- masthead nav ---------- */
 
 .topbar {
@@ -205,6 +199,9 @@ a { color: inherit; }
 /* ---------- page grid ---------- */
 
 .band { border-top: 1px solid var(--line); }
+
+/* the topbar is sticky, so anything scrolled to needs to clear it */
+.sec, .q, .verdict { scroll-margin-top: 88px; }
 
 .sec {
   display: grid;
@@ -306,10 +303,7 @@ a { color: inherit; }
 
 /* ---------- 02 standard (inverted) ---------- */
 
-.standard {
-  background: var(--ink);
-  color: var(--paper);
-}
+.standard { background: var(--ink); color: var(--paper); }
 .standard .rail-t { color: color-mix(in srgb, var(--paper) 62%, transparent); }
 .standard .rail-n { color: var(--paper); }
 .standard-q {
@@ -370,47 +364,128 @@ a { color: inherit; }
 .spec dd { font-size: 14.5px; line-height: 1.55; }
 .spec .dur { font-family: var(--mono); font-size: 13px; letter-spacing: 0.01em; }
 
-/* ---------- 04 research ---------- */
+/* ---------- 04 pitch to us / readiness check ---------- */
 
-.res-intro {
-  max-width: 44ch;
-  margin-bottom: clamp(30px, 4vw, 54px);
-  font-size: clamp(17px, 1.4vw, 20px);
-  font-weight: 300; line-height: 1.55; color: var(--ink-soft);
+.pitch-h {
+  font-size: clamp(30px, 5vw, 64px);
+  max-width: 13ch;
+  margin-bottom: clamp(20px, 2.6vw, 32px);
+}
+.pitch-intro {
+  max-width: 54ch;
+  margin-bottom: clamp(30px, 4vw, 52px);
+  font-size: clamp(16px, 1.35vw, 19px);
+  font-weight: 300; line-height: 1.6; color: var(--ink-soft);
 }
 
-.series { border-top: 1px solid var(--line); }
+.check { border-top: 1px solid var(--line); }
 
-.item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px clamp(16px, 2.4vw, 40px);
-  align-items: start;
-  padding: clamp(24px, 3vw, 38px) 0;
-  border-bottom: 1px solid var(--line-soft);
+.q { border-bottom: 1px solid var(--line-soft); padding: clamp(20px, 2.4vw, 28px) 0; }
+.q legend { display: block; width: 100%; margin-bottom: 14px; }
+.q-n { color: var(--accent); margin-right: 10px; }
+.q-t {
+  font-size: clamp(16px, 1.5vw, 20px); font-weight: 500;
+  letter-spacing: -0.02em; line-height: 1.3;
 }
-.item-k { color: var(--accent); display: block; margin-bottom: 10px; }
-.item-h {
-  font-size: clamp(20px, 2.35vw, 31px);
-  font-weight: 500; letter-spacing: -0.028em; line-height: 1.08;
-  margin-bottom: 10px;
-}
-.item-b { color: var(--ink-soft); font-size: 15px; line-height: 1.7; max-width: 50ch; }
+.q-hint { display: block; color: var(--ink-soft); margin-top: 6px; }
 
-.tag {
-  border: 1px solid var(--line);
-  color: var(--ink-soft);
-  padding: 4px 9px;
-  white-space: nowrap;
-  align-self: center;
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { display: inline-flex; cursor: pointer; }
+.opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+.opt span {
+  display: block; border: 1px solid var(--line);
+  padding: 7px 13px; font-size: 13.5px; color: var(--ink-soft);
+  transition: color .15s linear, border-color .15s linear, background-color .15s linear;
+}
+.opt:hover span { border-color: var(--ink); color: var(--ink); }
+.opt input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.opt input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.act { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: clamp(22px, 2.6vw, 30px); }
+.btn {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
+  padding: 13px 22px; cursor: pointer;
+  transition: background-color .15s linear, color .15s linear;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.note { color: var(--accent); }
+
+/* verdict */
+.verdict {
+  margin-top: clamp(32px, 4vw, 52px);
+  border-top: 2px solid var(--accent);
+  padding-top: clamp(22px, 2.6vw, 32px);
+}
+.v-k { color: var(--accent); display: block; margin-bottom: 12px; }
+.v-h {
+  font-size: clamp(25px, 3.6vw, 46px); font-weight: 500;
+  letter-spacing: -0.032em; line-height: 1.04;
+  margin-bottom: 16px; max-width: 18ch; text-wrap: balance;
+}
+.v-read {
+  color: var(--ink-soft); font-size: 15.5px; line-height: 1.72;
+  max-width: 56ch; margin-bottom: clamp(24px, 3vw, 34px);
+}
+.gaps { border-top: 1px solid var(--line-soft); }
+.gap {
+  display: grid; grid-template-columns: 132px minmax(0, 1fr);
+  gap: 6px clamp(16px, 2.2vw, 32px);
+  padding: 18px 0; border-bottom: 1px solid var(--line-soft);
+}
+.gap-k { color: var(--accent); }
+.gap-t { color: var(--ink-soft); font-size: 15px; line-height: 1.7; max-width: 54ch; }
+.v-foot { margin-top: clamp(20px, 2.4vw, 28px); color: var(--ink-soft); max-width: 56ch; line-height: 1.7; }
+
+/* send */
+.send {
+  margin-top: clamp(30px, 3.6vw, 46px);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(24px, 2.8vw, 34px);
+}
+.send-h {
+  font-size: clamp(20px, 2.2vw, 28px); font-weight: 500;
+  letter-spacing: -0.028em; margin-bottom: 10px;
+}
+.send-sub {
+  color: var(--ink-soft); font-size: 15px; line-height: 1.7;
+  max-width: 52ch; margin-bottom: clamp(22px, 2.6vw, 30px);
+}
+.fields {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  gap: clamp(18px, 2.2vw, 28px);
+}
+.f-k { display: block; color: var(--ink-soft); margin-bottom: 7px; }
+.f input {
+  width: 100%; background: transparent; color: var(--ink);
+  border: 0; border-bottom: 1px solid var(--line);
+  padding: 7px 0; font-family: inherit; font-size: 15px;
+}
+.f input::placeholder { color: var(--ink-soft); opacity: 0.75; }
+.f input:hover { border-bottom-color: var(--ink); }
+.f input:focus { outline: none; border-bottom-color: var(--accent); }
+.f input:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.consent {
+  display: flex; gap: 11px; align-items: flex-start;
+  margin-top: clamp(22px, 2.6vw, 30px); cursor: pointer;
+}
+.consent input { margin: 3px 0 0; accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+.consent span { color: var(--ink-soft); font-size: 14px; line-height: 1.65; max-width: 58ch; }
+
+.notice {
+  margin-top: 18px; padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft); max-width: 62ch; line-height: 1.75;
+  text-transform: none;          /* people actually read this one */
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
 }
 
 /* ---------- 05 engagement ---------- */
 
-.eng-h {
-  font-size: clamp(38px, 7vw, 92px);
-  margin-bottom: clamp(32px, 4vw, 54px);
-}
+.eng-h { font-size: clamp(38px, 7vw, 92px); margin-bottom: clamp(32px, 4vw, 54px); }
 
 .eng-grid {
   display: grid;
@@ -460,6 +535,7 @@ a { color: inherit; }
   display: block; margin-bottom: 5px;
 }
 .foot-mark span { color: var(--accent); }
+.foot-reg { display: block; margin-top: 4px; }
 
 /* ---------- reveal ---------- */
 
@@ -483,8 +559,7 @@ a { color: inherit; }
   .rail-n::after { content: " /"; color: var(--ink-soft); }
   .rail-n { display: inline; margin-right: 5px; }
   .mast-mid .meta { margin-bottom: 16px; }
-  .item { grid-template-columns: minmax(0, 1fr); }
-  .tag { justify-self: start; align-self: start; }
+  .gap { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 
 @media (max-width: 620px) {
@@ -516,13 +591,12 @@ a { color: inherit; }
 }
 
 @media print {
-  .topbar, .icon-btn, .burger { display: none; }
+  .topbar, .icon-btn, .burger, .check, .send { display: none; }
   body { background: #FFF; color: #000; }
   .standard { background: #FFF; color: #000; }
 }
 </style>
 </head>
-
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -533,7 +607,7 @@ a { color: inherit; }
     <nav class="nav" id="nav" aria-label="Primary">
       <a href="#thesis">Thesis</a>
       <a href="#framework">Framework</a>
-      <a href="#research">Research</a>
+      <a href="#pitch">Pitch to Us</a>
       <a href="#engagement">Contact</a>
     </nav>
 
@@ -564,7 +638,6 @@ a { color: inherit; }
         <span class="meta">Mumbai, India</span>
         <span class="meta">Est. 2026</span>
       </div>
-
       <h1 class="wordmark">Dee <span class="amp">&amp;</span> Co</h1>
     </div>
 
@@ -576,7 +649,7 @@ a { color: inherit; }
 
       <div class="strip meta">
         <span>Evaluate <b>/</b> Position <b>/</b> Match</span>
-        <span>Seed to Series B</span>
+        <span>Pre-seed to Pre-IPO</span>
         <span>Founders <b>&amp;</b> Investors</span>
         <span>19.0760&deg; N, 72.8777&deg; E</span>
       </div>
@@ -686,48 +759,167 @@ a { color: inherit; }
     </div>
   </section>
 
-  <!-- ============ 04 RESEARCH ============ -->
-  <section class="sec band rv" id="research">
+  <!-- ============ 04 PITCH TO US ============
+       The research section that used to sit here is removed until the first
+       piece is published. Restore it from the previous version of this file. -->
+  <section class="sec band rv" id="pitch">
     <div class="rail meta">
       <span class="rail-n">04</span>
-      <h2 class="rail-t">Research</h2>
+      <h2 class="rail-t">Pitch to Us</h2>
     </div>
 
     <div>
-      <p class="res-intro">Three running series. Published irregularly, when there is something worth saying.</p>
+      <p class="display pitch-h">Test the raise before we do.</p>
+      <p class="pitch-intro">Eight questions, and the same first read we would give you in week one of an engagement, including what is not ready. Nothing is sent and no email is asked for until you have seen the result.</p>
 
-      <div class="series">
+      <form class="check" id="check" novalidate>
 
-        <!-- When a piece goes live, wrap .item contents in
-             <a href="/research/slug"> and swap .tag for the date. -->
-        <article class="item">
-          <div>
-            <span class="item-k meta">Behind the Raise</span>
-            <h3 class="item-h">The Raise Nobody Talks About</h3>
-            <p class="item-b">Every instalment contains at least one thing the founder would not say in public. Not inspiration. Diagnosis.</p>
+        <fieldset class="q">
+          <legend><span class="q-n meta">01</span><span class="q-t">What are you raising?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="stage" data-v="0"><span>Pre-seed</span></label>
+            <label class="opt"><input type="radio" name="stage" data-v="1"><span>Seed</span></label>
+            <label class="opt"><input type="radio" name="stage" data-v="2"><span>Series A</span></label>
+            <label class="opt"><input type="radio" name="stage" data-v="3"><span>Series B to D</span></label>
+            <label class="opt"><input type="radio" name="stage" data-v="4"><span>Growth or pre-IPO</span></label>
           </div>
-          <span class="tag meta">In preparation</span>
-        </article>
+        </fieldset>
 
-        <article class="item">
-          <div>
-            <span class="item-k meta">Capital Signals</span>
-            <h3 class="item-h">Where Capital Is Moving Next</h3>
-            <p class="item-b">A forward argument on Indian private markets. It could be wrong, which is the only thing that makes it worth reading.</p>
+        <fieldset class="q">
+          <legend><span class="q-n meta">02</span><span class="q-t">How much?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="amount" data-v="0"><span>Under 1 Cr</span></label>
+            <label class="opt"><input type="radio" name="amount" data-v="1"><span>1 to 5 Cr</span></label>
+            <label class="opt"><input type="radio" name="amount" data-v="2"><span>5 to 25 Cr</span></label>
+            <label class="opt"><input type="radio" name="amount" data-v="3"><span>25 to 100 Cr</span></label>
+            <label class="opt"><input type="radio" name="amount" data-v="4"><span>Over 100 Cr</span></label>
           </div>
-          <span class="tag meta">In preparation</span>
-        </article>
+        </fieldset>
 
-        <article class="item">
-          <div>
-            <span class="item-k meta">Fund Files</span>
-            <h3 class="item-h">How Investors Actually Think</h3>
-            <p class="item-b">What the shape of a portfolio reveals about a fund's real criteria, as opposed to its stated ones.</p>
+        <fieldset class="q">
+          <legend><span class="q-n meta">03</span><span class="q-t">Equity or debt?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="instrument" data-v="0"><span>Equity</span></label>
+            <label class="opt"><input type="radio" name="instrument" data-v="1"><span>Debt</span></label>
+            <label class="opt"><input type="radio" name="instrument" data-v="2"><span>Both or undecided</span></label>
           </div>
-          <span class="tag meta">In preparation</span>
-        </article>
+        </fieldset>
 
+        <fieldset class="q">
+          <legend><span class="q-n meta">04</span><span class="q-t">Where is revenue today?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="revenue" data-v="0"><span>Pre-revenue</span></label>
+            <label class="opt"><input type="radio" name="revenue" data-v="1"><span>Under 1 Cr ARR</span></label>
+            <label class="opt"><input type="radio" name="revenue" data-v="2"><span>1 to 10 Cr ARR</span></label>
+            <label class="opt"><input type="radio" name="revenue" data-v="3"><span>Over 10 Cr ARR</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>
+            <span class="q-n meta">05</span><span class="q-t">What state are the numbers in?</span>
+            <span class="q-hint meta">Be honest here. This is the answer that moves the read the most.</span>
+          </legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="numbers" data-v="0"><span>No formal model</span></label>
+            <label class="opt"><input type="radio" name="numbers" data-v="1"><span>A spreadsheet that is roughly right</span></label>
+            <label class="opt"><input type="radio" name="numbers" data-v="2"><span>A model that ties to actuals</span></label>
+            <label class="opt"><input type="radio" name="numbers" data-v="3"><span>Audited financials and a model on top</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend><span class="q-n meta">06</span><span class="q-t">What exists by way of a data room?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="room" data-v="0"><span>Nothing yet</span></label>
+            <label class="opt"><input type="radio" name="room" data-v="1"><span>Documents exist but scattered</span></label>
+            <label class="opt"><input type="radio" name="room" data-v="2"><span>An organised folder</span></label>
+            <label class="opt"><input type="radio" name="room" data-v="3"><span>An indexed, diligence-ready room</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend><span class="q-n meta">07</span><span class="q-t">How clean is the cap table?</span></legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="cap" data-v="3"><span>Clean and fully documented</span></label>
+            <label class="opt"><input type="radio" name="cap" data-v="2"><span>Complex but documented</span></label>
+            <label class="opt"><input type="radio" name="cap" data-v="1"><span>I am not certain</span></label>
+            <label class="opt"><input type="radio" name="cap" data-v="0"><span>There are known issues</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q">
+          <legend>
+            <span class="q-n meta">08</span><span class="q-t">Can you say in one sentence why this company wins, and why now?</span>
+          </legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="story" data-v="2"><span>Yes, and it has been tested on investors</span></label>
+            <label class="opt"><input type="radio" name="story" data-v="1"><span>Yes, but it is untested</span></label>
+            <label class="opt"><input type="radio" name="story" data-v="0"><span>Still working it out</span></label>
+          </div>
+        </fieldset>
+
+        <div class="act">
+          <button class="btn" type="submit">Read the result</button>
+          <span class="note meta" id="checkNote" role="status"></span>
+        </div>
+      </form>
+
+      <div class="verdict" id="verdict" hidden tabindex="-1">
+        <span class="v-k meta">First read</span>
+        <p class="v-h" id="vHead"></p>
+        <p class="v-read" id="vRead"></p>
+        <div class="gaps" id="vGaps"></div>
+        <p class="v-foot meta" id="vFoot"></p>
       </div>
+
+      <!-- ================= SET THIS BEFORE LAUNCH =================
+           Create a free form endpoint (Formspree, Basin, Web3Forms or
+           similar) and paste it into the action below, replacing
+           YOUR_FORM_ID. Until you do, the form refuses to submit and
+           tells you so rather than failing silently.
+           No file uploads by design: we ask for a deck link instead, so
+           confidential documents never sit on a third party's storage.
+           ========================================================== -->
+      <form class="send" id="send" hidden action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <h3 class="send-h">Send this read to Dee &amp; Co</h3>
+        <p class="send-sub">Your answers and the read above travel with it. We reply to everything, including the ones we pass on, and we tell you why.</p>
+
+        <div class="fields">
+          <label class="f">
+            <span class="f-k meta">Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="f">
+            <span class="f-k meta">Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label class="f">
+            <span class="f-k meta">Company</span>
+            <input type="text" name="company" autocomplete="organization" required>
+          </label>
+          <label class="f">
+            <span class="f-k meta">Deck link</span>
+            <input type="url" name="deck" placeholder="https://" autocomplete="url">
+          </label>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>I agree to Dee &amp; Co holding these details to assess fit and reply to me.</span>
+        </label>
+
+        <p class="notice meta">We use what you send only to assess fit and to reply. We do not share it with investors or anyone else without asking you first. We hold it for 24 months and delete it sooner on request. To withdraw consent or ask for deletion, write to deeptesh@deeandco.in.</p>
+
+        <input type="hidden" name="_subject" value="Pitch to Us submission">
+        <input type="hidden" name="readiness" id="hVerdict">
+        <input type="hidden" name="answers" id="hAnswers">
+
+        <div class="act">
+          <button class="btn" type="submit">Send it</button>
+          <span class="note meta" id="sendNote" role="status"></span>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -766,10 +958,11 @@ a { color: inherit; }
   <div>
     <span class="foot-mark">Dee <span>&amp;</span> Co</span>
     <span class="meta">Capital Advisory</span>
+    <!-- Add your MSME registration number here once you have it to hand:
+         <span class="meta foot-reg">MSME Reg. UDYAM-XX-00-0000000</span> -->
   </div>
   <span class="meta">&copy; 2026 Dee &amp; Co Capital Advisory. Mumbai, India.</span>
 </footer>
-
 <script>
 (function () {
   'use strict';
@@ -805,25 +998,19 @@ a { color: inherit; }
   }
 
   burger.addEventListener('click', function () {
-    var open = burger.getAttribute('aria-expanded') === 'true';
-    if (open) { closeNav(); }
+    if (burger.getAttribute('aria-expanded') === 'true') { closeNav(); }
     else {
       nav.setAttribute('data-open', 'true');
       burger.setAttribute('aria-expanded', 'true');
     }
   });
 
-  nav.addEventListener('click', function (e) {
-    if (e.target.tagName === 'A') closeNav();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeNav();
-  });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeNav(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
 
   /* ---- topbar hairline on scroll -------------------------------------
-     Uses a sentinel + IntersectionObserver rather than a scroll handler,
-     so nothing runs on the main thread while scrolling.
+     Sentinel + IntersectionObserver rather than a scroll handler, so
+     nothing runs on the main thread while scrolling.
   --------------------------------------------------------------------- */
   var topbar = document.getElementById('topbar');
 
@@ -832,7 +1019,6 @@ a { color: inherit; }
     sentinel.setAttribute('aria-hidden', 'true');
     sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
     document.body.insertBefore(sentinel, document.body.firstChild);
-
     new IntersectionObserver(function (entries) {
       topbar.setAttribute('data-scrolled', entries[0].isIntersecting ? 'false' : 'true');
     }).observe(sentinel);
@@ -856,9 +1042,202 @@ a { color: inherit; }
         obs.unobserve(entries[n].target);
       }
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-
     for (i = 0; i < targets.length; i++) reveal.observe(targets[i]);
   }
+
+  /* ==================================================================
+     READINESS CHECK
+     Four preparation dimensions carry the score (numbers, data room,
+     cap table, narrative) because those are the things a founder can
+     actually fix before going out. Stage, amount and revenue are not
+     scored: they set context and trigger coherence flags instead.
+     Deliberately no percentage and no progress bar. "You are 68% ready"
+     is a precision this instrument does not have.
+     ================================================================== */
+
+  var check   = document.getElementById('check');
+  var verdict = document.getElementById('verdict');
+  var send    = document.getElementById('send');
+  var vHead   = document.getElementById('vHead');
+  var vRead   = document.getElementById('vRead');
+  var vGaps   = document.getElementById('vGaps');
+  var vFoot   = document.getElementById('vFoot');
+  var note    = document.getElementById('checkNote');
+
+  var NAMES = ['stage', 'amount', 'instrument', 'revenue', 'numbers', 'room', 'cap', 'story'];
+
+  var GAPS = {
+    numbers: {
+      0: ['Numbers', 'There is no financial model. Nothing else in the raise can be assessed until the numbers exist in a form an investor can interrogate.'],
+      1: ['Numbers', 'A spreadsheet that is roughly right will not survive diligence. The model has to reconcile to actuals line by line.']
+    },
+    room: {
+      0: ['Data room', 'There is no data room. Diligence stalls in the second week, which is the worst possible moment to lose momentum.'],
+      1: ['Data room', 'Scattered documents are a data room in name only. Indexing them is a week of work that saves a month.']
+    },
+    cap: {
+      0: ['Cap table', 'The cap table has known issues. This gets resolved before an investor sees the company, not during diligence.'],
+      1: ['Cap table', 'You are not certain the cap table is clean. That uncertainty is itself the finding, and it is the first thing to close out.']
+    },
+    story: {
+      0: ['Narrative', 'The story is not settled. Every conversation held before it is costs you a name from a finite list.'],
+      1: ['Narrative', 'The story is untested. It should meet friendly scrutiny before it meets a partner.']
+    }
+  };
+
+  function picked(name) {
+    return check.querySelector('input[name="' + name + '"]:checked');
+  }
+  function val(name) {
+    var el = picked(name);
+    return el ? Number(el.getAttribute('data-v')) : null;
+  }
+  function text(name) {
+    var el = picked(name);
+    return el ? el.parentNode.querySelector('span').textContent : '';
+  }
+
+  function firstUnanswered() {
+    for (var n = 0; n < NAMES.length; n++) {
+      if (!picked(NAMES[n])) return NAMES[n];
+    }
+    return null;
+  }
+
+  function assess() {
+    var stage = val('stage'), amount = val('amount'), revenue = val('revenue');
+    var numbers = val('numbers'), room = val('room'), cap = val('cap'), story = val('story');
+
+    var score = numbers + room + cap + story;      /* 0 to 11 */
+    var gaps  = [];      /* preparation: things the founder can go and fix */
+    var flags = [];      /* coherence: answers that contradict each other */
+    var k;
+
+    /* named gaps, worst dimensions first */
+    var order = [['cap', cap], ['numbers', numbers], ['room', room], ['story', story]];
+    for (k = 0; k < order.length; k++) {
+      var key = order[k][0], v = order[k][1];
+      if (GAPS[key] && GAPS[key][v]) gaps.push(GAPS[key][v]);
+    }
+
+    /* coherence flags: the answers that do not contradict each other individually
+       but do when read together */
+    if (revenue === 0 && amount >= 3) {
+      flags.push(['Raise size', 'The amount is a long way ahead of the evidence. A pre-revenue round at this size is won on team and proof of demand, and every other document has to carry that weight.']);
+    }
+    if (stage >= 2 && numbers <= 1) {
+      flags.push(['Stage fit', 'At Series A and beyond a model that reconciles to actuals is table stakes. Its absence gets read as a signal about the business rather than about the paperwork.']);
+    }
+    if (stage >= 2 && room <= 1) {
+      flags.push(['Stage fit', 'A company raising at this stage is expected to open a data room within days of a first positive meeting. Right now you could not.']);
+    }
+    if (stage <= 1 && revenue >= 2) {
+      flags.push(['Pricing', 'Revenue is ahead of the stage you are raising at. Check you are not pricing the round below what the traction supports.']);
+    }
+
+    var head, read;
+
+    if (cap === 0) {
+      head = 'Resolve the cap table first.';
+      read = 'Whatever else is true, a cap table with known issues ends diligence. Everything below matters, but this comes before all of it and before any investor sees the company.';
+    } else if (score >= 9 && flags.length) {
+      head = 'Ready, with one thing to reconcile.';
+      read = 'The preparation is there. What is not settled is that some of your answers pull against each other, and an investor will notice that in the first meeting rather than the fifth. Reconcile it before you go out, not after.';
+    } else if (score >= 9) {
+      head = 'Ready for a targeted list.';
+      read = 'On the preparation dimensions this reads as ready. The work left is target selection and sequencing, which is where most of the value in a raise is actually won or lost.';
+    } else if (score >= 5) {
+      head = 'Preparable.';
+      read = 'The business may well be fundable. The raise is not yet in a state to go to market. What follows is what we would fix first, in order.';
+    } else {
+      head = 'Not ready to approach the market.';
+      read = 'Going out now would spend names from a finite list to learn things you can learn without spending them. The gaps below come before any investor conversation.';
+    }
+
+    return { head: head, read: read, gaps: gaps.concat(flags), score: score };
+  }
+
+  function render() {
+    var r = assess();
+
+    vHead.textContent = r.head;
+    vRead.textContent = r.read;
+
+    while (vGaps.firstChild) vGaps.removeChild(vGaps.firstChild);
+
+    if (!r.gaps.length) {
+      var none = document.createElement('div');
+      none.className = 'gap';
+      var nk = document.createElement('span');
+      nk.className = 'gap-k meta';
+      nk.textContent = 'Finding';
+      var nt = document.createElement('p');
+      nt.className = 'gap-t';
+      nt.textContent = 'Nothing on these eight answers reads as unprepared. That is rarer than it sounds, and it usually means the next conversation is about targeting rather than readiness.';
+      none.appendChild(nk); none.appendChild(nt);
+      vGaps.appendChild(none);
+    } else {
+      for (var g = 0; g < r.gaps.length; g++) {
+        var row = document.createElement('div');
+        row.className = 'gap';
+        var kk = document.createElement('span');
+        kk.className = 'gap-k meta';
+        kk.textContent = r.gaps[g][0];
+        var tt = document.createElement('p');
+        tt.className = 'gap-t';
+        tt.textContent = r.gaps[g][1];
+        row.appendChild(kk); row.appendChild(tt);
+        vGaps.appendChild(row);
+      }
+    }
+
+    vFoot.textContent = 'This is a first read from eight answers, not an evaluation. A real evaluation looks at the numbers.';
+
+    /* carry the answers and the read into the submission */
+    var lines = [];
+    for (var n = 0; n < NAMES.length; n++) lines.push(NAMES[n] + ': ' + text(NAMES[n]));
+    lines.push('score: ' + r.score + ' of 11');
+    document.getElementById('hAnswers').value = lines.join('\n');
+    document.getElementById('hVerdict').value = r.head;
+  }
+
+  var shown = false;
+
+  check.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = firstUnanswered();
+    if (missing) {
+      note.textContent = 'Answer all eight to see the read.';
+      var el = check.querySelector('input[name="' + missing + '"]');
+      if (el) {
+        el.focus();
+        el.closest('.q').scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+      }
+      return;
+    }
+    note.textContent = '';
+    render();
+    shown = true;
+    verdict.hidden = false;
+    send.hidden = false;
+    verdict.focus();
+    verdict.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  /* once a read is on screen, changing an answer updates it in place */
+  check.addEventListener('change', function () {
+    if (shown && !firstUnanswered()) render();
+  });
+
+  /* the endpoint has to be set before this can work. say so plainly
+     rather than posting into the void. */
+  send.addEventListener('submit', function (e) {
+    if (send.getAttribute('action').indexOf('YOUR_FORM_ID') !== -1) {
+      e.preventDefault();
+      document.getElementById('sendNote').textContent =
+        'Form endpoint not set yet. See the comment above this form in the HTML.';
+    }
+  });
 })();
 </script>
 </body>
