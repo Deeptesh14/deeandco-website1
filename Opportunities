@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Opportunities | Dee &amp; Co</title>
+<meta name="description" content="Live mandates carried by Dee &amp; Co, presented as anonymous one-pagers. Identity and full materials are released under NDA to qualified parties.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="canonical" href="https://deeandco.in/opportunities.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dee &amp; Co">
+<meta property="og:title" content="Opportunities | Dee &amp; Co">
+<meta property="og:description" content="Live mandates, presented anonymously. Full information released under NDA to qualified parties.">
+<meta property="og:url" content="https://deeandco.in/opportunities.html">
+<meta property="og:image" content="https://deeandco.in/share.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="theme-color" content="#F2F1ED" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101114" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2316171A'/%3E%3Ctext x='50' y='68' font-family='Helvetica,Arial,sans-serif' font-size='54' font-weight='600' fill='%23F2F1ED' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---- dee-core.css, inlined so this page is standalone ---- */
+/* ============================================================
+   DEE & CO / CORE
+   Shared design system for index.html and opportunities.html.
+   Both pages link this file. Change a token here, both follow.
+
+   Palette is the off-white combination, unchanged:
+     ink  on paper  15.9:1      accent on paper  7.0:1
+     soft on paper   5.6:1      every pair verified at AA or better.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, dl, dd, ul, li, figure, fieldset, legend, table, th, td {
+  margin: 0; padding: 0;
+}
+ul { list-style: none; }
+fieldset { border: 0; min-width: 0; }
+table { border-collapse: collapse; }
+[hidden] { display: none !important; }
+
+:root {
+  color-scheme: light dark;
+
+  --paper:      #F2F1ED;
+  --paper-off:  #E9E8E3;
+  --ink:        #16171A;
+  --ink-soft:   #5C6066;
+  --accent:     #1B3BD8;
+  --line:       #CFCEC8;
+  --line-soft:  #DEDDD8;
+
+  /* text that sits on an --ink band */
+  --on-ink:      #F2F1ED;
+  --on-ink-soft: #A8A9A4;
+  --on-ink-line: #35363A;
+
+  --pad:  clamp(20px, 4.5vw, 68px);
+  --rail: clamp(90px, 13vw, 168px);
+  --gut:  clamp(20px, 3.5vw, 56px);
+
+  --grotesk: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+[data-theme="dark"] {
+  --paper:      #101114;
+  --paper-off:  #191A1E;
+  --ink:        #EDEDEA;
+  --ink-soft:   #9A9DA3;
+  --accent:     #7C93FF;
+  --line:       #2C2E33;
+  --line-soft:  #212328;
+
+  --on-ink:      #16171A;
+  --on-ink-soft: #4E5056;
+  --on-ink-line: #C9C9C4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--grotesk);
+  font-size: 16px; font-weight: 400; line-height: 1.6;
+  letter-spacing: -0.006em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+body.locked { overflow: hidden; }
+
+::selection { background: var(--accent); color: #FFF; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 1px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 400;
+  background: var(--ink); color: var(--on-ink);
+  padding: 12px 18px; font-family: var(--mono); font-size: 12px;
+}
+.skip:focus { left: 0; }
+
+/* ---------- type ---------- */
+
+.meta {
+  font-family: var(--mono); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.11em; text-transform: uppercase; line-height: 1.5;
+  font-feature-settings: "kern" 0;
+}
+.meta-s { text-transform: none; letter-spacing: 0.01em; font-size: 12.5px; line-height: 1.7; }
+.display { font-weight: 500; letter-spacing: -0.035em; line-height: 0.98; text-wrap: balance; }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+/* ---------- topbar ---------- */
+
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s linear;
+}
+.topbar[data-scrolled="true"] { border-bottom-color: var(--line); }
+.topbar-in {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 14px var(--pad);
+}
+.mark {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap;
+}
+.mark span { color: var(--accent); }
+
+.nav { display: flex; gap: clamp(14px, 2.2vw, 30px); }
+.nav a {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.11em;
+  text-transform: uppercase; color: var(--ink-soft); text-decoration: none;
+  padding: 4px 0; white-space: nowrap; transition: color 0.18s linear;
+}
+.nav a:hover { color: var(--ink); }
+.nav a[aria-current="page"] { color: var(--ink); border-bottom: 1px solid var(--accent); }
+
+.controls { display: flex; align-items: center; gap: 6px; }
+.icon-btn {
+  width: 34px; height: 34px; display: grid; place-items: center;
+  background: none; border: 1px solid var(--line); color: var(--ink-soft);
+  cursor: pointer; padding: 0;
+  transition: color 0.18s linear, border-color 0.18s linear;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--ink); }
+.icon-btn svg { width: 15px; height: 15px; }
+.i-moon { display: block; }
+.i-sun  { display: none; }
+[data-theme="dark"] .i-moon { display: none; }
+[data-theme="dark"] .i-sun  { display: block; }
+
+.burger { display: none; }
+.burger span {
+  display: block; width: 15px; height: 1px; background: currentColor; margin: 3px 0;
+  transition: transform 0.22s var(--ease), opacity 0.16s linear;
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-4px) rotate(-45deg); }
+
+/* ---------- layout ---------- */
+
+.band { border-top: 1px solid var(--line); }
+.sec {
+  display: grid; grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: 0 var(--gut); padding: clamp(52px, 7vw, 108px) var(--pad);
+  align-items: start;
+}
+.sec, .verdict, .q, .anchor { scroll-margin-top: 88px; }
+.rail { position: sticky; top: 90px; }
+.rail-n { color: var(--accent); display: block; }
+.rail-t {
+  color: var(--ink-soft); display: block; margin-top: 4px;
+  font: inherit; letter-spacing: inherit; text-transform: inherit;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; background: var(--ink); color: var(--on-ink);
+  border: 1px solid var(--ink); padding: 13px 22px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  text-decoration: none; text-align: center;
+  transition: background-color .15s linear, color .15s linear;
+}
+.btn:hover { background: transparent; color: var(--ink); }
+.btn svg { width: 14px; height: 14px; flex: none; }
+.btn-full { width: 100%; }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--on-ink); }
+.btn-accent { background: var(--accent); border-color: var(--accent); color: #FFF; }
+.btn-accent:hover { background: transparent; color: var(--accent); }
+
+/* ---------- forms ---------- */
+
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: clamp(16px, 2vw, 26px); }
+.f-k { display: block; color: var(--ink-soft); margin-bottom: 7px; }
+.f input, .f select {
+  width: 100%; background: transparent; color: var(--ink);
+  border: 0; border-bottom: 1px solid var(--line); padding: 7px 0;
+  font-family: var(--grotesk); font-size: 15px; border-radius: 0;
+}
+.f select {
+  appearance: none; -webkit-appearance: none; padding-right: 18px; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 6px center, right 1px center;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.f select option { background: var(--paper); color: var(--ink); }
+.f input::placeholder { color: var(--ink-soft); opacity: .75; }
+.f input:hover, .f select:hover { border-bottom-color: var(--ink); }
+.f input:focus, .f select:focus { outline: none; border-bottom-color: var(--accent); }
+.f input:focus-visible, .f select:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.consent { display: flex; gap: 11px; align-items: flex-start; margin-top: clamp(20px,2.4vw,28px); cursor: pointer; }
+.consent input { margin: 3px 0 0; accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+.consent span { color: var(--ink-soft); font-size: 14px; line-height: 1.65; max-width: 58ch; }
+.notice {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line-soft);
+  color: var(--ink-soft); max-width: 62ch;
+}
+.act { margin-top: clamp(20px,2.4vw,28px); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.note { color: var(--accent); }
+
+/* ---------- footer ---------- */
+
+.foot {
+  border-top: 1px solid var(--line); padding: clamp(28px, 3.2vw, 44px) var(--pad);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(20px, 3vw, 44px); color: var(--ink-soft);
+}
+.foot-mark {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
+  display: block; margin-bottom: 5px;
+}
+.foot-mark span { color: var(--accent); }
+.foot-k { display: block; color: var(--accent); margin-bottom: 9px; }
+.foot p { font-size: 13px; line-height: 1.72; max-width: 46ch; }
+.foot p + p { margin-top: 7px; }
+.foot a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 36%, transparent); }
+.foot a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- reveal ---------- */
+
+.rv { opacity: 0; transform: translateY(12px); }
+.rv-on { opacity: 1; transform: none; transition: opacity .7s var(--ease), transform .7s var(--ease); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .rail { position: static; margin-bottom: 22px; }
+  .rail-t { display: inline; margin-top: 0; }
+  .rail-n { display: inline; margin-right: 5px; }
+  .rail-n::after { content: " /"; color: var(--ink-soft); }
+}
+@media (max-width: 620px) {
+  .nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--paper);
+    border-bottom: 1px solid var(--line); padding: 4px var(--pad) 16px; display: none;
+  }
+  .nav[data-open="true"] { display: flex; }
+  .nav a { padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+  .nav a:last-child { border-bottom: none; }
+  .nav a[aria-current="page"] { border-bottom: 1px solid var(--accent); }
+  .burger { display: grid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .rv { opacity: 1; transform: none; }
+}
+@media print {
+  .topbar, .icon-btn, .burger, .btn { display: none; }
+  body { background: #FFF; color: #000; }
+}
+
+</style>
+
+<style>
+/* ============================================================
+   OPPORTUNITIES
+   An institutional screener: dark statistics band, a dense
+   sortable index as the default desktop view, cards on narrow
+   screens. Same off-white palette as the rest of the site.
+   ============================================================ */
+
+/* ---------- masthead ---------- */
+.head { padding: clamp(44px, 6vw, 92px) var(--pad) clamp(30px, 3.4vw, 46px); }
+.head-k { color: var(--accent); display: block; margin-bottom: clamp(16px,2vw,24px); }
+.head-h {
+  font-size: clamp(34px, 6.2vw, 86px); max-width: 15ch;
+  margin-bottom: clamp(22px, 2.6vw, 34px);
+}
+.head-cols {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: clamp(20px, 2.8vw, 48px);
+  padding-top: clamp(20px, 2.4vw, 30px); border-top: 1px solid var(--line);
+  max-width: 1120px;
+}
+.head-cols p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.72; }
+.head-cols .lead { color: var(--ink); font-size: clamp(17px,1.5vw,21px); font-weight: 300; line-height: 1.5; letter-spacing: -0.016em; }
+
+/* ---------- statistics band ---------- */
+.stats {
+  background: var(--ink); color: var(--on-ink);
+  padding: clamp(26px, 3.4vw, 46px) var(--pad);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.6vw, 44px);
+}
+.stat { border-left: 1px solid var(--on-ink-line); padding-left: clamp(14px, 1.6vw, 22px); }
+.stat-k { display: block; color: var(--on-ink-soft); margin-bottom: 10px; }
+.stat-v {
+  font-size: clamp(28px, 3.8vw, 54px); font-weight: 500;
+  letter-spacing: -0.038em; line-height: 1; margin-bottom: 8px;
+}
+.stat-n { display: block; color: var(--on-ink-soft); max-width: 34ch; }
+
+/* ---------- control bar ---------- */
+.bar {
+  position: sticky; top: 63px; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(14px, 1.8vw, 20px) var(--pad);
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: clamp(12px, 1.5vw, 20px);
+}
+.fl { display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 150px; }
+.fl > span { color: var(--ink-soft); }
+.fl select {
+  font-family: var(--grotesk); font-size: 14px; color: var(--ink);
+  background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  padding: 6px 18px 6px 0; cursor: pointer; width: 100%;
+  appearance: none; -webkit-appearance: none; border-radius: 0;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 6px center, right 1px center;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.fl select:hover { border-bottom-color: var(--ink); }
+.fl select:focus { outline: none; border-bottom-color: var(--accent); }
+.fl select option { background: var(--paper); color: var(--ink); }
+
+.bar-end { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; padding-bottom: 6px; }
+.count { color: var(--ink-soft); white-space: nowrap; }
+.clear {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.clear:hover { border-bottom-color: var(--accent); }
+.views { display: flex; border: 1px solid var(--line); }
+.views button {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  background: transparent; border: 0; color: var(--ink-soft); padding: 8px 12px; cursor: pointer;
+}
+.views button + button { border-left: 1px solid var(--line); }
+.views button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+
+/* ---------- index table ---------- */
+.index { width: 100%; }
+.index thead th {
+  background: var(--ink); color: var(--on-ink);
+  font-family: var(--mono); font-size: 10px; font-weight: 400;
+  letter-spacing: .1em; text-transform: uppercase; text-align: left;
+  padding: 0; white-space: nowrap; position: sticky; top: 124px; z-index: 20;
+}
+.index thead th .sortbtn {
+  display: flex; align-items: center; gap: 6px; width: 100%;
+  background: none; border: 0; color: inherit; font: inherit; letter-spacing: inherit;
+  text-transform: inherit; padding: 13px 14px; cursor: pointer; text-align: left;
+}
+.index thead th.plain { padding: 13px 14px; }
+.index thead th.r .sortbtn, .index thead th.r.plain { justify-content: flex-end; text-align: right; }
+.index thead th .sortbtn:hover { color: var(--on-ink); text-decoration: underline; text-underline-offset: 3px; }
+.index thead th .arrow { opacity: 0; font-size: 9px; }
+.index thead th[aria-sort="ascending"] .arrow,
+.index thead th[aria-sort="descending"] .arrow { opacity: 1; }
+
+.index tbody tr { border-bottom: 1px solid var(--line-soft); cursor: pointer; }
+.index tbody tr:hover { background: var(--paper-off); }
+.index tbody tr:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.index td { padding: 15px 14px; vertical-align: top; font-size: 14px; }
+.index td.r { text-align: right; }
+.t-code { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .08em; color: var(--accent); white-space: nowrap; }
+.t-title { font-size: 15px; font-weight: 500; letter-spacing: -0.018em; line-height: 1.26; margin-bottom: 3px; }
+.t-sub { color: var(--ink-soft); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.t-soft { color: var(--ink-soft); }
+.t-go { color: var(--accent); font-family: var(--mono); font-size: 14px; }
+.index tbody tr:hover .t-go { transform: translateX(3px); }
+.t-go { display: inline-block; transition: transform .15s var(--ease); }
+
+/* ---------- status chip ---------- */
+.chip {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 8px; border: 1px solid var(--line); color: var(--ink-soft);
+  white-space: nowrap; display: inline-block;
+}
+.chip[data-s="open"] { border-color: var(--accent); color: var(--accent); }
+.chip[data-s="diligence"] { border-color: var(--ink); color: var(--ink); }
+.chip[data-s="closing"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+
+/* ---------- cards ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(318px, 1fr)); gap: 1px; background: var(--paper); }
+.card {
+  background: var(--paper); padding: clamp(20px, 2.2vw, 28px);
+  display: flex; flex-direction: column; box-shadow: 0 0 0 1px var(--line);
+}
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.code { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: .1em; color: var(--accent); }
+.card-h {
+  font-size: clamp(18px, 1.9vw, 22px); font-weight: 500; letter-spacing: -0.026em;
+  line-height: 1.16; margin-bottom: 10px; min-height: 2.32em;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-d {
+  color: var(--ink-soft); font-size: 14px; line-height: 1.62; margin-bottom: 16px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+  min-height: calc(4 * 1.62 * 14px);
+}
+.tags { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; margin-bottom: 16px; min-height: 54px; }
+.tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ink-soft); border: 1px solid var(--line-soft); padding: 3px 7px;
+}
+.kv { border-top: 1px solid var(--line-soft); }
+.kv-r { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); align-items: baseline; }
+.kv-k { color: var(--ink-soft); }
+.kv-v { font-size: 14px; text-align: right; letter-spacing: -0.01em; font-weight: 500; }
+.card-note { color: var(--ink-soft); padding-top: 10px; min-height: 42px; }
+.card-act { margin-top: auto; padding-top: 8px; }
+
+/* ---------- detail sheet ---------- */
+.scrim { position: fixed; inset: 0; z-index: 200; background: color-mix(in srgb, var(--ink) 55%, transparent); display: grid; place-items: end center; }
+.sheet {
+  background: var(--paper); width: min(780px, 100%);
+  max-height: 94vh; max-height: 94dvh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  border-top: 2px solid var(--accent); position: relative;
+}
+@media (min-width: 780px) {
+  .scrim { place-items: center; }
+  .sheet { max-height: 88vh; max-height: 88dvh; border: 1px solid var(--line); border-top: 2px solid var(--accent); }
+}
+.sheet-bar {
+  position: sticky; top: 0; z-index: 2;
+  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 13px clamp(20px, 3vw, 34px);
+}
+.sheet-body { padding: clamp(22px, 3vw, 36px) clamp(20px, 3vw, 34px) clamp(28px, 3.4vw, 42px); }
+.sheet-h { font-size: clamp(22px, 2.9vw, 34px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 14px; max-width: 22ch; }
+.sheet-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: clamp(20px,2.4vw,28px); }
+
+.blk { margin-top: clamp(22px, 2.6vw, 32px); padding-top: clamp(16px, 2vw, 22px); border-top: 1px solid var(--line); }
+.blk:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
+.blk-k { display: block; color: var(--accent); margin-bottom: 11px; }
+.blk p { color: var(--ink-soft); font-size: 15px; line-height: 1.72; max-width: 62ch; }
+.blk p + p { margin-top: 11px; }
+.blk li {
+  color: var(--ink-soft); font-size: 14.5px; line-height: 1.65;
+  padding: 7px 0 7px 18px; position: relative; border-bottom: 1px solid var(--line-soft); max-width: 66ch;
+}
+.blk li::before { content: ""; position: absolute; left: 0; top: 16px; width: 7px; height: 1px; background: var(--accent); }
+.blk li:last-child { border-bottom: 0; }
+.mtable { border-top: 1px solid var(--line-soft); }
+.mrow { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line-soft); align-items: baseline; }
+.mrow dt { color: var(--ink-soft); }
+.mrow dd { font-size: 14.5px; letter-spacing: -0.01em; }
+.flagn { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); margin-top: 3px; }
+.cx { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px 20px; }
+.cx-k { display: block; color: var(--ink-soft); margin-bottom: 5px; }
+.cx-v { font-size: 15px; line-height: 1.5; }
+
+/* ---------- access ---------- */
+.req { margin-top: clamp(24px, 3vw, 36px); padding-top: clamp(20px, 2.4vw, 28px); border-top: 2px solid var(--accent); }
+.req-h { font-size: clamp(19px, 2vw, 26px); font-weight: 500; letter-spacing: -0.026em; margin-bottom: 10px; }
+.req-p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.68; max-width: 58ch; margin-bottom: clamp(16px,2vw,22px); }
+.req-steps { margin-bottom: clamp(18px,2.2vw,26px); }
+.req-steps li {
+  display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 10px;
+  padding: 7px 0; color: var(--ink-soft); font-size: 14px; line-height: 1.6;
+}
+.req-steps b { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--accent); font-weight: 500; padding-top: 3px; }
+
+@media (max-width: 1100px) { .views { display: none; } }
+@media (max-width: 900px)  { .stats { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: clamp(22px,3vw,34px); } }
+@media (max-width: 760px)  { .mrow { grid-template-columns: minmax(0,1fr); gap: 2px; } .bar { top: 61px; } }
+@media (max-width: 620px)  { .fl { flex: 1 1 100%; } .grid { grid-template-columns: minmax(0,1fr); } .req .btn { width: 100%; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#listings">Skip to listings</a>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-in">
+    <a class="mark" href="index.html">Dee <span>&amp;</span> Co</a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html#thesis">Thesis</a>
+      <a href="index.html#framework">Framework</a>
+      <a href="index.html#pitch">Pitch to Us</a>
+      <a href="opportunities.html" aria-current="page">Opportunities</a>
+      <a href="index.html#engagement">Contact</a>
+    </nav>
+    <div class="controls">
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 1.4v2.4M12 20.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M1.4 12h2.4M20.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="head">
+    <span class="meta head-k">Opportunities</span>
+    <h1 class="display head-h">Live mandates, carried anonymously.</h1>
+    <div class="head-cols">
+      <p class="lead">Every opportunity we are currently carrying, presented as a blind one-pager.</p>
+      <p>Identity, documentation and full financial information are released only after a non-disclosure agreement is executed and a qualification call has taken place. Access runs through WhatsApp so a serious enquiry reaches us in minutes rather than a queue.</p>
+      <p class="meta meta-s">Nothing on this page is an offer to sell or a solicitation of an offer to buy any security, nor investment advice. All figures are indicative, seller-reported unless stated otherwise, and subject to verification. Availability and terms may change without notice.</p>
+    </div>
+  </section>
+
+  <div class="stats" id="stats"></div>
+
+  <section class="bar" aria-label="Filter and sort opportunities">
+    <label class="fl"><span class="meta">Sector</span><select id="f-sector"></select></label>
+    <label class="fl"><span class="meta">Geography</span><select id="f-geo"></select></label>
+    <label class="fl"><span class="meta">Deal type</span><select id="f-type"></select></label>
+    <label class="fl"><span class="meta">Stage</span><select id="f-stage"></select></label>
+    <label class="fl"><span class="meta">Cheque size</span><select id="f-cheque"></select></label>
+    <div class="bar-end">
+      <span class="count meta" id="count" role="status"></span>
+      <button class="clear" type="button" id="clear">Clear</button>
+      <div class="views" role="group" aria-label="View">
+        <button type="button" id="v-index" aria-pressed="true">Index</button>
+        <button type="button" id="v-cards" aria-pressed="false">Cards</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="listings" aria-label="Opportunities">
+    <div id="indexWrap">
+      <table class="index" id="index">
+        <caption class="skip">Live opportunities. Select a row to open its anonymous one-pager.</caption>
+        <thead id="indexHead"></thead>
+        <tbody id="indexBody"></tbody>
+      </table>
+    </div>
+    <div class="grid" id="grid" hidden></div>
+    <p class="empty meta" id="empty" hidden style="padding:clamp(40px,6vw,80px) var(--pad);color:var(--ink-soft);">No opportunity matches that combination. Clear a filter, or message us and we will tell you what is coming.</p>
+  </section>
+
+</main>
+
+<div class="scrim" id="scrim" hidden>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h" tabindex="-1">
+    <div class="sheet-bar">
+      <span class="code num" id="sheet-code"></span>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="chip" id="sheet-chip"></span>
+        <button class="icon-btn" id="sheet-x" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <div>
+    <span class="foot-mark">Dee <span>&amp;</span> Co</span>
+    <span class="meta">Capital Advisory</span>
+    <p class="meta meta-s" style="margin-top:10px;">&copy; 2026 Dee &amp; Co Capital Advisory. Mumbai, India.</p>
+  </div>
+  <div>
+    <span class="meta foot-k">Confidentiality</span>
+    <p>Listings are published blind by design. Company identity, counterparty names, documentation and underlying financial records are disclosed only to parties who have executed a non-disclosure agreement and completed a qualification call. Parties receiving materials hold them in confidence and use them solely to evaluate the transaction described.</p>
+  </div>
+  <div>
+    <span class="meta foot-k">Figures</span>
+    <p>All figures shown are indicative and expressed as bands. They are seller-reported and have not been independently verified by Dee &amp; Co. Items reconciled, restated or under review are tagged as such on the relevant listing. Nothing here should be relied upon without your own diligence.</p>
+  </div>
+  <div>
+    <span class="meta foot-k">Contact</span>
+    <p>Deeptesh Mejari<br>Founder and Principal Advisor<br>Mumbai, India</p>
+    <p id="footContact"></p>
+  </div>
+</footer>
+
+<script>
+/* ---- dee-core.js, inlined so this page is standalone ---- */
+/* ============================================================
+   DEE & CO / CORE
+   Shared chrome for both pages: theme, mobile menu, topbar
+   hairline, section reveal. No timers, no intervals, no
+   unbounded loops anywhere.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var root = document.documentElement;
+
+  /* ---- theme --------------------------------------------------------
+     Starts from the OS preference, kept in memory only.
+     To persist across visits on your own domain, add:
+       localStorage.setItem('deeco-theme', mode)   inside setTheme()
+       var saved = localStorage.getItem('deeco-theme')  as the initial value
+  --------------------------------------------------------------------- */
+  var tbtn = document.getElementById('theme');
+  function setTheme(mode) {
+    root.setAttribute('data-theme', mode);
+    if (tbtn) tbtn.setAttribute('aria-label', mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (tbtn) tbtn.addEventListener('click', function () {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---- mobile menu --------------------------------------------------- */
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  if (burger && nav) {
+    function closeNav() {
+      nav.removeAttribute('data-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    burger.addEventListener('click', function () {
+      if (burger.getAttribute('aria-expanded') === 'true') { closeNav(); }
+      else { nav.setAttribute('data-open', 'true'); burger.setAttribute('aria-expanded', 'true'); }
+    });
+    nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeNav(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+  }
+
+  /* ---- topbar hairline ----------------------------------------------
+     Sentinel plus IntersectionObserver rather than a scroll handler, so
+     nothing runs on the main thread while scrolling.
+  --------------------------------------------------------------------- */
+  var topbar = document.getElementById('topbar');
+  if (topbar && 'IntersectionObserver' in window) {
+    var s = document.createElement('div');
+    s.setAttribute('aria-hidden', 'true');
+    s.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+    document.body.insertBefore(s, document.body.firstChild);
+    new IntersectionObserver(function (en) {
+      topbar.setAttribute('data-scrolled', en[0].isIntersecting ? 'false' : 'true');
+    }).observe(s);
+  }
+
+  /* ---- section reveal -------------------------------------------------
+     Each element is unobserved the moment it fires, so the observer
+     drains to empty and holds no references.
+  --------------------------------------------------------------------- */
+  window.DEECO_REDUCE = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var targets = document.querySelectorAll('.rv');
+  var i;
+  if (window.DEECO_REDUCE || !('IntersectionObserver' in window)) {
+    for (i = 0; i < targets.length; i++) targets[i].classList.remove('rv');
+  } else {
+    var reveal = new IntersectionObserver(function (entries, obs) {
+      for (var n = 0; n < entries.length; n++) {
+        if (!entries[n].isIntersecting) continue;
+        entries[n].target.classList.add('rv-on');
+        obs.unobserve(entries[n].target);
+      }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    for (i = 0; i < targets.length; i++) reveal.observe(targets[i]);
+  }
+})();
+
+/* ============================================================
+   CONTACT POINTS
+   One place for the number, so the WhatsApp links, the tel: link
+   and the displayed number can never drift apart.
+   ============================================================ */
+var DEECO = {
+  phoneE164: '919136929138',
+  phoneShow: '+91 91369 29138',
+  email: 'deeptesh@deeandco.in',
+  /* ========== SET THIS BEFORE LAUNCH ==========
+     Paste your Google Meet link, or better, your Google Calendar
+     appointment-booking page so people pick a slot instead of
+     joining an empty room. Until it is set, the button on both
+     pages is hidden rather than pointing nowhere.
+     ============================================ */
+  meet: 'MEET_LINK_NOT_SET',
+  wa: function (message) {
+    return 'https://wa.me/' + DEECO.phoneE164 + '?text=' + encodeURIComponent(message);
+  },
+  meetReady: function () { return DEECO.meet.indexOf('NOT_SET') === -1; }
+};
+
+</script>
+<script>
+(function () {
+  'use strict';
+
+  /* ==================================================================
+     DEAL RECORDS
+     Blind teasers. No company, brand, product, domain, person,
+     counterparty, licence number or site name appears anywhere below.
+     Every figure is a band. Every date is rounded. Geography is stated
+     one level wider than the underlying record.
+
+     list:false records are carried in the structure but never rendered.
+     NOTE: everything in this file is readable by anyone who views
+     source. Nothing confidential belongs here, held or not. The held
+     mandates' candid hold reasons live in deals-hold.internal.json,
+     which is NOT part of the deployed site.
+     ================================================================== */
+
+  var PROCESS = [
+    'Message us on WhatsApp against the deal code. It reaches us directly.',
+    'We qualify. A short call to confirm mandate fit, cheque size, timeline and authority to transact.',
+    'NDA executed. Standard mutual non-disclosure, countersigned by the company where required.',
+    'Full pack released. Company identity, financial records, documentation and counterparty detail.',
+    'Management introduction arranged where both sides wish to proceed.'
+  ];
+
+  var DEALS = [
+    {
+      code: 'DCO-101', list: true,
+      title: 'Multi-specialty hospital platform',
+      descriptor: 'A multi-specialty hospital with more than three decades of operating history, carrying an associated nursing-education business, available for acquisition or strategic investment.',
+      sector: 'Healthcare services', geoLabel: 'South India', geo: ['India'],
+      type: 'Acquisition', typeLabel: 'Acquisition / growth equity',
+      stage: 'Transaction', status: 'open', statusNote: 'Preliminary evaluation stage',
+      cheque: 'Not specified', sought: 'Up to ₹80 Cr', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Operational beds', v: '250–300' },
+        { k: 'Employees', v: '700+' },
+        { k: 'Revenue', v: '₹75–100 Cr', flag: 'Unverified, seller reported' }
+      ],
+      summary: [
+        'A multi-specialty hospital with more than three decades of continuous operation, offered for acquisition or strategic investment alongside an associated nursing-education business.',
+        'The platform pairs an established clinical operation and referral base with a material freehold real-estate position, and carries bed capacity that is built but not currently in operation.'
+      ],
+      profile: [
+        'The hospital runs 250 to 300 operational beds with a workforce of over 700 and a panel of 75 to 100 doctors. An allied nursing-education business operates alongside it, giving the platform an integrated care-plus-education structure.',
+        'The site comprises 7 to 10 acres of freehold land carrying 1.5 to 2.0 lakh sq ft of built-up area. Revenue is generated from clinical services across multiple specialties, with a secondary stream from the education business.'
+      ],
+      table: [
+        { k: 'Operational beds', v: '250–300' },
+        { k: 'Employees', v: '700+' },
+        { k: 'Doctors', v: '75–100' },
+        { k: 'Land', v: '7–10 acres freehold' },
+        { k: 'Built-up area', v: '1.5–2.0 lakh sq ft' },
+        { k: 'Operating history', v: 'More than three decades' },
+        { k: 'Revenue', v: '₹75–100 Cr', flag: 'Unverified, seller reported' },
+        { k: 'Profitability', v: 'Profitable', flag: 'Margin under reconciliation, figure withheld' },
+        { k: 'Existing debt', v: '₹85–95 Cr' }
+      ],
+      transaction: [
+        { k: 'Transaction value', v: '₹150–200 Cr, inclusive of existing debt' },
+        { k: 'Capital sought', v: 'Up to ₹80 Cr' },
+        { k: 'Instrument', v: 'Acquisition or strategic growth equity' },
+        { k: 'Participation', v: '2% to 45%, single or multiple investors' },
+        { k: 'Minimum cheque', v: 'Not set by the seller' },
+        { k: 'Use of funds', v: 'Not set at this stage' }
+      ],
+      considerations: [
+        'Long operating history with an established referral base and clinical reputation.',
+        'Integrated care-plus-education platform rather than a standalone hospital asset.',
+        'Material underlying real estate held freehold.',
+        'Headroom in non-operational bed capacity.'
+      ],
+      risks: [
+        'Profit margin is under reconciliation. The profit figure is being withheld until it is confirmed rather than estimated here.',
+        'Transaction value is stated inclusive of ₹85–95 Cr of existing debt. Equity value depends on the debt position at completion.',
+        'Revenue is seller-reported and has not been independently verified.',
+        'The deal is at preliminary evaluation stage.'
+      ]
+    },
+    {
+      code: 'DCO-102', list: true,
+      title: 'Precious metals development platform',
+      descriptor: 'An early-stage, asset-backed precious-metals platform operating across exploration, processing, artisanal-sector formalisation and international trading, with a holding structure built toward an eventual listing.',
+      sector: 'Mining and precious metals', sectorShort: 'Precious metals',
+      geoLabel: 'East Africa · GCC', geo: ['East Africa', 'GCC'],
+      type: 'Equity', typeLabel: 'Equity, preferred class',
+      stage: 'Pre-revenue', status: 'open', statusNote: '',
+      cheque: 'Not specified', sought: '€10–12M', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Land under agreement', v: '800+ acres' },
+        { k: 'Preferred dividend', v: 'Low-to-mid teens %' },
+        { k: 'Material debt', v: 'None' }
+      ],
+      summary: [
+        'An early-stage precious-metals platform operating across exploration, processing, formalisation of the artisanal sector and international trading.',
+        'The structure is asset-backed through a secured land portfolio and sits under a free-zone holding company built toward an eventual listing. The group is pre-revenue at consolidated level.'
+      ],
+      profile: [
+        'The platform holds more than 800 acres under binding agreement across multiple joint-venture parcels. Revenue is intended to come from several points on the value chain rather than a single extraction operation.',
+        'A European corporate holds the majority of the equity, with the founder and operating management holding the balance. The holding structure sits in a free zone and carries no material debt.'
+      ],
+      table: [
+        { k: 'Land under agreement', v: '800+ acres, multiple JV parcels' },
+        { k: 'Stage', v: 'Pre-revenue at consolidated level' },
+        { k: 'Material debt', v: 'None' },
+        { k: 'Ownership', v: 'European corporate majority; founder and management hold the balance' },
+        { k: 'Structure', v: 'Free-zone holding company' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '€10–12M across tranches over a two-year programme' },
+        { k: 'Instrument', v: 'Preferred equity class' },
+        { k: 'Dividend', v: 'Cumulative preferred dividend, low-to-mid teens percent per annum on nominal value' },
+        { k: 'Priority', v: 'Ranks ahead of ordinary shares' },
+        { k: 'Residual', v: 'Minority participation in residual profit' },
+        { k: 'Use of funds', v: 'Approximately 72% capital expenditure, 13% operating, balance working capital and contingency' },
+        { k: 'Minimum cheque', v: 'Not set' }
+      ],
+      considerations: [
+        'Asset-backed through a secured land portfolio rather than licences alone.',
+        'Multiple revenue lines across the value chain.',
+        'Free-zone tax structure.',
+        'No material debt at the holding level.'
+      ],
+      risks: [
+        'No internationally compliant resource or reserve statement has been declared.',
+        'Operating licences are in application and are not yet granted.',
+        'Pre-revenue at consolidated level.',
+        'Identity and documentation are released under NDA only.'
+      ]
+    },
+    {
+      code: 'DCO-103', list: true,
+      title: 'High-rise construction and EPC contractor',
+      descriptor: 'A structural and civil works contractor specialising in complex high-rise residential and commercial development, serving Tier-1 national developers, raising a pre-IPO round ahead of a planned listing.',
+      sector: 'Construction and infrastructure', sectorShort: 'Construction',
+      geoLabel: 'India · four metros', geo: ['India'],
+      type: 'Pre-IPO', typeLabel: 'Pre-IPO placement',
+      stage: 'Pre-IPO', status: 'open', statusNote: '',
+      cheque: 'Not specified', sought: '₹100 Cr', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Delivered', v: '25M+ sq ft' },
+        { k: 'Under construction', v: '25–35M sq ft' },
+        { k: 'Revenue', v: '₹200–250 Cr', flag: 'Provisional, seller reported' }
+      ],
+      summary: [
+        'A structural and civil works contractor specialising in complex high-rise residential and commercial development, working for Tier-1 national developers across four metropolitan markets.',
+        'The company is raising a pre-IPO placement ahead of a planned listing. It owns its plant rather than renting it, which shortens slab cycles and reduces dependence on the rental market.'
+      ],
+      profile: [
+        'More than 25 million sq ft delivered to date, with 25 to 35 million sq ft under construction. The business runs over 500 core staff and a site workforce of approximately 7,000.',
+        'Owned plant includes 35 to 45 tower cranes and more than 100,000 sq m of formwork systems, with in-house batching and concrete pumping.'
+      ],
+      table: [
+        { k: 'Delivered to date', v: '25M+ sq ft' },
+        { k: 'Under construction', v: '25–35M sq ft' },
+        { k: 'Core staff', v: '500+' },
+        { k: 'Site workforce', v: 'Approximately 7,000' },
+        { k: 'Tower cranes', v: '35–45 owned' },
+        { k: 'Formwork systems', v: '100,000+ sq m' },
+        { k: 'Revenue', v: '₹200–250 Cr, latest provisional year', flag: 'Provisional, seller reported' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '₹100 Cr' },
+        { k: 'Instrument', v: 'Pre-IPO placement' },
+        { k: 'Pre-money valuation', v: '₹700–800 Cr' },
+        { k: 'Minimum cheque', v: 'Not set' },
+        { k: 'Use of funds', v: 'Not set at this stage' }
+      ],
+      considerations: [
+        'Asset ownership reduces rental dependency and shortens slab cycles.',
+        'Preferred-contractor status with Tier-1 developers.',
+        'Defined listing roadmap.'
+      ],
+      risks: [
+        'Promoter-held register pre-placement.',
+        'Working-capital intensity inherent to the contracting model.',
+        'Historical geographic concentration.',
+        'Financial statements are under restatement for presentation. Revenue is provisional.'
+      ]
+    },
+    {
+      code: 'DCO-104', list: true,
+      title: 'Functional hydration hardware brand',
+      descriptor: 'A direct-to-consumer brand selling premium functional hydration devices and consumables, built on in-house industrial design and a creator-led acquisition engine, with a multi-product roadmap into home and clinical formats.',
+      sector: 'Consumer health hardware', sectorShort: 'Consumer hardware',
+      geoLabel: 'North America', geo: ['North America'],
+      type: 'Equity', typeLabel: 'Equity, seed',
+      stage: 'Early revenue', status: 'open', statusNote: 'Round timetable under revision',
+      cheque: 'Under $100K', sought: '$2M', minCheque: '$50K',
+      metrics: [
+        { k: 'Lifetime revenue', v: '$1.5–2.0M' },
+        { k: 'Peak month', v: 'Above $200K' },
+        { k: 'Contribution margin 1', v: 'Low-to-mid 40s %' }
+      ],
+      summary: [
+        'A direct-to-consumer brand selling premium functional hydration devices and consumables, built on in-house industrial design and a creator-led paid-acquisition engine.',
+        'Lifetime revenue of $1.5–2.0M was generated over approximately fifteen months on under $500K of prior capital. Revenue has declined from its peak: the recent monthly run-rate is approximately half of the peak month.'
+      ],
+      profile: [
+        'The company designs its own hardware and sells direct to consumers, with a consumable attached to the device. Customer acquisition runs primarily through creator-led paid channels.',
+        'The roadmap extends to multiple SKUs including a higher-AOV home system and a clinical format. The business reached operating breakeven in a recent month.'
+      ],
+      table: [
+        { k: 'Lifetime revenue', v: '$1.5–2.0M over approximately fifteen months' },
+        { k: 'Prior capital raised', v: 'Under $500K' },
+        { k: 'Peak month', v: 'Above $200K' },
+        { k: 'Recent monthly run-rate', v: 'Approximately half of peak' },
+        { k: 'Contribution margin, first level', v: 'Low-to-mid forties percent' },
+        { k: 'Contribution margin, second level', v: 'Mid-teens percent' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '$2M' },
+        { k: 'Instrument', v: 'SAFE or priced equity' },
+        { k: 'Post-money valuation', v: '$15M' },
+        { k: 'Minimum cheque', v: '$50K' },
+        { k: 'Use of funds', v: 'Approximately 45% marketing, 25% inventory, 18% R&D, 12% team' }
+      ],
+      considerations: [
+        'Proven paid-acquisition engine with in-house creative.',
+        'Clinician and practitioner advocacy.',
+        'Multi-SKU roadmap including a higher-AOV home system.',
+        'Reached operating breakeven in a recent month.'
+      ],
+      risks: [
+        'Revenue has declined from peak. The recent monthly run-rate is approximately half of the peak month.',
+        'Second-level contribution margin in the mid-teens is thin for an inventory-carrying business.',
+        'Round timetable is under revision.'
+      ]
+    },
+    {
+      code: 'DCO-105', list: true,
+      title: 'B2B foodservice supply platform',
+      descriptor: 'A just-in-time procurement platform supplying dry goods, fresh produce, dairy, frozen and branded packaged goods to commercial kitchens on a single order and single invoice, with an attached services and marketplace layer.',
+      sector: 'B2B food supply and distribution', sectorShort: 'B2B food supply',
+      geoLabel: 'Western India', geo: ['India'],
+      type: 'Equity', typeLabel: 'Equity, Series A',
+      stage: 'Growth', status: 'open', statusNote: 'Valuation not yet set',
+      cheque: 'Not specified', sought: '₹10 Cr', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Annual run-rate', v: '₹40–50 Cr' },
+        { k: 'Accounts', v: '40–60' },
+        { k: 'Cities', v: '2 live · 16 planned' }
+      ],
+      summary: [
+        'A just-in-time procurement platform supplying commercial kitchens across dry goods, fresh produce, dairy, frozen and branded packaged goods, consolidated into a single order and a single invoice.',
+        'A services and marketplace layer sits on top of the supply business and carries materially higher margin than bulk supply.'
+      ],
+      profile: [
+        'The platform serves 40 to 60 hospitality and foodservice accounts at an annual run-rate of ₹40–50 Cr. Revenue is consumption-based and compounds with customer usage rather than depending on new logos alone.',
+        'Two cities are operational, with sixteen in the rollout plan on a repeatable city playbook.'
+      ],
+      table: [
+        { k: 'Annual run-rate', v: '₹40–50 Cr' },
+        { k: 'Accounts served', v: '40–60 hospitality and foodservice' },
+        { k: 'Cities operational', v: 'Two' },
+        { k: 'Cities in rollout plan', v: 'Sixteen' },
+        { k: 'Revenue model', v: 'Consumption-based supply plus a higher-margin services layer' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '₹10 Cr' },
+        { k: 'Instrument', v: 'Not yet set' },
+        { k: 'Valuation', v: 'Not yet set' },
+        { k: 'Minimum cheque', v: 'Not set' },
+        { k: 'Use of funds', v: 'Approximately 60% working capital, 20% technology, 15% marketing, 5% contingency' }
+      ],
+      considerations: [
+        'Consumption-based revenue that compounds with customer usage.',
+        'Services layer carries materially higher margin than bulk supply.',
+        'Repeatable city playbook.'
+      ],
+      risks: [
+        'Valuation and instrument are not yet set.',
+        'Gross-margin expansion assumptions are under review.',
+        'Early city coverage: two cities operational against sixteen planned.'
+      ]
+    },
+    {
+      code: 'DCO-106', list: true,
+      title: 'Point-of-care oncology screening device',
+      descriptor: 'A non-invasive point-of-care screening device that produces a cancer risk score from a patient sample in under two minutes, deployed to hospitals and diagnostic chains on a zero-capex pay-per-test model.',
+      sector: 'Medical devices and diagnostics', sectorShort: 'Medical devices',
+      geoLabel: 'India', geo: ['India'],
+      type: 'Equity', typeLabel: 'Equity, seed',
+      stage: 'Pre-revenue', status: 'open', statusNote: 'Validation stage',
+      cheque: 'Not specified', sought: '₹5 Cr', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Post-money', v: '₹50–60 Cr' },
+        { k: 'Already raised', v: '₹4–5 Cr' },
+        { k: 'Per-test realisation', v: 'Under ₹200' }
+      ],
+      summary: [
+        'A non-invasive point-of-care screening device that returns a cancer risk score in under two minutes, placed with hospitals and diagnostic chains on a zero-capex pay-per-test model.',
+        'The device is laboratory validated. Clinical performance has not yet been read out, and the company is at validation stage rather than commercial rollout.'
+      ],
+      profile: [
+        'The commercial model removes the hospital capital barrier: the device is placed at no capital cost and revenue is earned per test, with a recurring consumable cycle attached.',
+        'Per-test realisation is under ₹200, against conventional screening modalities costing many multiples more. The company holds the national medical-device manufacturing licence and an ISO quality-management certification. The core sensor patent is granted domestically, with international applications pending. Ethics and review-board approvals are in place for trials at a government cancer centre.'
+      ],
+      table: [
+        { k: 'Stage', v: 'Validation. Laboratory validated, clinical performance readout pending' },
+        { k: 'Regulatory', v: 'National medical-device manufacturing licence and ISO quality-management certification held' },
+        { k: 'Intellectual property', v: 'Core sensor patent granted domestically; international applications pending' },
+        { k: 'Clinical', v: 'Ethics and review-board approvals in place at a government cancer centre' },
+        { k: 'Per-test realisation', v: 'Under ₹200' },
+        { k: 'Already raised', v: '₹4–5 Cr' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '₹5 Cr' },
+        { k: 'Instrument', v: 'Equity or compulsorily convertible preference shares, 100% primary' },
+        { k: 'Post-money valuation', v: '₹50–60 Cr' },
+        { k: 'Minimum cheque', v: 'Not set' },
+        { k: 'Use of funds', v: 'Funds the next clinical and regulatory proof points. Does not fund national commercial scale.' }
+      ],
+      considerations: [
+        'Device-as-a-service model removes the hospital capital barrier.',
+        'Recurring consumable cycle attached to each placement.',
+        'Per-test economics materially below conventional screening modalities.',
+        'Strong clinical and scientific advisory bench.'
+      ],
+      risks: [
+        'Clinical sensitivity and specificity have not yet been published.',
+        'A single trial site to date.',
+        'Regulatory clearance for commercial rollout is outstanding.',
+        'This round funds the next proof points. It does not fund national scale.'
+      ]
+    },
+    {
+      code: 'DCO-107', list: true,
+      title: 'Industrial fuel-reduction technology',
+      descriptor: 'An on-site gas generation device that retrofits to existing industrial boilers, furnaces and engines to reduce fossil-fuel consumption, requiring no modification to the primary fuel system and no capital expenditure by the customer.',
+      sector: 'Clean energy and industrial decarbonisation', sectorShort: 'Clean energy',
+      geoLabel: 'India · GCC', geo: ['India', 'GCC'],
+      type: 'Equity', typeLabel: 'Equity, market entry',
+      stage: 'Pre-revenue', status: 'open', statusNote: 'Pre-revenue',
+      cheque: 'Not specified', sought: '₹3 Cr', minCheque: 'Not specified',
+      metrics: [
+        { k: 'Orders in hand', v: '8 across 4 customers' },
+        { k: 'Measured reduction', v: 'Mid-teens % per hour' },
+        { k: 'Technology readiness', v: 'Level 7, moving to 8' }
+      ],
+      summary: [
+        'An on-site gas generation device that retrofits to existing industrial boilers, furnaces and engines to reduce fossil-fuel consumption. No modification to the primary fuel system is required and the customer incurs no capital expenditure.',
+        'The company is pre-revenue, at technology readiness level 7 moving to 8, raising for market entry.'
+      ],
+      profile: [
+        'The device attaches to the installed base of industrial combustion equipment rather than replacing it, which removes the customer capex barrier that typically slows industrial decarbonisation adoption.',
+        'Validation to date comprises one measured industrial proof-of-concept demonstrating a mid-teens percentage fuel reduction per hour, a second proof-of-concept at a GCC heavy-industry site, and a letter of intent from an industrial manufacturer. Inputs are non-toxic and non-flammable.'
+      ],
+      table: [
+        { k: 'Stage', v: 'Pre-revenue' },
+        { k: 'Technology readiness', v: 'Level 7, moving to level 8' },
+        { k: 'Measured fuel reduction', v: 'Mid-teens percent per hour, one measured industrial proof-of-concept' },
+        { k: 'Second proof-of-concept', v: 'GCC heavy-industry site' },
+        { k: 'Commercial interest', v: 'Letter of intent from an industrial manufacturer' },
+        { k: 'Orders in hand', v: '8 across 4 industrial customers' },
+        { k: 'Addressable industries identified', v: '20+' }
+      ],
+      transaction: [
+        { k: 'Capital sought', v: '₹3 Cr' },
+        { k: 'Instrument', v: 'Equity, market entry round' },
+        { k: 'Valuation', v: 'Not set' },
+        { k: 'Minimum cheque', v: 'Not set' },
+        { k: 'Use of funds', v: 'Approximately 90% production, balance working capital and setup' }
+      ],
+      considerations: [
+        'No customer capital expenditure required.',
+        'Retrofits to the installed base rather than replacing equipment.',
+        'Non-toxic, non-flammable inputs.',
+        'Large installed base of addressable equipment.'
+      ],
+      risks: [
+        'Patents are filed and pending, not granted.',
+        'Demonstrated reduction to date is below the range the company states.',
+        'Pre-revenue.',
+        'Order values are not yet contracted.'
+      ]
+    },
+
+    /* ---- held back. Carried in the structure, never rendered. ---- */
+    { code: 'DCO-108', list: false, title: 'EV fleet mobility platform',
+      sector: 'EV mobility and fleet', geoLabel: 'Western India', geo: ['India'], stage: 'Growth' },
+    { code: 'DCO-109', list: false, title: 'Indic-language voice and speech API platform',
+      sector: 'AI infrastructure', geoLabel: 'India', geo: ['India'], stage: 'Growth' },
+    { code: 'DCO-110', list: false, title: 'Buyout transaction financing',
+      sector: 'Leveraged buyout finance', geoLabel: 'India', geo: ['India'],
+      type: 'Debt / Bridge', stage: 'Transaction' },
+    { code: 'DCO-111', list: false, title: 'Development-management bridge facility',
+      sector: 'Real estate development finance', geoLabel: 'GCC', geo: ['GCC'],
+      type: 'Debt / Bridge', stage: 'Transaction' }
+  ];
+
+  var LIVE = DEALS.filter(function (d) { return d.list; });
+
+  /* ---- helpers ------------------------------------------------------ */
+
+  function el(tag, cls, txt) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (txt !== undefined && txt !== null) n.textContent = txt;
+    return n;
+  }
+  function uniq(arr) {
+    var seen = {}, out = [];
+    arr.forEach(function (v) { if (v && !seen[v]) { seen[v] = 1; out.push(v); } });
+    return out.sort();
+  }
+  function waIcon() {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'currentColor');
+    svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24zm-2.6 4.1c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.57.2-1.07.14-1.17-.06-.1-.23-.17-.48-.29-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12-.17.25-.63.8-.77.96-.14.17-.28.19-.53.07-.25-.13-1.04-.39-1.99-1.23-.73-.66-1.23-1.46-1.37-1.71-.15-.25-.02-.38.1-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.09-.17.04-.31-.02-.44-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42h-.47z');
+    svg.appendChild(path);
+    return svg;
+  }
+  var STATUS_LABEL = { open: 'Open', diligence: 'In diligence', closing: 'Closing' };
+  function chip(d) {
+    var c = el('span', 'chip', STATUS_LABEL[d.status]);
+    c.setAttribute('data-s', d.status);
+    return c;
+  }
+
+  /* ---- statistics band ----------------------------------------------
+     Currencies are not summed. Converting them would mean inventing an
+     FX rate and presenting it as a figure, which this page does not do.
+  --------------------------------------------------------------------- */
+
+  var INR_CR = 80 + 100 + 10 + 5 + 3;          /* DCO-101, 103, 105, 106, 107 */
+  var SECTORS = uniq(LIVE.map(function (d) { return d.sector; }));
+  var JURIS = uniq(LIVE.reduce(function (a, d) { return a.concat(d.geo); }, []));
+
+  (function stats() {
+    var rows = [
+      { k: 'Live opportunities', v: String(LIVE.length), n: 'Further mandates held pending documentation' },
+      { k: 'Capital sought', v: '₹' + INR_CR + ' Cr', n: 'Plus €10–12M and $2M. Currencies are not converted.' },
+      { k: 'Sectors', v: String(SECTORS.length), n: 'Healthcare to heavy industry' },
+      { k: 'Jurisdictions', v: String(JURIS.length), n: JURIS.join(' · ') }
+    ];
+    var wrap = document.getElementById('stats');
+    rows.forEach(function (r) {
+      var i = el('div', 'stat');
+      i.appendChild(el('span', 'stat-k meta', r.k));
+      i.appendChild(el('div', 'stat-v num', r.v));
+      i.appendChild(el('span', 'stat-n meta meta-s', r.n));
+      wrap.appendChild(i);
+    });
+  })();
+
+  /* ---- filters ------------------------------------------------------
+     Options are generated from the records, so the page never offers a
+     filter value that returns nothing.
+  --------------------------------------------------------------------- */
+
+  var F = {
+    sector: document.getElementById('f-sector'),
+    geo:    document.getElementById('f-geo'),
+    type:   document.getElementById('f-type'),
+    stage:  document.getElementById('f-stage'),
+    cheque: document.getElementById('f-cheque')
+  };
+  function fillSelect(sel, label, values) {
+    sel.appendChild(new Option(label, ''));
+    values.forEach(function (v) { sel.appendChild(new Option(v, v)); });
+  }
+  fillSelect(F.sector, 'All sectors', SECTORS);
+  fillSelect(F.geo, 'All geographies', JURIS);
+  fillSelect(F.type, 'All deal types', uniq(LIVE.map(function (d) { return d.type; })));
+  fillSelect(F.stage, 'All stages', uniq(LIVE.map(function (d) { return d.stage; })));
+  fillSelect(F.cheque, 'Any cheque size', uniq(LIVE.map(function (d) { return d.cheque; })));
+
+  function matches(d) {
+    if (F.sector.value && d.sector !== F.sector.value) return false;
+    if (F.geo.value && d.geo.indexOf(F.geo.value) === -1) return false;
+    if (F.type.value && d.type !== F.type.value) return false;
+    if (F.stage.value && d.stage !== F.stage.value) return false;
+    if (F.cheque.value && d.cheque !== F.cheque.value) return false;
+    return true;
+  }
+
+  /* ---- sorting -------------------------------------------------------
+     Money columns are deliberately not sortable. Ranking "Up to ₹80 Cr"
+     against "€10–12M" would require an exchange rate this page refuses
+     to invent, and sorting within the band loses its meaning.
+  --------------------------------------------------------------------- */
+
+  var COLS = [
+    { key: 'code',     label: 'Code',           sort: function (d) { return d.code; } },
+    { key: 'title',    label: 'Opportunity',    sort: function (d) { return d.title; } },
+    { key: 'sector',   label: 'Sector',         sort: function (d) { return d.sector; } },
+    { key: 'geo',      label: 'Geography',      sort: function (d) { return d.geoLabel; } },
+    { key: 'stage',    label: 'Stage',          sort: function (d) { return d.stage; } },
+    { key: 'sought',   label: 'Capital sought', right: true },
+    { key: 'status',   label: 'Status',         sort: function (d) { return STATUS_LABEL[d.status]; } },
+    { key: 'go',       label: '',               right: true }
+  ];
+  var sortKey = 'code', sortDir = 1;
+
+  function sorted(list) {
+    var col = COLS.filter(function (c) { return c.key === sortKey && c.sort; })[0];
+    if (!col) return list;
+    return list.slice().sort(function (a, b) {
+      var x = col.sort(a), y = col.sort(b);
+      return x < y ? -sortDir : x > y ? sortDir : 0;
+    });
+  }
+
+  function buildHead() {
+    var head = document.getElementById('indexHead');
+    while (head.firstChild) head.removeChild(head.firstChild);
+    var tr = el('tr');
+    COLS.forEach(function (c) {
+      var th = el('th');
+      th.scope = 'col';
+      if (c.right) th.classList.add('r');
+      if (!c.sort) {
+        th.classList.add('plain');
+        th.appendChild(document.createTextNode(c.label));
+        if (!c.label) th.setAttribute('aria-label', 'Open');
+      } else {
+        var b = el('button', 'sortbtn');
+        b.type = 'button';
+        b.appendChild(document.createTextNode(c.label));
+        b.appendChild(el('span', 'arrow', sortKey === c.key ? (sortDir === 1 ? '▲' : '▼') : '▲'));
+        th.setAttribute('aria-sort', sortKey === c.key ? (sortDir === 1 ? 'ascending' : 'descending') : 'none');
+        b.addEventListener('click', function () {
+          if (sortKey === c.key) sortDir = -sortDir; else { sortKey = c.key; sortDir = 1; }
+          render();
+        });
+        th.appendChild(b);
+      }
+      tr.appendChild(th);
+    });
+    head.appendChild(tr);
+  }
+
+  /* ---- views ---------------------------------------------------------- */
+
+  var indexWrap = document.getElementById('indexWrap');
+  var indexBody = document.getElementById('indexBody');
+  var grid = document.getElementById('grid');
+  var emptyMsg = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+  var vIndex = document.getElementById('v-index');
+  var vCards = document.getElementById('v-cards');
+  var view = window.matchMedia('(min-width: 1101px)').matches ? 'index' : 'cards';
+
+  function row(d) {
+    var tr = el('tr');
+    tr.tabIndex = 0;
+    tr.setAttribute('aria-label', d.code + '. ' + d.title + '. Open one-pager.');
+
+    tr.appendChild(el('td', 't-code num', d.code));
+
+    var tdTitle = el('td');
+    tdTitle.appendChild(el('div', 't-title', d.title));
+    tdTitle.appendChild(el('span', 't-sub', d.typeLabel));
+    tr.appendChild(tdTitle);
+
+    tr.appendChild(el('td', 't-soft', d.sector));
+    tr.appendChild(el('td', 't-soft', d.geoLabel));
+    tr.appendChild(el('td', 't-soft', d.stage));
+
+    var tdS = el('td', 'r num');
+    tdS.appendChild(el('div', null, d.sought));
+    if (d.minCheque !== 'Not specified') tdS.appendChild(el('span', 't-sub', 'min ' + d.minCheque));
+    tr.appendChild(tdS);
+
+    var tdC = el('td');
+    tdC.appendChild(chip(d));
+    tr.appendChild(tdC);
+
+    var tdG = el('td', 'r');
+    tdG.appendChild(el('span', 't-go', '→'));
+    tr.appendChild(tdG);
+
+    function go() { open(d, tr); }
+    tr.addEventListener('click', go);
+    tr.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+    return tr;
+  }
+
+  function card(d) {
+    var c = el('article', 'card');
+    var top = el('div', 'card-top');
+    top.appendChild(el('span', 'code num', d.code));
+    top.appendChild(chip(d));
+    c.appendChild(top);
+
+    c.appendChild(el('h2', 'card-h', d.title));
+    c.appendChild(el('p', 'card-d', d.descriptor));
+
+    var tags = el('div', 'tags');
+    [d.sectorShort || d.sector, d.geoLabel, d.type].forEach(function (t) { tags.appendChild(el('span', 'tag', t)); });
+    c.appendChild(tags);
+
+    var kv = el('div', 'kv');
+    function kvRow(k, v) {
+      var r = el('div', 'kv-r');
+      r.appendChild(el('span', 'kv-k meta', k));
+      r.appendChild(el('span', 'kv-v num', v));
+      kv.appendChild(r);
+    }
+    kvRow('Capital sought', d.sought);
+    kvRow('Minimum cheque', d.minCheque);
+    d.metrics.forEach(function (m) { kvRow(m.k, m.v); });
+    c.appendChild(kv);
+
+    var flagged = d.metrics.filter(function (m) { return m.flag; });
+    c.appendChild(el('p', 'card-note meta meta-s', flagged.length
+      ? flagged.map(function (m) { return m.k; }).join(' and ') + ' ' + flagged[0].flag.toLowerCase()
+      : 'All figures seller-reported, not verified'));
+
+    var act = el('div', 'card-act');
+    var b = el('button', 'btn btn-full', 'Request access');
+    b.type = 'button';
+    b.addEventListener('click', function (e) { e.stopPropagation(); open(d, b, true); });
+    act.appendChild(b);
+    c.appendChild(act);
+
+    c.addEventListener('click', function (e) { if (!e.target.closest('button')) open(d, b, false); });
+    return c;
+  }
+
+  function render() {
+    var list = sorted(LIVE.filter(matches));
+
+    buildHead();
+    while (indexBody.firstChild) indexBody.removeChild(indexBody.firstChild);
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
+
+    if (view === 'index') { list.forEach(function (d) { indexBody.appendChild(row(d)); }); }
+    else { list.forEach(function (d) { grid.appendChild(card(d)); }); }
+
+    indexWrap.hidden = view !== 'index' || !list.length;
+    grid.hidden = view !== 'cards' || !list.length;
+    emptyMsg.hidden = list.length > 0;
+
+    countEl.textContent = list.length === LIVE.length
+      ? LIVE.length + ' shown' : list.length + ' of ' + LIVE.length + ' shown';
+    vIndex.setAttribute('aria-pressed', String(view === 'index'));
+    vCards.setAttribute('aria-pressed', String(view === 'cards'));
+  }
+
+  Object.keys(F).forEach(function (k) { F[k].addEventListener('change', render); });
+  document.getElementById('clear').addEventListener('click', function () {
+    Object.keys(F).forEach(function (k) { F[k].value = ''; });
+    render();
+  });
+  vIndex.addEventListener('click', function () { view = 'index'; render(); });
+  vCards.addEventListener('click', function () { view = 'cards'; render(); });
+
+  /* the table cannot work on a phone, so narrow viewports get cards */
+  var wide = window.matchMedia('(min-width: 1101px)');
+  function onWidth() { if (!wide.matches && view === 'index') { view = 'cards'; render(); } }
+  if (wide.addEventListener) wide.addEventListener('change', onWidth);
+  render();
+
+  /* ---- detail sheet ---------------------------------------------------- */
+
+  var scrim = document.getElementById('scrim');
+  var sheet = document.getElementById('sheet');
+  var sheetBody = document.getElementById('sheet-body');
+  var sheetCode = document.getElementById('sheet-code');
+  var sheetChip = document.getElementById('sheet-chip');
+  var lastFocus = null;
+
+  function block(k) {
+    var b = el('section', 'blk');
+    b.appendChild(el('span', 'blk-k meta', k));
+    return b;
+  }
+  function paras(b, arr) { arr.forEach(function (p) { b.appendChild(el('p', null, p)); }); }
+  function bullets(b, arr) {
+    var ul = el('ul');
+    arr.forEach(function (t) { ul.appendChild(el('li', null, t)); });
+    b.appendChild(ul);
+  }
+
+  function accessBlock(d) {
+    var wrap = el('div', 'req');
+    wrap.appendChild(el('h3', 'req-h', 'Request access to ' + d.code));
+    wrap.appendChild(el('p', 'req-p',
+      'Message us with the deal code and we will reply with the NDA and a time for the qualification call. Identity and the full information pack follow both of those steps, and nothing further is disclosed on this page.'));
+
+    var ol = el('ul', 'req-steps');
+    PROCESS.forEach(function (t, i) {
+      var li = el('li');
+      li.appendChild(el('b', null, String(i + 1).length < 2 ? '0' + (i + 1) : String(i + 1)));
+      li.appendChild(el('span', null, t));
+      ol.appendChild(li);
+    });
+    wrap.appendChild(ol);
+
+    var msg = 'Dee & Co: ' + d.code + ' (' + d.title + ').\n'
+            + 'I would like access to this opportunity.\n\n'
+            + 'Firm: \nInvestor type: \nTypical cheque: \n\n'
+            + 'Please send the NDA and a time for the qualification call.';
+
+    var act = el('div', 'act');
+    var wa = el('a', 'btn', 'Request on WhatsApp');
+    wa.href = DEECO.wa(msg);
+    wa.target = '_blank'; wa.rel = 'noopener';
+    wa.insertBefore(waIcon(), wa.firstChild);
+    act.appendChild(wa);
+
+    var mail = el('a', 'btn btn-ghost', 'Email instead');
+    mail.href = 'mailto:' + DEECO.email
+      + '?subject=' + encodeURIComponent('Access request: ' + d.code)
+      + '&body=' + encodeURIComponent(msg);
+    act.appendChild(mail);
+
+    if (DEECO.meetReady()) {
+      var meet = el('a', 'btn btn-ghost', 'Book a call');
+      meet.href = DEECO.meet; meet.target = '_blank'; meet.rel = 'noopener';
+      act.appendChild(meet);
+    }
+    wrap.appendChild(act);
+
+    wrap.appendChild(el('p', 'notice meta meta-s',
+      'We use what you send only to qualify the enquiry and reply. We do not share it with the company or any third party without asking you first. We hold it for 24 months and delete it sooner on request. To withdraw consent or ask for deletion, write to ' + DEECO.email + '.'));
+    return wrap;
+  }
+
+  function buildSheet(d) {
+    while (sheetBody.firstChild) sheetBody.removeChild(sheetBody.firstChild);
+    sheetCode.textContent = d.code;
+    sheetChip.textContent = STATUS_LABEL[d.status] + (d.statusNote ? ' · ' + d.statusNote : '');
+    sheetChip.setAttribute('data-s', d.status);
+
+    var h = el('h2', 'sheet-h', d.title);
+    h.id = 'sheet-h';
+    sheetBody.appendChild(h);
+
+    var tags = el('div', 'sheet-tags');
+    [d.sector, d.geoLabel, d.typeLabel, d.stage].forEach(function (t) { tags.appendChild(el('span', 'tag', t)); });
+    sheetBody.appendChild(tags);
+
+    var b1 = block('Opportunity'); paras(b1, d.summary); sheetBody.appendChild(b1);
+    var b2 = block('Business profile'); paras(b2, d.profile); sheetBody.appendChild(b2);
+
+    var b3 = block('Key metrics');
+    var dl = el('dl', 'mtable');
+    d.table.forEach(function (m) {
+      var r = el('div', 'mrow');
+      r.appendChild(el('dt', 'meta', m.k));
+      var dd = el('dd', 'num');
+      dd.appendChild(document.createTextNode(m.v));
+      if (m.flag) dd.appendChild(el('span', 'flagn', m.flag));
+      r.appendChild(dd);
+      dl.appendChild(r);
+    });
+    b3.appendChild(dl);
+    sheetBody.appendChild(b3);
+
+    var b4 = block('Transaction');
+    var cx = el('div', 'cx');
+    d.transaction.forEach(function (t) {
+      var i = el('div');
+      i.appendChild(el('span', 'cx-k meta', t.k));
+      i.appendChild(el('div', 'cx-v num', t.v));
+      cx.appendChild(i);
+    });
+    b4.appendChild(cx);
+    sheetBody.appendChild(b4);
+
+    var b5 = block('Investment considerations'); bullets(b5, d.considerations); sheetBody.appendChild(b5);
+    var b6 = block('Risk and status'); bullets(b6, d.risks); sheetBody.appendChild(b6);
+
+    sheetBody.appendChild(accessBlock(d));
+  }
+
+  var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]):not([readonly]),select,textarea,[tabindex]:not([tabindex="-1"])';
+
+  function open(d, trigger, toAccess) {
+    lastFocus = trigger || document.activeElement;
+    buildSheet(d);
+    scrim.hidden = false;
+    document.body.classList.add('locked');
+    sheet.scrollTop = 0;
+    if (toAccess) {
+      var req = sheetBody.querySelector('.req');
+      var first = req && req.querySelector('a');
+      if (first) { req.scrollIntoView({ block: 'start' }); first.focus(); return; }
+    }
+    sheet.focus();
+  }
+  function close() {
+    scrim.hidden = true;
+    document.body.classList.remove('locked');
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  }
+
+  document.getElementById('sheet-x').addEventListener('click', close);
+  scrim.addEventListener('mousedown', function (e) { if (e.target === scrim) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (scrim.hidden) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key !== 'Tab') return;
+    var f = Array.prototype.filter.call(scrim.querySelectorAll(FOCUSABLE), function (n) {
+      return n.offsetParent !== null || n === document.activeElement;
+    });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* ---- footer contact ---------------------------------------------- */
+
+  (function footer() {
+    var p = document.getElementById('footContact');
+    var mail = el('a', null, DEECO.email);
+    mail.href = 'mailto:' + DEECO.email;
+    p.appendChild(mail);
+    p.appendChild(el('br'));
+    var tel = el('a', 'num', DEECO.phoneShow);
+    tel.href = 'tel:+' + DEECO.phoneE164;
+    p.appendChild(tel);
+    p.appendChild(el('br'));
+    var wa = el('a', null, 'WhatsApp');
+    wa.href = DEECO.wa('Hello Dee & Co. I am enquiring about the opportunities page.');
+    wa.target = '_blank'; wa.rel = 'noopener';
+    p.appendChild(wa);
+    if (DEECO.meetReady()) {
+      p.appendChild(el('br'));
+      var m = el('a', null, 'Book a video call');
+      m.href = DEECO.meet; m.target = '_blank'; m.rel = 'noopener';
+      p.appendChild(m);
+    }
+  })();
+})();
+</script>
+</body>
+</html>
