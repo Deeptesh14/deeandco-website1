@@ -726,6 +726,33 @@ var DEECO = {
 };
 
 </script>
+
+<script>
+/* ---- last-resort guard ---------------------------------------------
+   If a comma or a quote in the DEALS array is wrong, the listings script
+   never runs at all and this page would otherwise render as an empty
+   shell with the error buried in the browser console. This separate tag
+   still runs, notices that nothing was written, and says so on the page.
+--------------------------------------------------------------------- */
+window.addEventListener('load', function () {
+  var body = document.getElementById('indexBody');
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var rendered = (body && body.children.length) || (grid && grid.children.length);
+  if (rendered) return;
+  if (empty && !empty.hidden) return;        /* a genuine no-match filter state */
+
+  var box = document.createElement('div');
+  box.setAttribute('role', 'alert');
+  box.style.cssText = 'margin:24px var(--pad);padding:18px 20px;border:2px solid #B3261E;'
+    + 'color:#B3261E;font-family:var(--mono);font-size:12.5px;line-height:1.75;';
+  box.textContent = 'The listings did not load. This almost always means a missing comma, '
+    + 'quote or bracket in the DEALS array in this file. Open the browser console for the '
+    + 'exact line, or restore the last working copy of opportunities.html.';
+  var l = document.getElementById('listings');
+  if (l) l.parentNode.insertBefore(box, l);
+});
+</script>
 <script>
 (function () {
   'use strict';
@@ -761,6 +788,7 @@ var DEECO = {
       type: 'Acquisition', typeLabel: 'Acquisition / growth equity',
       stage: 'Transaction', status: 'open', statusNote: 'Preliminary evaluation stage',
       cheque: 'Not specified', sought: 'Up to ₹80 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 80, hi: 80 },
       metrics: [
         { k: 'Operational beds', v: '250–300' },
         { k: 'Employees', v: '700+' },
@@ -815,6 +843,7 @@ var DEECO = {
       type: 'Equity', typeLabel: 'Equity, preferred class',
       stage: 'Pre-revenue', status: 'open', statusNote: '',
       cheque: 'Not specified', sought: '€10–12M', minCheque: 'Not specified',
+      ask: { cur: 'EUR', lo: 10, hi: 12 },
       metrics: [
         { k: 'Land under agreement', v: '800+ acres' },
         { k: 'Preferred dividend', v: 'Low-to-mid teens %' },
@@ -866,6 +895,7 @@ var DEECO = {
       type: 'Pre-IPO', typeLabel: 'Pre-IPO placement',
       stage: 'Pre-IPO', status: 'open', statusNote: '',
       cheque: 'Not specified', sought: '₹100 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 100, hi: 100 },
       metrics: [
         { k: 'Delivered', v: '25M+ sq ft' },
         { k: 'Under construction', v: '25–35M sq ft' },
@@ -916,6 +946,7 @@ var DEECO = {
       type: 'Equity', typeLabel: 'Equity, seed',
       stage: 'Early revenue', status: 'open', statusNote: 'Round timetable under revision',
       cheque: 'Under $100K', sought: '$2M', minCheque: '$50K',
+      ask: { cur: 'USD', lo: 2, hi: 2 },
       metrics: [
         { k: 'Lifetime revenue', v: '$1.5–2.0M' },
         { k: 'Peak month', v: 'Above $200K' },
@@ -965,6 +996,7 @@ var DEECO = {
       type: 'Equity', typeLabel: 'Equity, Series A',
       stage: 'Growth', status: 'open', statusNote: 'Valuation not yet set',
       cheque: 'Not specified', sought: '₹10 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 10, hi: 10 },
       metrics: [
         { k: 'Annual run-rate', v: '₹40–50 Cr' },
         { k: 'Accounts', v: '40–60' },
@@ -1012,6 +1044,7 @@ var DEECO = {
       type: 'Equity', typeLabel: 'Equity, seed',
       stage: 'Pre-revenue', status: 'open', statusNote: 'Validation stage',
       cheque: 'Not specified', sought: '₹5 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 5, hi: 5 },
       metrics: [
         { k: 'Post-money', v: '₹50–60 Cr' },
         { k: 'Already raised', v: '₹4–5 Cr' },
@@ -1062,6 +1095,7 @@ var DEECO = {
       type: 'Equity', typeLabel: 'Equity, market entry',
       stage: 'Pre-revenue', status: 'open', statusNote: 'Pre-revenue',
       cheque: 'Not specified', sought: '₹3 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 3, hi: 3 },
       metrics: [
         { k: 'Orders in hand', v: '8 across 4 customers' },
         { k: 'Measured reduction', v: 'Mid-teens % per hour' },
@@ -1118,7 +1152,92 @@ var DEECO = {
       type: 'Debt / Bridge', stage: 'Transaction' }
   ];
 
+
+  /* ==================================================================
+     ADDING A NEW OPPORTUNITY
+     ------------------------------------------------------------------
+     1. Copy the template below, paste it into DEALS above the held
+        records, and fill every field. Keep the trailing comma.
+     2. Codes run in sequence and DCO-108 to DCO-111 are already taken
+        by the held mandates, so the next free code is DCO-112.
+     3. Band every company figure. Widen geography one level. Round
+        dates to a year. Never put a company, brand, person, customer,
+        investor, site or licence number anywhere in here.
+     4. Open the file in a browser before uploading. If the listings
+        area shows a red notice, a field is missing or a comma is wrong.
+
+     TEMPLATE, copy from here:
+
+    {
+      code: 'DCO-112', list: true,
+      title: 'Short generic label',
+      descriptor: 'One or two sentences on the sector and what the business does, generically.',
+      sector: 'Sector', sectorShort: 'Short sector for the card chip',
+      geoLabel: 'Region shown', geo: ['India'],
+      type: 'Equity', typeLabel: 'Equity, seed',
+      stage: 'Growth', status: 'open', statusNote: '',
+      cheque: 'Not specified', sought: 'INR 00 Cr', minCheque: 'Not specified',
+      ask: { cur: 'INR', lo: 0, hi: 0 },
+      metrics: [
+        { k: 'Metric', v: 'Band' },
+        { k: 'Metric', v: 'Band' },
+        { k: 'Metric', v: 'Band', flag: 'Unverified, seller reported' }
+      ],
+      summary: ['Two or three sentences.', 'Second paragraph.'],
+      profile: ['What it does and how it makes money.', 'Second paragraph.'],
+      table: [ { k: 'Field', v: 'Band' } ],
+      transaction: [ { k: 'Capital sought', v: 'INR 00 Cr' } ],
+      considerations: ['Why someone would look at this.'],
+      risks: ['Honest and short.']
+    },
+
+     FIELD NOTES
+       type      must be one of the values already in use, or the filter
+                 gains a new option: Equity, Pre-IPO, Acquisition, Debt / Bridge
+       stage     Pre-revenue, Early revenue, Growth, Pre-IPO, Transaction
+       status    open, diligence or closing. Nothing else renders.
+       cheque    the filter bucket. Use 'Not specified' when the seller
+                 has not set a minimum.
+       ask       drives the statistics band. lo and hi in Cr for INR,
+                 in millions for EUR and USD. Same number twice when the
+                 ask is a single figure.
+       metrics   exactly three. The cards are a fixed height by design.
+       flag      only where a figure is seller-reported and unverified.
+     ================================================================== */
+
   var LIVE = DEALS.filter(function (d) { return d.list; });
+
+  /* ---- record validation -------------------------------------------
+     A missing field or a duplicate code is reported on the page itself
+     rather than failing quietly, because whoever adds a listing is not
+     going to have the browser console open.
+  --------------------------------------------------------------------- */
+
+  var REQUIRED = ['code','title','descriptor','sector','geoLabel','geo','type','typeLabel',
+                  'stage','status','cheque','sought','minCheque','ask','metrics','summary',
+                  'profile','table','transaction','considerations','risks'];
+  var OK_STATUS = ['open','diligence','closing'];
+
+  function validate() {
+    var problems = [], seen = {};
+    LIVE.forEach(function (d, i) {
+      var where = d.code || ('record ' + (i + 1));
+      REQUIRED.forEach(function (f) {
+        if (d[f] === undefined || d[f] === null || d[f] === '') problems.push(where + ': missing ' + f);
+      });
+      if (d.code) {
+        if (seen[d.code]) problems.push(d.code + ': duplicate deal code');
+        seen[d.code] = 1;
+      }
+      if (d.status && OK_STATUS.indexOf(d.status) === -1)
+        problems.push(where + ': status "' + d.status + '" is not open, diligence or closing');
+      if (d.metrics && d.metrics.length !== 3)
+        problems.push(where + ': has ' + d.metrics.length + ' metrics, the cards expect exactly 3');
+      if (d.ask && !CUR[d.ask.cur])
+        problems.push(where + ': ask currency "' + d.ask.cur + '" is not INR, EUR or USD');
+    });
+    return problems;
+  }
 
   /* ---- helpers ------------------------------------------------------ */
 
@@ -1156,14 +1275,39 @@ var DEECO = {
      FX rate and presenting it as a figure, which this page does not do.
   --------------------------------------------------------------------- */
 
-  var INR_CR = 80 + 100 + 10 + 5 + 3;          /* DCO-101, 103, 105, 106, 107 */
   var SECTORS = uniq(LIVE.map(function (d) { return d.sector; }));
   var JURIS = uniq(LIVE.reduce(function (a, d) { return a.concat(d.geo); }, []));
 
+  /* Totals are derived from each record's `ask`, grouped by currency and
+     never converted between them. Add a listing and these update on their
+     own: there is no hand-kept sum anywhere on this page. */
+  var CUR = { INR: { sym: '₹', unit: ' Cr' }, EUR: { sym: '€', unit: 'M' }, USD: { sym: '$', unit: 'M' } };
+
+  function totals() {
+    var by = {};
+    LIVE.forEach(function (d) {
+      if (!d.ask || !CUR[d.ask.cur]) return;
+      var t = by[d.ask.cur] || (by[d.ask.cur] = { lo: 0, hi: 0, n: 0 });
+      t.lo += d.ask.lo; t.hi += d.ask.hi; t.n += 1;
+    });
+    return Object.keys(by).map(function (c) {
+      var t = by[c], m = CUR[c];
+      return { cur: c, n: t.n,
+        text: m.sym + (t.lo === t.hi ? t.lo : t.lo + '–' + t.hi) + m.unit };
+    }).sort(function (a, b) { return b.n - a.n; });
+  }
+
   (function stats() {
+    var t = totals();
+    var head = t.length ? t[0].text : 'Not set';
+    var rest = t.slice(1).map(function (x) { return x.text; });
+    var noteParts = [];
+    if (rest.length) noteParts.push('Plus ' + rest.join(' and ') + '.');
+    if (t.length > 1) noteParts.push('Currencies are not converted.');
+
     var rows = [
       { k: 'Live opportunities', v: String(LIVE.length), n: 'Further mandates held pending documentation' },
-      { k: 'Capital sought', v: '₹' + INR_CR + ' Cr', n: 'Plus €10–12M and $2M. Currencies are not converted.' },
+      { k: 'Capital sought', v: head, n: noteParts.join(' ') },
       { k: 'Sectors', v: String(SECTORS.length), n: 'Healthcare to heavy industry' },
       { k: 'Jurisdictions', v: String(JURIS.length), n: JURIS.join(' · ') }
     ];
@@ -1373,6 +1517,28 @@ var DEECO = {
     vIndex.setAttribute('aria-pressed', String(view === 'index'));
     vCards.setAttribute('aria-pressed', String(view === 'cards'));
   }
+
+  (function reportProblems() {
+    var problems = validate();
+    if (!problems.length) return;
+    var box = document.createElement('div');
+    box.setAttribute('role', 'alert');
+    box.style.cssText = 'margin:0 var(--pad);padding:16px 18px;border:2px solid #B3261E;'
+      + 'color:#B3261E;font-family:var(--mono);font-size:12px;line-height:1.7;';
+    box.appendChild(document.createTextNode('This page has ' + problems.length
+      + ' record problem' + (problems.length > 1 ? 's' : '') + ', visible to you and to visitors. Fix them in opportunities.html:'));
+    var ul = document.createElement('ul');
+    ul.style.cssText = 'margin-top:8px;padding-left:14px;';
+    problems.forEach(function (t) {
+      var li = document.createElement('li');
+      li.style.listStyle = 'square';
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+    var listings = document.getElementById('listings');
+    listings.parentNode.insertBefore(box, listings);
+  })();
 
   Object.keys(F).forEach(function (k) { F[k].addEventListener('change', render); });
   document.getElementById('clear').addEventListener('click', function () {
